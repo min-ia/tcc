@@ -38,6 +38,7 @@ CONVERSAR COM O ERLAN PARA MELHORAR ESSA PARTE
 % TODO Conversar com o Erlan para melhorar essa parte
 % TODO Explicar o que é CEO e colocar nas lista de abreviações
 % TODO Verificar com a Fernanda se tudo bem incluir o nome dela no TCC
+% TODO Descrever melhor o contexto e os papeis envolvidos
 
 \subsection{Serviços prestados}
 
@@ -65,28 +66,61 @@ estabilizar os demais serviços.
 
 \section{Arquitetura do sistema}
 
+\subsection{Arquitetura atual}
+
 A arquitetura atual do sistema é composta por dois sistemas principais -
 \textit{r2service} e \textit{r2visit}, responsáveis por gerir a maior parte
 das funcionalidades relacionadas aos serviços de visitas, propostas, e contrato -
 e uma série de sistemas auxiliares e outros serviços que auxiliam no ciclo de
 vida do produto. A Figura \ref{fig:ArquiteturaAtual} visa ilustrar esse sistema,
-o qual será descrito a seguir conforme está enumerado na figura:
-
+o qual será descrito a seguir:
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=0.38]{figuras/r2ArquiteturaAtual.eps}
+  \includegraphics[keepaspectratio=true,scale=0.3]{figuras/r2ArquiteturaAtual.eps}
   \caption{Arquitetura atual do sistema da Rua Dois}
   \label{fig:ArquiteturaAtual}
 \end{figure}
 
   \begin{enumerate}
-    \item O \textit{Widget} é um componente utilizado pela Rua Dois que roda no
-      \textit{frontend} dos sites das imobiliárias que aderem ao serviço
-      de visitas. Ele se comunica com um lambda responsável por verificar se o
-      imóvel apresentado no site está disponível no banco de dados da Rua Dois.
-      Uma vez que esteja disponível, o \textit{widget} exibe um botão que
-      disponibiliza o agendamento da visita \textit{online} para o interessado.
+    \item O \textit{Widget} é um componente utilizado pela Rua Dois que roda
+      no \textit{frontend} dos sites das imobiliárias que aderem ao serviço
+      de visitas. Ele se comunica com um lambda responsável por verificar se
+      o imóvel apresentado no site da imobiliária está disponível no banco
+      de dados da Rua Dois. Uma vez que esteja disponível, o \textit{widget}
+      exibe um botão que disponibiliza o agendamento da visita \textit{online}
+      para o interessado.
+    \item O locatário ao clicar nesse botão, dispara uma requisição ao lambda
+    que identifica o time de corretores responsável por atender as visitas
+    ao imóvel selecionado. E em seguida, uma nova requisição é disparada ao
+    serviço \textit{r2visit} solicitando o calendário com os horários
+    disponíveis do respectivo time.
+    \item Após o locatário ter selecionado o horário da visita, uma nova
+    requisição é lançada para registrar a visita no \textit{r2visit}, que por
+    sua vez dispara uma série de mensagens por meio das ferramentas de comunicação
+    e atualiza o Pipedrive\footnote{O Pipedrive é uma ferramenta de CRM -
+    \textit{Customer Relationship Management} utilizada pela empresa para
+    realizar o gerenciamento operacional e monitoramento dos resultados obtidos.
+    Saiba mais em: \url{https://www.pipedrive.com}}.
+    \item Após a visita ser realizada, o corretor sinaliza por meio do aplicativo
+    a conclusão da visita, disparando novamente no \textit{r2visit} os eventos
+    de atualização do Pipedrive e as ferramentas de comunicação, para que se
+    possa dar início a nova fase de Negociação, referente ao produto de propostas.
+    \item Nessa nova fase, locatário e locador trocam mensagens por meio do portal
+    da Rua Dois, o qual é gerido pelo \textit{r2service}. Ao final da negociação,
+    os cliente entram na fase de contrato, na qual seus dados são recolhidos e
+    enviados por meio do \textit{r2service} para APIs externas de seguradoras as quais
+    realizam uma avaliação de crédito do locatário. Quando concedida a avaliação
+    de crédito, o contrato é gerado automaticamente com os dados já recolhidos
+    do locatário, locador, da imobiliária e do próprio imóvel.
+    \item Por fim, o \textit{r2service} é responsável por atualizar uma planilha do
+    Google Sheets\footnote{\url{https://www.google.com/sheets/about/}} que serve de
+    insumo para geração de relatórios dentro do Data Studio
+    \footnote{\url{https://datastudio.google.com}}.
   \end{enumerate}
+
+\subsection{Problemas enfrentados}
+
+  % Não é preciso o widget solicitar o time, o r2visit deve ser capaz de fazer isso pelo imóvel
 
 
