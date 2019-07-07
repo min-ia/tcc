@@ -114,12 +114,70 @@ o qual será descrito a seguir:
     de crédito, o contrato é gerado automaticamente com os dados já recolhidos
     do locatário, locador, da imobiliária e do próprio imóvel.
     \item Por fim, o \textit{r2service} é responsável por atualizar uma planilha do
-    Google Sheets\footnote{\url{https://www.google.com/sheets/about/}} que serve de
-    insumo para geração de relatórios dentro do Data Studio
-    \footnote{\url{https://datastudio.google.com}}.
+    Google Sheets\footnote{Saiba mais em: \url{https://www.google.com/sheets/about/}}
+    que serve de insumo para geração de relatórios dentro do Data Studio
+    \footnote{Saiba mais em: \url{https://datastudio.google.com}}.
   \end{enumerate}
 
 \subsection{Problemas enfrentados}
+
+Desde seu início, a Rua Dois tem em seu modelo de negócio uma constante
+preocupação com a escalabilidade do sistema. A empresa tem em seus objetivos
+validar rapidamente a ideia e expandir para diferentes mercados. Contudo,
+este objetivo foi alinhado a uma equipe de desenvolvimento de software
+inexperiente tanto no contexto de desenvolver software para \textit{startups}
+quanto em questões de qualidade e arquitetura de software. A soma desses
+dois fatores gerou uma série de decisões equivocadas sobre a arquitetura
+desse sistema que hoje atrapalham sua evolução ao invés de facilitar o
+crescimento escalável da empresa. Dentre estas decisões estão:
+
+  \begin{enumerate}
+    \item A escolha de usar um banco não-relacional - DynamoDB - em um
+    contexto extremamente relacional. Atualmente existem seis entidades
+    principais dentro do sistema: imobiliária, imóvel, cliente, corretor,
+    visita e proposta. Todas dispostas em tabelas diferentes do DynamoDB,
+    o que implica que todos os relacionamentos entre as entidades são
+    construídos a nível de aplicação. A documentação do DynamoDB diz:
+      \begin{quotation}
+        "Em geral, você deve manter o mínimo de tabelas possível em um
+        aplicativo do DynamoDB. A maioria dos aplicativos bem-projetados exige
+        somente uma tabela." \cite{doc:dynamodbModeling}.
+      \end{quotation}
+    A Rua Dois foi contrária a essa recomendação, e trabalha com uma tabela
+    para cada entidade. De forma que, toda a eficiência que eles
+    buscavam em fazer consultas com um banco de dados NoSQL, é perdida
+    no mal planejamento do projeto em cima desse arquitetura.
+    \item A adoção de microsserviços sem conhecer a real demanda dos
+    serviços que seriam oferecidos. Sendo uma \textit{startup}, a Rua Dois
+    se caracteriza por um ambiente extremante incerto, de validação de ideias.
+    Oleksiy Kovyrin, chefe do Swiftype\footnote{\url{https://swiftype.com/}},
+    disse em entrevista a \citeonline{JakeLumetta}:
+      \begin{quotation}
+        "Toda vez que consideramos a introdução de um novo serviço, temos que
+        considerar o custo operacional de fazer isso. Cada novo serviço aumenta a
+        complexidade da infraestrutura e torna um pouco mais difícil raciocinar
+        sobre as relações de serviço dentro do sistema."
+      \end{quotation}
+    Dado o contexto da Rua Dois, no qual não se tem domínio sobre o produto final
+    que será entregue somado a uma equipe sem experiência de trabalho com microsserviços,
+    a escolha mais segura seria um sistema monolítico \cite{JakeLumetta}.
+    Atualmente, a empresa enfrenta dificuldades de manter essa arquitetura,
+    compartilhar o conhecimento sobre a mesma com novos integrantes e, principalmente,
+    manter a consistência dos dados. Esse último é o fator de maior impacto
+    na arquitetura, uma vez que se tem diversos microsserviços compartilhando
+    o uso das mesmas tabelas, além de tabelas duplicadas em serviços diferentes,
+    nas quais é necessário estar realizando constantemente a sincronização dos dados.
+
+    \item Optar por usar a infraestrutura na Amazon Web Services, a qual
+    possui diversos recursos mas também possui maior complexidade para
+    configurá-los do que outras ferramentas disponíveis no mercado \cite{kavya}.
+    Completando o quadro de utilizar uma arquitetura de microsserviços, com
+    uma equipe inexperiente, a empresa ainda enfrenta as dificuldades de manter
+    essa arquitetura que não é trivial, em uma infraestrutura que também exige
+    determinados conhecimentos que atualmente o time de desenvolvimento
+    não possui.
+  \end{enumerate}
+
 
   % Não é preciso o widget solicitar o time, o r2visit deve ser capaz de fazer isso pelo imóvel
 
