@@ -1,9 +1,131 @@
-\chapter*[Introdução]{Introdução}
-\addcontentsline{toc}{chapter}{Introdução}
+\chapter[Introdução]{Introdução}
+% \addcontentsline{toc}{chapter}{Introdução}
+
+Neste capítulo serão abordados os aspectos gerais relacionados ao contexto
+do presente Trabalho de Conclusão de Curso. As seções estão dispostas em:
+
+  \begin{enumerate}
+    \item \textbf{Contexto:} apresentação do contexto e indagações deste
+    trabalho.
+    \item \textbf{Justificativa:} descrição sobre a importância de se
+    realizar o presente estudo.
+    \item \textbf{Objetivos:} descrição dos objetivos gerais e específicos
+    que se pretende alcançar com ao final deste trabalho.
+    \item \textbf{Organização:} breve descrição sobre a organização deste
+    trabalho.
+  \end{enumerate}
 
 \section{Contexto}
+
+Existe no mundo um novo cenário emergente no qual, empresas nascentes,
+denominadas \textit{startups}, produzem inovação ao ponto de serem capazes
+de competir com empresas já estabelecidas no mercado \cite{CapacidadeDeInovacao}.
+O ambiente de negócios está mudando devido a fatores como globalização, política
+e tecnologia. Neste novo contexto, tudo que se conhece dos negócios são
+hipóteses e um constante alto grau de risco \cite{Akiyoshi}.
+
+Nesse cenário, surgiu a \textit{startup} Rua Dois Tecnologias. Com uma série
+de hipóteses sobre o mercado imobiliário, a empresa visa inovar esse ramo que
+é ainda muito burocrático e carente de melhorias \cite{LouisaXu}. E nessa
+euforia por inovação, a \textit{startup} tem em seu modelo de negócios a
+constante busca pela validação rápida de ideias mas de uma forma que ela
+esteja preparada pra crescer e se expandir rapidamente, conforme os princípios
+de repetibilidade e escalabilidade\footnote{Os princípios de Steve Blank sobre
+\textit{startups} serão abordados com maior profundidade na seção
+\ref{sec:OQueEUmaStartup}.} de \citeonline{SteveBlankFirstPrinciples} para
+\textit{startups}.
+
+Contudo, nessa busca por escalabilidade a empresa tomou uma série de decisões
+tecnológicas baseadas no que seria escalável e não no que seria adequado para
+o contexto atual de validação de ideias. A exemplo, está a escolha de utilizar
+uma arquitetura de microsserviços sem conhecer de fato a demanda dos serviços
+que seriam prestados, ocasionando dificuldades para a empresa de
+modificar e evoluir esse sistema com a rapidez que é desejada para uma
+\textit{startup}.
+
+Assim surgem as indagações do presente trabalho. Em um contexto de validação
+de ideias, no qual, o software produzido é incessantemente alterado em busca
+da melhor solução para um determinado problema, é possível preparar esse
+software de forma que ele possa ser escalável? E se for possível, dado o sistema
+atual da Rua Dois, quais ações devem ser tomadas sobre o mesmo, para prepará-lo
+para esse crescimento escalável?
+
+Com foco nessas questões, este trabalho almeja realizar uma pesquisa exploratória
+sobre a construção de softwares escaláveis em \textit{startups} e aplicar
+os resultados dessa pesquisa no contexto da Rua Dois, visando direcionar a
+empresa para um caminho mais seguro em relação aos seus objetivos.
+
+\section{Justificativa}
+
+As metodologias ágeis\footnote{Métodos iterativos para desenvolvimento de software,
+que visam a reação a mudanças conforme sejam as necessidades do cliente. Vide
+\url{http://agilemanifesto.org/}} visam diminuir os custos com retrabalho mediante as
+constantes mudanças de requisitos no processo de desenvolvimento de software,
+não apenas acomodando essas mudanças, mas abraçando-as. Assim, o design do
+software é construído de forma contínua \cite{AgileSoftwareInnovation}.
+Mas como garantir qualidade na construção desse design sendo que esses requisitos
+na verdade são hipóteses a serem comprovadas sobre o software? E em paralelo
+a validação dessas hipóteses, preparar esse software para atender a grande
+demanda que é almejada para as \textit{startups}? \citeonline{StartupEnxuta}
+em seu livro \textit{A Startup Enxuta}, traz a seguinte reflexão sobre esta
+realidade:
+
+  \begin{quotation}
+    "Como sociedade, dispomos de um conjunto comprovado de técnicas para
+    administrar grandes empresas, e conhecemos as melhores práticas para
+    construir produtos físicos. No entanto, quando se trata de \textit{startups}
+    e inovação, ainda estamos atirando no escuro."
+  \end{quotation}
+
+Portanto, este trabalho justifica-se por sua contribuição em buscar, neste
+cenário citado por Ries como obscuro, compreender as necessidades do desenvolvimento
+de software e como essas necessidades podem ser alinhadas a um contexto real
+que é o da \textit{startup} Rua Dois.
+
 \section{Objetivos}
+
 \subsection{Objetivo Geral}
+
+Este trabalho tem como objetivo geral realizar uma pesquisa exploratória acerca
+do desenvolvimento de software em \textit{startups}, contrapondo o ambiente de
+validação de ideias com as necessidades de escalabilidade durante esse
+desenvolvimento. Aplicando, ao final, os resultados dessa pesquisa ao contexto
+da Rua Dois com o propósito de direcionar a empresa em relação as suas
+expectativas de escalabilidade.
+
 \subsection{Objetivos Específicos}
+
+As seguintes metas foram levantadas visando atingir o objetivo geral do presente
+trabalho:
+
+  \begin{enumerate}
+    \item Compreender o contexto e as necessidades de uma \textit{startup} em
+    relação ao desenvolvimento de software.
+    \item Compreender o conceito de escalabilidade e técnicas para aplicação
+    da mesma.
+    \item Contrapor as questões associadas a escalabilidade com as necessidades
+    de uma \textit{startup}.
+    \item Compreender a arquitetura de software atual da Rua Dois.
+    \item Identificar os principais problemas sobre a atual arquitetura da Rua
+    Dois, os quais atrapalham a empresa a se desenvolver como \textit{startup}.
+    \item Planejar uma possível solução que prepare o sistema atual para ser
+    escalado de uma forma saudável.
+    \item Definir meios de monitorar a demanda de recursos desse sistema.
+  \end{enumerate}
+
 \section{Organização do Documento}
+
+Este documento foi organizado nos seguintes tópicos:
+
+  \begin{enumerate}
+    \item \textbf{Fundamentação Teórica:} conceitualização e exploração de
+    aspectos considerados pertinentes para o presente estudo.
+    \item \textbf{Metodologia:} descrição da metodologia adotada para
+    realização deste estudo.
+    \item \textbf{Desenvolvimento:} discussão acerca da arquitetura de
+    software adotada na Rua Dois e sobre pontos pertinentes referente a
+    \textit{startup} e escalabilidade.
+    \item \textbf{Considerações Finais:} resultados das pesquisas mediante a
+    primeira etapa deste trabalho.
+  \end{enumerate}
 
