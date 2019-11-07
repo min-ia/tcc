@@ -85,6 +85,7 @@ quanto a uma série de fatores, entre eles: a viabilidade de futuras tecnologias
 as expectativas de mudanças de consumo e preferências sociais para os produtos
 e serviços e possíveis mudanças na legislação.
 
+\subsection{Fases de uma Startup}
 % TODO Descrever as fases da startup de acordo com Steve Blank
 
 \section{Escalabilidade}
@@ -174,7 +175,38 @@ de e-mail, \textit{xml} e documentos. A estrutura distribuída desses bancos tam
 os tornam ideias para processamento massivo de dados em lote \cite{NewEraOfDatabases}.
 
 \subsection{Sistemas monolíticos}
-\subsection{Microserviços}
+
+A Arquitetura Monolítica é um padrão de desenvolvimento de software no qual um aplicativo
+é criado com uma única base de código, um único sistema de compilação, um único binário
+executável e vários módulos para recursos técnicos ou de negócios. Seus componentes
+trabalham compartilhando mesmo espaço de memória e recursos formando uma unidade de
+código coesa \cite{NatalliaSakovich}.
+
+Esse padrão arquitetural permite um desenvolvimento fácil por ser de conhecimento
+da maioria dos desenvolvedores de software e apresentar baixa complexidade para a
+execução de tarefas como \textit{deploy}, confecção de testes e compartilhamento
+do código. Contudo, a longo prazo começam a surgir dificuldades para manter essa
+arquitetura, entre elas estão:
+
+  \begin{enumerate}
+    \item Dificuldade em entender e alterar o código que ao longo do tempo se torna
+    muito extenso e coeso.
+    \item Limitação na agilidade de atualização do software, uma vez que para cada
+    pequena alteração é necessário reimplantar o código por completo.
+    \item Necessita de muito esforço para adotar uma nova tecnologia, sendo
+    necessário adaptar todo o código da aplicação para a nova ferramenta.
+    \item O sistema perde a confiabilidade pois a medida que cresce um \textit{bug}
+    em uma única parte do código pode interromper todo o software já que todos os
+    componentes estão conectados.
+  \end{enumerate}
+
+\subsection{Microsserviços}
+
+Segundo \citeonline{Dragoni2017} microsserviços podem ser definidos como um
+processo coeso e independente que interage por meio de mensagens. Isso implica
+em componentes conceitualmente independentes e implantados isoladamente utilizando
+de recursos dedicados.
+
 \subsection{Como medir escalabilidade?}
 
 \section{AWS}
