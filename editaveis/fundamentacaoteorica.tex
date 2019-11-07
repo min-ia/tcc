@@ -88,12 +88,96 @@ e serviços e possíveis mudanças na legislação.
 % TODO Descrever as fases da startup de acordo com Steve Blank
 
 \section{Escalabilidade}
+
+Segundo \citeonline {PlatformEcosystems}, escalabilidade refere-se ao grau em que
+o desempenho funcional e financeiro de um subsistema é independente de seu tamanho.
+Podendo manter seu desempenho e função retendo todas as propriedades desejadas sem
+um aumento correspondente em sua complexidade interna
+\apud{EngineeringSystems}{PlatformEcosystems}. Para Tiwana, isso implica em duas
+proposições pertinentes sobre a escalabilidade: a primeira é de que escalabilidade não
+se refere exclusivamente a aumentar a escala de um sistema, como habitualmente
+pensamos, mas também a capacidade deste sistema de se contrair conforme a necessidade.
+A segunda proposição diz que o desempenho de um sistema escalável pode significar
+tanto a sua capacidade técnica de desempenho quanto a sua capacidade financeira.
+
+Assim, a escalabilidade reflete a capacidade do software em crescer e evoluir
+conforme as demandas do usuário. Dessa forma, é importante analisar se o
+modelo de negócios da empresa depende do crescimento desse sistema. Uma vez que
+não existe essa dependência, a escalabilidade não se torna um requisito básico,
+podendo um software não escalável funcionar bem com uma capacidade limitada
+\cite{ConceptaScalability}.
+
+No texto \textit{The Importance of Scalability In Software Design}
+da \citeonline{ConceptaScalability}, a empresa Concepta
+\footnote{Saiba mais em: \url{https://conceptainc.com}} diz:
+
+  \begin{quotation}
+    "A escalabilidade é um componente essencial do software corporativo. Priorizá-lo
+    desde o início leva a menores custos de manutenção, melhor experiência do usuário
+    e maior agilidade."
+  \end{quotation}
+
+Nessa abordagem apresentada pela Concepta, a escalabilidade vai além de atender
+a um grande volume de demandas de requisições, e passa a fazer parte da
+experiência do usuário além de influenciar positivamente a manutenção desse
+software. Seguindo essa visão de escalabilidade apresentada pela Concepta,
+existem três fatores que afetam significantemente a escalabilidade de softwares:
+
+  \begin{enumerate}
+    \item A capacidade de usuários simultâneos ou conexões possíveis.
+    Aumentar essas capacidade deve ser tão simples quanto disponibilizar mais
+    recursos ao software.
+    \item A capacidade de armazenamento, principalmente para aplicações
+    que apresentam muitos dados não estruturados. A escolha do tipo do banco de
+    dados que será usado e o uso de uma indexação adequada são fatores que
+    podem influenciar diretamente a escalabilidade.
+    \item O próprio código. Desenvolvedores inexperientes tendem a ignorar
+    o fato de que o código deve ser escrito para que possa ser facilmente
+    adicionado ou modificado, sem a necessidade de refatorar o código antigo.
+    Bons desenvolvedores evitam a duplicação de esforços, reduzindo o tamanho
+    e a complexidade geral da base do código.
+  \end{enumerate}
+
+Priorizar esses pontos no início da construção do software, traz agilidade e
+benefícios que garantem o crescimento saudável do sistema.
+
+\subsection{Dados estruturados e não-estruturados}
+
 \subsection{Bancos NoSQL}
+
+Atualmente, as aplicações têm trabalhado com um volume de dados cada vez maior.
+E nesse contexto, as propriedades ACID - \textit{Atomicity, Consistency,
+Isolation, Durability} implementadas pelos bancos de dados relacionais,
+tornam-se muito onerosas mediante as necessidades específicas desses aplicativos.
+Assim, o custo associado ao dimensionamento dos bancos de dados tradicionais em
+frente ao crescente volume de dados se torna muito caro \cite{Gajendran}.
+
+Diante desta situação, desenvolvedores buscam soluções alternativas para o
+armazenamento de dados, dentre-elas estão os bancos não-relacionais. O termo
+NoSQL significa \textit{"not only SQL"}, e refere-se a um conjunto
+de banco de dados que não possuem as características tradicionais de um
+banco de dados relacional \cite{Gajendran}. Estes bancos são projetados para
+atender uma larga escala de armazenamento de dados e processamento paralelo
+massivo em cima desses dados \cite{NewEraOfDatabases}.
+
+Para obter essa escalabilidade, os bancos NoSQL \textit{"abriram mão"} de
+manter a consistências dos dados, como ocorre nos bancos de dados relacionais,
+resultando em sistemas conhecidos como BASE - \textit{Basicamente Disponível,
+Estado suave, Eventualmente consistentes}. Estes sistemas não possuem
+transações no sentido clássico e introduzem restrições no modelo de dados
+para permitir melhores esquemas de partição \apud{SurveyNosql}{NewEraOfDatabases}.
+
+Assim eles oferecem um armazenamento relativamente barato e altamente escalonável
+para pequenos pacotes de registros, como \textit{logs}, leitura de medidores,
+\textit{snapshots} e para dados semi-estruturados ou não-estruturados, como arquivos
+de e-mail, \textit{xml} e documentos. A estrutura distribuída desses bancos também
+os tornam ideias para processamento massivo de dados em lote \cite{NewEraOfDatabases}.
+
 \subsection{Sistemas monolíticos}
 \subsection{Microserviços}
+\subsection{Como medir escalabilidade?}
 
 \section{AWS}
 \subsection{Lambdas}
 \subsection{Instâncias EC2}
-\subsection{DynamoDB}
 \subsection{DynamoDB}
