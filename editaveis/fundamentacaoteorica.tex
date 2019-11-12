@@ -200,10 +200,31 @@ arquitetura, entre elas estão:
 
 \subsection{Microsserviços}
 
-Segundo \citeonline{Dragoni2017} microsserviços podem ser definidos como um
-processo coeso e independente que interage por meio de mensagens. Isso implica
-em componentes conceitualmente independentes e implantados isoladamente utilizando
-de recursos dedicados.
+Segundo \citeonline{Newman2015}, microsserviços são pequenos serviços autônomos que
+trabalham juntos. O objetivo desses serviços é tornar o código coeso e focado em
+resolver as regras de negócio dentro de um limite específico. As vantagens de adotar
+essa arquitetura consistem em:
+
+\begin{enumerate}
+    \item{Uso de tecnologias heterogêneas}
+    \item{Maior resiliência do sistema}
+    \item{Facilidade em escalar pequenas partes do sistema, ao invés do sistema por
+    completo.}
+    \item{Facilidade e maior estabilidade no processo de \textit{deploy}.}
+    \item{Maior produtividade da equipe, uma vez que se passa a adotar equipes
+    menores com bases de código menores.}
+    \item{Reusabilidade dos serviços}
+    \item{Otimização da substituibilidade: organizações de médio e grande porte costumam
+    possuir sistemas legados, com uma base de código enorme funcionando com tecnologias
+    antigas tanto de software quanto de hardware. A substituição desses códigos é um
+    processo custoso e arriscado. Com serviços pequenos realizar essa substituição
+    se torna um processo mais fácil de gerenciar.}
+\end{enumerate}
+
+Para o desenvolvimento de microsserviços é necessário pensar sobre o que deve ser
+exposto e o que deve ser ocultado. Se houver muito compartilhamento os serviços de
+consumo se acoplam às nossas representações internas, diminuindo a nossa autonomia
+e consequentemente a nossa capacidade de realizar alterações \cite{Newman2015}.
 
 \subsection{Como medir escalabilidade?}
 
