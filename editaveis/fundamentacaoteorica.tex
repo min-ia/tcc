@@ -142,6 +142,40 @@ existem três fatores que afetam significantemente a escalabilidade de softwares
 Priorizar esses pontos no início da construção do software, traz agilidade e
 benefícios que garantem o crescimento saudável do sistema.
 
+\subsection{Escalabilidade vertical}
+
+A primeira e mais direta forma de lhe dar com o aumento da demanda de um
+sistema é por meio da escalabilidade vertical. Esta refere-se a maximização
+dos recursos de uma única unidade visando expandir sua capacidade de lhe dar
+com o aumento de carga.  Pensando em hardware, isto significa aumentar o poder
+de processamento e memória do servidor no qual o sistema é executado. Em termos
+de software esse tipo de escalabilidade está relacionado a otimização dos código
+e algoritmos utilizados \cite{FreshGuide2012}.
+
+O escalamento vertical costuma ser bem compreendido e arquiteturalmente direto,
+com o auxílio da engenharia ele pode ajudar o sistema a atender seus requisitos
+de carga de trabalho \cite{InterSystems2019}. No entanto, ele possui as seguintes
+limitações:
+
+\begin{enumerate}
+    \item{Mesmo com a utilização de servidores poderosos com mais de cem núcleos
+    e terabytes de memória, existe um limite para a quantidade de conexões
+    simultâneas que um sistema pode manter.}
+    \item{Maior capacidade de hardware implica em custos mais elevados para
+    adquiri-los sempre que for necessário expandir a capacidade, resultando em
+    um crescimento exponencial sobre o investimento necessário para manter tal
+    escalabilidade.}
+    \{item{O escalonamento vertical exige um planejamento cuidadoso antes de
+    realizar o mesmo, o que pode ser feito para contextos relativamente estáticos,
+    contudo, para contextos dinâmicos é difícil prever o futuro.}
+    \item{Não há elasticidade na escala vertical, uma vez que se aumente a
+    capacidade do sistema, não é possível diminuí-la caso a sua demanda permita.
+    Isto acaba gerando maiores custos por excesso de capacidade.}
+    \item{A escalabilidade vertical exige que o seu software seja adaptado para
+    tal. Por exemplo, escalar 128 núcleos é pouca utilidade se a aplicação pode
+    lhe dar com no máximo 32 processos.}
+\end{enumerate}
+
 \subsection{Bancos NoSQL}
 
 Atualmente, as aplicações têm trabalhado com um volume de dados cada vez maior.
