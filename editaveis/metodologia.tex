@@ -16,36 +16,60 @@ para aplicação no presente trabalho visando alcançar o seu objetivo final.
 
 \section{Metodologia de Desenvolvimento}
 
-Pretende-se com estes trabalho realizar uma análise comparativa entre duas
-arquiteturas de software diferentes adotadas dentro da empresa Rua Dois para um
-mesmo sistema. Dessa forma, esta seção visa descrever quais serão os objetos de
-análise e como se darão as etapas de coleta de dados e análise.
+Pretende-se com este trabalho realizar um estudo de caso acerca do desenvolvimento
+de software na empresa Rua Dois, considerando os aspectos que são pertinentes para
+uma \textit{startup}. Para tal, será realizada uma comparação entre duas arquiteturas
+de software distintas adotadas dentro da Rua Dois para um mesmo sistema. Ao final,
+com os resultados obtidos desta comparação e com base em estudos realizados por meio
+de pesquisa exploratória pretende-se elencar boas práticas e recomendações para o
+desenvolvimento de software na empresa. Dessa forma, esta seção visa descrever
+os objetos de análise, os aspectos a serem considerados na análise comparativa e
+como se dará a análise final.
 
 \subsection{Objetos de análise}
 
-Visto que presente trabalho refere-se a uma análise sobre o software da Rua Dois
-dentro do contexto de uma \textit{startup}, optou-se por definir duas fases arquiteturais
-marcantes dentro da empresa como objetos de estudos para o presente trabalho. A composição
-de cada uma dessas fases será abordada na seção \ref{sec:ArquiteturaDoSistema}, a
-seguir é apresentada uma breve descrição sobre cada uma dessas fases:
+O desenvolvimento do sistema da Rua Dois foi marcado por duas fases distintas.
+Estas fases serão abordadas na seção \ref{sec:ArquiteturaDoSistema} e serão
+os objetos de análise do presente trabalho para a realização da análise
+comparativa. A seguir é apresentada uma breve descrição sobre cada fase:
 
     \begin{description}
         \item [Fase 1] Fase inicial de desenvolvimento do software da Rua Dois,
-        marcado por uma arquitetura de microsserviços e um forte período de validação
-        de ideias.
+        marcado por uma arquitetura de microsserviços e constantes alterações
+        no software visando validar ideias.
         \item [Fase 2] Segunda fase de desenvolvimento do software da Rua Dois,
         marcado por uma arquitetura monolítica e um escopo melhor definido.
     \end{description}
 
-\subsection{Coleta e levantamento de dados}
+\subsection{Etapas do desenvolvimento}
 
-Para cada objeto de análise definido serão levantados dados e informações julgadas
-como pertinentes para a análise final. Abaixo segue a descrição e o objetivo de
-cada tópico que deverá ser observado.
+O desenvolvimento do presente trabalho acontecerá nas seguintes etapas:
+
+    \begin{description}
+        \item[Etapa 1] Estudo acerca da arquitetura adotada em cada fase;
+        \item[Etapa 2] Coleta e levantamento de dados pertinentes aos aspectos que serão
+        considerados para realização da análise comparativa;
+        \item[Etapa 3] Análise comparativa entre os dados coletados;
+        \item[Etapa 4] Definição de diretrizes acerca do desenvolvimento de software
+        escalável na Rua Dois.
+    \end{description}
+
+A seguir segue a descrição de cada etapa.
+
+\subsubsection{Etapa 1: Estudo acerca das arquiteturas adotadas}
+
+Pretende-se nesta etapa descrever os elementos arquiteturais adotados em cada fase,
+quais tecnologias foram utilizadas, quais as dificuldades encontradas e o contexto
+da empresa e suas respectivas fases.
+
+\subsubsection{Etapa 2: Coleta e levantamento de dados}
+
+Para os objetos de análise definidos serão levantados os seguintes dados e informações
+julgados como pertinentes para a análise final:
 
     \begin{description}
         \item [Qualidade de código] Usando métricas de qualidade de código pretende-se
-        avaliar questões referentes a coesão e acomplamento do sistema em cada uma das
+        avaliar questões referentes a coesão e acoplamento do sistema em cada uma das
         fases.
         \item [Práticas de desenvolvimento de Software] Elencar quais práticas de
         desenvolvimento de software foram aplicadas em cada fase e como estas práticas
@@ -61,17 +85,33 @@ cada tópico que deverá ser observado.
         informações sobre o nível de escalabilidade da arquitetura adotada em cada fase.
         \item [Relação com o ciclo de vida de uma \textit{startup}] Avaliar qual foi o
         contexto de desenvolvimento com base nas fases de uma \textit{startup} e como a
-        arquitetura adotada influênciou nesse contexto.
+        arquitetura adotada influenciou nesse contexto.
     \end{description}
 
-\subsection{Análise dos dados}
+Para cada um dos itens definidos sera executado o processo ilustrado na Figura
+\ref{fig:ProcessoAnaliseComparativa} com o propósito de definir os métodos utilizados
+e coletar os dados.
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[keepaspectratio=true,scale=0.5]{figuras/metodologiaAnalise.eps}
+      \caption{Processo para realização da coleta de dados}
+      \label{fig:ProcessoAnaliseComparativa}
+    \end{figure}
+
+\subsubsection{Etapa 3: Análise comparativa}
 
 Uma vez coletado os dados da etapa anterior, pretende-se fazer uma análise comparativa
 entre as fases definidas como objeto de estudo, visando alinhar as diferenças de
-escalabilidade e de desenvolvimento referentes a cada uma. Com base nessa análise
-comparativa pretende-se avaliar a possibilidade de orientar um desenvolvimento
-sustentável e escalável dentro da Rua Dois, elencando possíveis medidas a serem
-tomadas dentro da empresa para tal.
+escalabilidade e de desenvolvimento referentes a cada uma.
+
+\subsubsection{Etapa 4: Definição das diretrizes}
+
+Com base na análise comparativa realizada e em uma pesquisa exploratória acerca de
+desenvolvimento de software escalável, pretende-se elaborar diretrizes para alcançar
+um desenvolvimento sustentável e escalável dentro da Rua Dois, elencando possíveis
+medidas a serem tomadas dentro da empresa para tal.
+
 
 \section{Ferramentas}
 
