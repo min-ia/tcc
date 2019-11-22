@@ -106,7 +106,7 @@ O início do desenvolvimento do software da Rua Dois se deu em outubro de 2018 c
 base na proposta de criar um sistema usando de uma arquitetura de microsserviços, de
 forma que esse sistema já fosse preparado pra escalar desde seu início. Contudo,
 a empresa enfrentou uma série de dificuldades\footnote{Estas dificuldades serão abordadas
-com maior clareza na seção \ref{sec:ArquiteturaFase1}} em relação a esta arquitetura e ao seu
+com maior clareza na \autoref{sec:ArquiteturaFase1}} em relação a esta arquitetura e ao seu
 contexto no respectivo momento. Mediante essas dificuldades a Rua Dois optou em seu
 processo de desenvolvimento migrar essa arquitetura de microsserviços para um sistema
 monolítico.
@@ -139,7 +139,7 @@ distribuídos nos lambdas da AWS. Os dois serviços principais são:
         a um imóvel.
     \end{description}
 
-A Figura \ref{fig:ArquiteturaFase1} visa ilustrar a organização desse sistema. Nela
+A \autoref{fig:ArquiteturaFase1} visa ilustrar a organização desse sistema. Nela
 os dois serviços principais estão representados pelos círculos maiores roxos e as
 demais representações são outros serviços que auxiliam no ciclo de vida do produto.
 Adiante segue descrito o fluxo com o qual todo o sistema é acionado, seguindo a
@@ -148,8 +148,7 @@ enumeração disposta na imagem:
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio=true,scale=0.3]{figuras/r2ArquiteturaFase1.eps}
-  \caption{Arquitetura do sistema da Rua Dois na Fase 1}
-  \label{fig:ArquiteturaFase1}
+  \caption{Arquitetura do sistema da Rua Dois na Fase 1\label{fig:ArquiteturaFase1}}
 \end{figure}
 
   \begin{enumerate}
@@ -286,13 +285,11 @@ o sistema mais estável e mais apto a realização de mudanças. Nessa mudança
 os serviços \textit{r2service} e \textit{r2visit} se tornaram um único sistema,
 agora chamado de \textit{novo r2service}, alguns lambdas foram incorporados por
 esse novo sistema ou simplesmente foram descartados juntamente com alguns
-serviços auxiliares que não seriam mais usados. A Figura
-\ref{fig:ArquiteturaFase2} exemplifica como está o sistema nessa nova
-configuração.
+serviços auxiliares que não seriam mais usados. A \autoref{fig:ArquiteturaFase2}
+exemplifica como está o sistema nessa nova configuração.
 
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio=true,scale=0.3]{figuras/r2ArquiteturaFase2.eps}
-  \caption{Arquitetura do sistema da Rua Dois na Fase 2}
-  \label{fig:ArquiteturaFase2}
+  \caption{Arquitetura do sistema da Rua Dois na Fase 2\label{fig:ArquiteturaFase2}}
 \end{figure}
