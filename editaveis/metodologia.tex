@@ -29,7 +29,7 @@ como se dará a análise final.
 \subsection{Objetos de análise}
 
 O desenvolvimento do sistema da Rua Dois foi marcado por duas fases distintas.
-Estas fases serão abordadas na seção \ref{sec:ArquiteturaDoSistema} e serão
+Estas fases serão abordadas na \autoref{sec:ArquiteturaDoSistema} e serão
 os objetos de análise do presente trabalho para a realização da análise
 comparativa. A seguir é apresentada uma breve descrição sobre cada fase:
 
@@ -88,15 +88,14 @@ julgados como pertinentes para a análise final:
         arquitetura adotada influenciou nesse contexto.
     \end{description}
 
-Para cada um dos itens definidos sera executado o processo ilustrado na Figura
-\ref{fig:ProcessoAnaliseComparativa} com o propósito de definir os métodos utilizados
+Para cada um dos itens definidos sera executado o processo ilustrado na
+\autoref{fig:ProcessoAnaliseComparativa} com o propósito de definir os métodos utilizados
 e coletar os dados.
 
     \begin{figure}[h]
+      \caption{Processo para realização da coleta de dados\label{fig:ProcessoAnaliseComparativa}}
       \centering
       \includegraphics[keepaspectratio=true,scale=0.5]{figuras/metodologiaAnalise.eps}
-      \caption{Processo para realização da coleta de dados}
-      \label{fig:ProcessoAnaliseComparativa}
     \end{figure}
 
 \subsubsection{Etapa 3: Análise comparativa}
@@ -115,6 +114,71 @@ medidas a serem tomadas dentro da empresa para tal.
 
 \section{Ferramentas}
 
-\subsection{Google Forms}
+As ferramentas que pretende-se usar para a execução deste trabalho são:
+
+\begin{description}
+    \item[Artillery] conjunto de ferramentas \textit{open source} escritas em Node.js
+    para a realização de testes de carga em servidores. Permite simular vários usuários
+    e avaliar fatores como a latência na resposta do servidor.
+    \item[CloudWatch] serviço de monitoramento da Amazon que fornece dados e
+    \textit{insights} para acompanhar as aplicações. Atualmente já é utilizado na
+    Rua Dois e possui o registro de \textit{logs} desde o início da \textit{startup}.
+    \item[Draw.io] editor gráfico online que permite a construção de processos e
+    desenhos relevantes ao conteúdo apresentado.
+    \item[Google Forms] ferramenta para aplicação de questionários e enquetes
+    e organização dos resultados para análise. Visa-se utilizá-la para coleta
+    de informações referentes aos conhecimento do time de desenvolvimento da Rua Dois.
+    \item[Google Planilhas] ferramenta para construção de tabelas e gráficos.
+    A qual pretende-se usar para realizar análises sobre os dados coletados.
+\end{description}
 
 \section{Cronograma}
+
+Esta seção visa apresentar o cronograma para desenvolvimento do presente trabalho. Este
+cronograma está dividido em duas etapas: Primeira Entrega Parcial (TCC1) e Entraga Final
+(TCC2).
+
+O cronograma referente a Primeira Entrega Parcial é apresentado no \autoref{quad:CronogramaTCC1}.
+
+\begin{quadro}
+    \caption{Cronograma: primeira entrega parcial\label{quad:CronogramaTCC1}}
+    \begin{tabular}{ | m{4cm} | c | c | c | c | m{2.5cm} | }
+    \hline
+    \textbf{Atividade} &
+        \textbf{Agosto} &
+        \textbf{Setembro} &
+        \textbf{Outubro} &
+        \textbf{Novembro} &
+        \textbf{Status} \\ \hline
+    Levantamento e definição do tema &
+        X &
+        X &
+        &
+        &
+        Concluído \\ \hline
+    Definição do objetivo geral e dos específicos &
+        &
+        X &
+        &
+        &
+        Concluído \\ \hline
+    Pesquisa e levantamento bibliográfico &
+        &
+        X &
+        X &
+        &
+        Concluído \\ \hline
+    Pesquisa e definição da metodologia &
+        &
+        &
+        X &
+        &
+        Parcialmente concluído \\ \hline
+    Análise inicial da arquitetura &
+        &
+        &
+        &
+        X &
+        Concluído \\ \hline
+    \end{tabular}
+\end{quadro}
