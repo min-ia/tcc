@@ -130,7 +130,7 @@ A primeira fase de desenvolvimento da \textit{startup} foi marcada pela premissa
 que o sistema deveria ser escalável, e com base nessa premissa foram tomadas uma
 série de decisões visando preparar o sistema para tal. Assim o sistema foi dividido 
 em dois microsserviços principais e em uma série de microsserviços auxiliares
-distribuídos nos lambdas da AWS. Os dois serviços principais são:
+distribuídos nos lambdas da \gls{AWS}. Os dois serviços principais são:
 
     \begin{description}
         \item [r2service] responsável por gerir o cadastro de imóveis e as propostas
@@ -167,9 +167,8 @@ enumeração disposta na imagem:
     \item Após o locatário ter selecionado o horário da visita, uma nova
     requisição é lançada para registrar a visita no \textit{r2visit}, que por
     sua vez dispara uma série de mensagens por meio das ferramentas de comunicação
-    e atualiza o Pipedrive\footnote{O Pipedrive é uma ferramenta de CRM -
-    \textit{Customer Relationship Management} utilizada pela empresa para
-    realizar o gerenciamento operacional e monitoramento dos resultados obtidos.
+    e atualiza o Pipedrive\footnote{O Pipedrive é uma ferramenta de \gls{CRM} utilizada pela
+    empresa para realizar o gerenciamento operacional e monitoramento dos resultados obtidos.
     Saiba mais em: \url{https://www.pipedrive.com}}.
     \item Após a visita ser realizada, o corretor sinaliza por meio do aplicativo
     a conclusão da visita, disparando novamente no \textit{r2visit} os eventos
@@ -177,8 +176,8 @@ enumeração disposta na imagem:
     possa dar início a nova fase de Negociação, referente ao produto de propostas.
     \item Nessa nova fase, locatário e locador trocam mensagens por meio do portal
     da Rua Dois, o qual é gerido pelo \textit{r2service}. Ao final da negociação,
-    os cliente entram na fase de contrato, na qual seus dados são recolhidos e
-    enviados por meio do \textit{r2service} para APIs externas de seguradoras as quais
+    os cliente entram na fase de contrato, na qual seu dados são recolhidos e
+    enviados por meio do \textit{r2service} para \glspl{API} externas de seguradoras as quais
     realizam uma avaliação de crédito do locatário. Quando concedida a avaliação
     de crédito, o contrato é gerado automaticamente com os dados já recolhidos
     do locatário, locador, da imobiliária e do próprio imóvel.
@@ -205,7 +204,7 @@ si e a forma como isto foi organizado gerou as seguintes dificuldades dentro da 
         mas fez isso em cima de uma tecnologia inadequada para tal.}
         \item{Dificuldade de manter essa infraestrutura, tanto pela complexidade na forma
         como o sistema está organizado quanto pela escolha de utilizar a infraestrutura da
-        AWS, que é mais árdua de trabalhar do que outras soluções disponíveis no mercado
+        \gls{AWS}, que é mais árdua de trabalhar do que outras soluções disponíveis no mercado
         \cite{kavya}}
         \item{Dificuldade de inserção de novos membros na equipe de desenvolvimento, visto
         que entender como esses vários serviços se relacionam não é uma tarefa simples.}
@@ -241,7 +240,7 @@ si e a forma como isto foi organizado gerou as seguintes dificuldades dentro da 
 %       \end{quotation}
 %     A Rua Dois foi contrária a essa recomendação, e trabalha com uma tabela
 %     para cada entidade. De forma que, toda a eficiência que eles
-%     buscavam em fazer consultas com um banco de dados NoSQL, é perdida
+%     buscavam em fazer consultas com um banco de dados \gls{NoSQL}, é perdida
 %     no mal planejamento do projeto em cima desse arquitetura.
 %     \item A adoção de microsserviços sem conhecer a real demanda dos
 %     serviços que seriam oferecidos. Sendo uma \textit{startup}, a Rua Dois
