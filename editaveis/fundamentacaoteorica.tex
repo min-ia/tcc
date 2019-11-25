@@ -181,13 +181,87 @@ Junto com os valores expressos no Manifesto Ágil, o desenvolvimento ágil de so
 \subsection{Scrum}
 
 O Scrum pertence a família dos métodos ágeis e é uma metodologia de desenvolvimento
-de software iterativa e incremental baseada em \textit{timboxes}, se concentrando no
+de software iterativa e incremental baseada em \textit{timboxes} e voltada para o
 gerenciamento do projeto. Esta metodologia parte da premissa de que o desenvolvimento
 de software é muito complexo e imprevisível para ser planejado exatamente com
 antecedência. Neste caso, deve ser aplicado o controle empírico do processo afim de
-garantir visibilidade, inspeção e adaptação \cite{Mahnic2005}.
+garantir transparência, inspeção e adaptação \cite{Mahnic2005}. Para tal, essa
+metodologia utiliza de papéis, eventos, artefatos e regras que os unem. A seguir,
+serão explicados cada um desses tópicos individualmente de acordo com as informações
+dispostas em \textit{The Scrum Guide} escrito por \citeonline{ScrumGuide}.
+
+\subsubsection{Papéis}
+
+\begin{description}
+    \item[\textit{Product Owner}] responsável por representar os interesses de
+    todos os envolvidos no projeto e em seu sistema resultante. Deve manter o
+    \textit{Product backlog} do projeto priorizado conforme as necessidades do cliente.
+    \item[Time de desenvolvimento] é uma equipe autogerenciada, auto-organizada e
+    multifincional, responsável por implementar o \textit{Product backlog}. Os
+    membros da equipe são coletivamente responsáveis pelo sucesso de cada iteração
+    e do projeto como um todo.
+    \item[Scrum master] é o responsável por garantir a execução do processo Scrum.
+    Deve ensinar as práticas do Scrum aos envolvidos e incentivá-los a seguir essas
+    práticas afim de que a metodologia tenha sucesso na organização.
+\end{description}
+
+\subsubsection{Artefatos}
+
+Os artefatos do Scrum são produzidos com o objetivo de fornecer transparência e
+permitir inspeção e adaptação, visando maximizar a transparência das informações
+principais com o intuito de que toda a equipe tenha o mesmo entendimento a respeito
+do artefato.
+
+\begin{description}
+    \item[\textit{Product Backlog}] é uma lista ordenada com todas as funcionalidades
+    que se sabe que o produto deve contemplar. Esta lista nunca está completa e é
+    evoluída ao longo da execução do projeto com a finalidade de atender as necessidades
+    do cliente.
+    \item[\textit{Sprint Backlog}] é conjunto de itens oriundos do \textit{product backlog},
+    com o propósito de serem finalizados durante a execução da respectiva \textit{sprint}.
+    \item[\textit{Incremento}] é a soma de todos os itens do \textit{product backlog}
+    entregues durante a \textit{sprint} e o valor dos incrementos de todas as \textit{sprints}
+    anteriores.
+\end{description}
+
+\subsubsection{Eventos}
+
+O objetivo dos eventos no Scrum é criar uma regularidade e minimizar a necessidade
+de reuniões durante o projeto. Cada evento tem um tempo determinado para acontecer,
+não podendo ultrapassar esse limite visando evitar desperdício de tempo durante o
+processo. Tais eventos são apresentados adiante:
+
+\begin{description}
+    \item[Sprint] é o \textit{timebox} principal do Scrum com duração de 1 mês ou
+    menos e o objetivo de criar um produto utilizável e potencialmente liberável.
+    Durante a \textit{sprint} são incluídos os outros eventos apresentados adiante.
+    \item[Sprint Planning] evento no qual o Time de Desenvolvimento, colaborativamente,
+    planeja o que será realizado durante a \textit{sprint} que se inicia. São
+    levantados aspectos sobre quais atividades do \textit{backlog} podem ser entregues
+    ao final da iteração e como será o trabalho necessário para alcançá-las.
+    \item[Daily] são reuniões diárias de no máximo 15 minutos. O objetivo destas
+    reuniões é verificar o andamento da \textit{sprint} e planejar o que será executado
+    nas próximas 24 horas. Dessa forma visa-se acompanhar e otimizar o andamento da
+    \textit{sprint}.
+    \item[Sprint Review] realizado ao final da \textit{sprint} com o intuito de
+    inspecionar e adaptar o \textit{product backlog} com base no que foi entregue.
+    \item[Sprint Retrospective] realizado antes do próximo \textit{sprint planning}, é
+    uma reunião para a equipe se auto inspecionar e planejar melhorias para a próxima
+    \textit{sprint}.
+\end{description}
+
+A \autoref{fig:ScrumFramework} visa ilustrar o ciclo de vida do processo Scrum.
+
+    \begin{figure}[h]
+      \caption{Scrum Framework\label{fig:ScrumFramework}}
+      \centering
+      \includegraphics[keepaspectratio=true,scale=0.4]{figuras/scrumFramework.eps}
+      \source{Scrum.org}
+    \end{figure}
 
 \subsection{Extreme Programming}
+
+\subsection{Desenvolvimento de software em \textit{startups}}
 
 \section{Escalabilidade}
 
