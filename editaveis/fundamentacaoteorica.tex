@@ -265,10 +265,28 @@ A metodologia \gls{XP} é um processo ágil bastante popular que enfatiza a sati
 do cliente incentivando os desenvolvedores a responder com confiança as mudanças
 nos requisitos, ainda que no final do ciclo de vida do projeto. Ela divide o processo
 convencional de desenvolvimento de software em blocos menores e mais gerenciáveis visando
-minimizar posteriores custos de alteração \cite{Wells2000,Despa2014}.
+minimizar posteriores custos de alteração \cite{Wells2000,Despa2014}. Esta metodologia é
+baseada nos seguintes cinco princípios:
 
-Nos sub tópicos adiante, segue a descrição das regras aplicadas no \gls{XP} de acordo com
-\citeonline{Wells2000}.
+\begin{description}
+    \item[Simplicidade:] fazer somente o que é necessário e nada a mais que isso. Assim,
+    o valor entregue será maximizado e o projeto poderá ser mantido a longo prazo por
+    custos razoáveis.
+    \item[Comunicação:] todos fazem parte da equipe e devem se comunicar diariamente
+    sobre todas as áreas, desde requisitos a código, para que todos possam juntos
+    construir a melhor solução.
+    \item[Feedback:] o software deve ser demonstrado cedo e por muitas vezes, sendo
+    importante ouvir atentamente as observações e realizar as alterações necessárias.
+    O processo da equipe deve ser adaptado as necessidades do projeto, e não o contrário.
+    \item[Respeito:] todos dão e sentem o respeito que merecem como um membro valioso
+    da equipe. Toda contribuição é bem vinda e tem igual valor, independente se ela vem
+    do cliente, da gerência ou da equipe de desenvolvimento.
+    \item[Coragem:] deve-se sempre dizer a verdade sobre o progresso e as estimativas e
+    não ter medo de se adaptar as mudanças sempre que elas ocorrerem.
+\end{description}
+
+Nos sub tópicos adiante, serão apresentadas as regras que guiam a metodologia \gls{XP}
+em cada área do processo de desenvolvimento de acordo com \citeonline{Wells2000}.
 
 \subsubsection{Planejamento}
 \begin{description}
@@ -415,6 +433,23 @@ Nos sub tópicos adiante, segue a descrição das regras aplicadas no \gls{XP} d
 \end{description}
 
 \subsubsection{Teste}
+\begin{description}
+    \item[Todo o código deve ter testes unitários.] No \gls{XP} um código só pode ser
+    lançado se todos os testes unitários estiverem juntos a nova versão. Caso seja
+    identificado algum código sem teste, ele deve ser implementado imediatamente. Assim,
+    você protege o código contra danos acidentais.
+    \item[Todo o código deve passar por todos os testes unitários antes de ser lançado.]
+    Dessa forma visa-se garantir que todas as funcionalidades estarão funcionando no
+    sistema disponibilizado para produção.
+    \item[Quando um \textit{bug} é encontrado, testes são criados.] O teste deve ser
+    criado com o intuito de sinalizar a existência do \textit{bug} e fazer os
+    programadores se moverem o mais rápido possível para repará-lo.
+    \item[Os testes de aceitação são executados constatemente a potuação publicada.]
+    Os testes de aceitação são testes de caixa preta com o intuito de verificar que
+    o sistema está cumprindo as exigências definidas nas histórias de usuários. Dessa
+    forma o \gls{XP} exige que o desenvolvimento de software tenha um relacionamento
+    muito mais próximo com o controle de qualidade.
+\end{description}
 
 \subsection{Desenvolvimento de software em \textit{startups}}
 
