@@ -1,4 +1,4 @@
-\chapter[Fundamentação Teórica]{Fundamentação Teórica}
+Ingressos Zé Ramalho\chapter[Fundamentação Teórica]{Fundamentação Teórica}
 
 Neste capítulo será apresentado as bases teóricas que permeiam o escopo
 do presente trabalho. Partindo do entendimento sobre o contexto de
@@ -260,6 +260,161 @@ A \autoref{fig:ScrumFramework} visa ilustrar o ciclo de vida do processo Scrum.
     \end{figure}
 
 \subsection{Extreme Programming}
+
+A metodologia \gls{XP} é um processo ágil bastante popular que enfatiza a satisfação
+do cliente incentivando os desenvolvedores a responder com confiança as mudanças
+nos requisitos, ainda que no final do ciclo de vida do projeto. Ela divide o processo
+convencional de desenvolvimento de software em blocos menores e mais gerenciáveis visando
+minimizar posteriores custos de alteração \cite{Wells2000,Despa2014}.
+
+Nos sub tópicos adiante, segue a descrição das regras aplicadas no \gls{XP} de acordo com
+\citeonline{Wells2000}.
+
+\subsubsection{Planejamento}
+\begin{description}
+    \item[Histórias de usuário devem ser escritas.] Histórias de usuário são frases escritas
+    pelo próprio cliente, sem nenhum linguajar técnico, que visam descrever coisas que o
+    sistema deve fazer. Muitas vezes são utilizadas no lugar de um grande documento de
+    requisitos e servem para criar estimativas quanto ao tempo durante a reunião de
+    planejamento.
+    \item[O planejamento do lançamento cria a programação de lançamento.] Deve ser realizada
+    uma reunião para traçar um plano de lançamento que estabeleça o projeto geral. Neste
+    planejamento são tomadas tanto decisões técnicas quanto decisões de negócios afim de
+    definir uma agenda com a qual todos os envolvidos podem se comprometer.
+    \item[Faça lançamentos pequenos e frequentes.] A equipe de desenvolvimento deve
+    liberar versões iterativas do sistema frenquentemente, pelo menos a cada duas semanas.
+    Assim no final de cada de iteração você terá testado e demonstrado a funcionalidade
+    para o cliente.
+    \item[O projeto é dividido em iterações.] O cronograma deve ser dividido
+    em várias iterações de 1 a 3 semanas com o intuito de realizar constantemente pequenas
+    entregas. 
+    \item[O planejamento da iteração inicia cada iteração.] Cada iteração deve iniciar com
+    o seu planejamento, no qual as histórias de usuários são selecionadas para serem
+    implementadas de acordo com a prioridade definida pelo cliente.
+\end{description}
+
+\subsubsection{Gerenciamento}
+\begin{description}
+    \item[Dê ao time um espaço de trabalho aberto e dedicado.] A comunicação é um
+    fator muito importante dentro do \acrlong{XP}. Aproximar a equipe fisicamente e
+    remover barreiras físicas entre eles incentiva-os a trabalhar colaborativamente
+    como um conjunto no qual todos tem igual valor e contribuições.
+    \item[Defina um ritmo sustentável.] O objetivo do \gls{XP} é conseguir um software
+    mais completo, testado, integrado e pronto para produção a cada iteração. Software
+    incompleto ou com erros representa uma quantidade desconhecida de esforços futuros
+    que não podem ser mensurados. Nessa perspectiva, a metodologia prega que se as
+    histórias planejadas para a iteração não puderem ser concluídas, o ideal é fazer
+    um novo planejamento da iteração visando definir o que será entregue até o final.
+    Mesmo que falte somente um dia para terminar a iteração, o melhor é focar toda a
+    equipe em uma única tarefa completa, do que terminar a iteração com várias tarefas
+    incompletas.
+    \item[Comece todos os dias com uma reunião em pé.] De acordo com \citeonline{Wells2000},
+    uma reunião longa para apresentar os resultados é um desperdício de tempo dos
+    desenvolvedores. O ideal é fazer reuniões diárias para comunicar problemas, discutir
+    soluções e promover o foco da equipe. Essas reuniões devem ser feitas em círculos, de
+    forma que todos se sintam a vontade para contribuir, e em pé para evitar que a reunião
+    se prolongue por muito tempo.
+    \item[Deve-se medir a velocidade do projeto.] A velocidade do projeto deve ser
+    medida com o propósito de auxiliar no planejamento das próximas iterações. A proposta
+    do \gls{XP} é estimar de forma simples a dificuldade de implementação das histórias
+    e planejar a iteração de acordo com o ritmo que a equipe consegue produzir.
+    \item[Mova as pessoas.] Se apenas uma pessoa da sua equipe é capaz de trabalhar
+    em determinada área e essa pessoa sair ou estiver sobrecarregada, o progresso do seu
+    projeto será consideravelmente reduzido. É importante a realização de treinamentos
+    cruzados afim de evitar ilhas de conhecimento. Os desenvolvedores devem ser
+    incentivados a trabalhar em seção diferente do código pelo menos em uma parte da
+    iteração.
+    \item[Conserte o \gls{XP} quando ele não funcionar.] Algumas alterações serão
+    necessárias na metodologia para atender as particularidades do seu projeto. O
+    recomendado é começar seguindo as regras do \gls{XP} e realizar reuniões de
+    retrospectiva para conversar com a equipe e discutir o que não está funcionando
+    e como o processo pode ser melhorado.
+\end{description}
+
+\subsubsection{Design}
+\begin{description}
+    \item[Simplicidade.] Faça sempre a coisa mais fácil que possa funcionar a seguir.
+    Optar por um design simples significa menos tempo de implementação e é sempre mais
+    barato substituir um código complexo por um mais simples agora, antes que seja
+    perdido muito mais tempo. É subjetivo medir a simplicidade, mas o recomendado pela
+    metodologia é que o código seja testável, compreensível, navegável e explicável.
+    Testável significa que você pode escrever testes de unidade e aceitação para
+    identificar rapidamente algum problema. Navegável é a qualidade de poder encontrar
+    facilmente o que você precisa, isso é refletido em bons nomes, no uso correto de
+    heranças, etc. A definição de compreensível é óbvia, mas altamente subjetiva. Por
+    isso o código também deve ser explicável, ou seja, compreensível de uma forma que
+    todos que já trabalham com o código consigam entender, e explicável de forma que
+    novos desenvolvedores também possam entender o código.
+    \item[Escolha uma metáfora do sistema.] A metáfora do sistema é algo simples que
+    possa facilmente explicar como é o design do sistema sem precisar ler várias
+    documentações para tal. O intuito dela é orientar o desenvolvimento e facilitar
+    a inserção de novos membros.
+    \item[Use cartões \gls{CRC} para o design.] O maior do valor dos cartões é fazer
+    com que a equipe se afaste do pensamento processual e enfoque mais nos objetos.
+    Permitir que toda a equipe trabalhe na construção dos cartões promove um melhor
+    um melhor projeto do sistema e um maior entendimento da equipe.
+    \item[Crie soluções de pico para reduzir o risco.] Quando existe dificuldade
+    de tomar decisões sobre problemas técnicos ou designs difíceis, o ideal é criar
+    algo muito simples que explore potenciais soluções, mesmo que este não atenda
+    todos os problemas e resolva todas as preocupações. Muito provavelmente, este
+    programa de teste não será suficientemente bom para manter e será jogado fora.
+    No entanto, o objetivo dessa ação é reduzir o risco de um problema técnico e
+        aumentar a confiabilidade sobre a história de usuário.
+    \item[Nenhuma funcionalidade deve ser adicionada cedo.] Muitos desenvolvedores
+    são tentados adicionar funcionalidades visando que é fácil adicioná-las agora e
+    que estas poderão ser utilizadas futuramente, ou que a arquitetura se tornará
+    muito mais flexível. No entanto, a realidade é de utilizar muito pouco essas
+    funcionalidades extras e deixar a arquitetura mais complexa do que o necessário
+    para o problema. Dessa forma, o \gls{XP} recomenda olhar sempre para as
+    necessidades atuais e não para as necessidades futuras.
+    \item[Refatorar sempre e sempre que possível.] O \gls{XP} prega que você deve
+    refatorar o código sempre que possível, remover duplicações, códigos obsoletos,
+    alterar códigos que sejam difíceis de manejar, etc. Manter o código limpo e
+    conciso economiza tempo ao longo da vida do software.
+\end{description}
+
+\subsubsection{Codificação}
+\begin{description}
+    \item[O cliente está sempre disponível.] O ideal é que o cliente esteja sempre
+    no mesmo espaço que o time de desenvolvimento participando de todas as fases
+    do projeto. É importante que esse cliente seja um especialista da organização
+    afim de ajudar a garantir que as funcionalidades sejam implementadas conforme
+    o desejado.
+    \item[O código deve ser escrito de acordo com os padrões acordados.] Manter o
+    código em um padrão acordado pela equipe facilita o entendimento e a refatoração
+    do mesmo. Além de incentivar a propriedade coletiva do código.
+    \item[Escreva os testes unitários primeiro.] Criar os testes antes do código
+    torna mais rápido e fácil a criação do próprio código. Ajuda o desenvolvedor a
+    considerar o que realmente precisa ser feito e a estabelecer os requisitos por
+    meio dos testes.
+    \item[Todo o código de produção é programado em pares.] A programação em pares
+    aumenta a qualidade do código sem afetar o tempo de entrega. A ideia é
+    contra-intuitiva, mas duas pessoas que trabalham em um único computador adicionam
+    tanta funcionalidade quanto duas que trabalham separadamente, com o diferencial
+    da qualidade do código ser melhor.
+    \item[Apenas um par integra o código por vez.] A integração paralela do código
+    significa que dois ou mais códigos que ainda não foram testados juntos serão
+    integrados acreditando-se que está tudo bem. Contudo, essa integração se aplica
+    também a suíte de testes e, se não existe um conjunto de testes consolidados,
+    problemas de integração aconteceram sem detecção. Por isso a importância de
+    integrar um código por vez, afim de gerar sempre uma versão mais estável e clara
+    do sistema.
+    \item[Integre-se frequentemente.] Os desenvolvedores devem estar alinhados e
+    trabalhando sempre na versão mais atualizada do código. Isso evita futuros
+    problemas de integração e reduz o tempo de desenvolvimento uma vez que evita
+    a alteração em uma linha de código que está obsoleta.
+    \item[Configure um computador de integração dedicado.] O propósito é que todos os
+    lançamentos do software para produção sejam feitos pelo mesmo computador. Assim,
+    todos os envolvidos podem acompanhar o que está sendo integrado e a garantia de
+    que o código está sempre atualizado.
+    \item[Propriedade coletiva.] Qualquer desenvolvedor deve ser livre pra alterar
+    qualquer linha do código, seja para corrigir um \textit{bug}, refatorar ou
+    implementar uma nova funcionalidade. Toda a equipe é responsável pelo design da
+    aplicação, e não cabe a uma única mente - o arquiteto chefe, por exemplo - definir
+    como será feito esse design.
+\end{description}
+
+\subsubsection{Teste}
 
 \subsection{Desenvolvimento de software em \textit{startups}}
 
