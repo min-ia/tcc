@@ -98,6 +98,21 @@
 
 \newcommand{\source}[1]{\caption*{Fonte: {#1}} }
 
+\let\oldquotation\quotation
+\let\endoldquotation\endquotation
+ \renewenvironment{quotation}[1][]{%
+   \if\relax\detokenize{#1}\relax
+    \def\quotationauthor{}%
+  \else
+    \def\quotationauthor{\par\nobreak\smallskip\hfill\cite{#1}}%
+  \fi
+  \small\list{}{\rightmargin=0cm \leftmargin=4cm}%
+  \item\relax
+}{%
+  \quotationauthor%
+  \endlist
+}
+
 % ---
 % FIM DAS CUSTOMIZACOES PARA A FACULDADE UNB GAMA
 % ---
