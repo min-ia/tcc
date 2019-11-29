@@ -104,13 +104,26 @@
    \if\relax\detokenize{#1}\relax
     \def\quotationauthor{}%
   \else
-    \def\quotationauthor{\par\nobreak\smallskip\hfill\cite{#1}}%
+    \def\quotationauthor{\cite{#1}}%
   \fi
   \small\list{}{\rightmargin=0cm \leftmargin=4cm}%
   \item\relax
 }{%
   \quotationauthor%
   \endlist
+}
+
+\let\oldquote\quote
+\let\endoldquote\endquote
+ \renewenvironment{quote}[1][]{%
+   \if\relax\detokenize{#1}\relax
+    \def\quoteauthor{}%
+  \else
+    \def\quoteauthor{\cite{#1}}%
+  \fi
+  ``%
+}{%
+  '' \quoteauthor%
 }
 
 % ---
