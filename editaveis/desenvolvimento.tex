@@ -12,7 +12,7 @@ durante o primeiro ano da empresa e as dificuldades enfrentadas pela
 
   \begin{enumerate}
     \item \textbf{Rua Dois Tecnologias:} breve apresentação sobre a empresa,
-      seus propósitos e os serviços oferecidos.
+      seus propósitos e os serviços oferecidos;
     \item \textbf{Arquitetura do sistema:} descrição da arquitetura de software
       adotada dentro da Rua Dois, no seu primeiro ano de desenvolvimento, e possíveis
       soluções discutidas dentro da empresa a respeito da escalabilidade.
@@ -84,13 +84,13 @@ sendo eles:
 
   \begin{enumerate}
     \item \textbf{Captação de Imóveis:} serviço destinado à atrair proprietários de
-      imóveis que desejam divulgar o imóvel para locação.
+      imóveis que desejam divulgar o imóvel para locação;
     \item \textbf{Visitas:} serviço de visitas aos imóveis, no qual os interessados em
-      locar o imóvel agendam um horário para conhecer o mesmo.
+      locar o imóvel agendam um horário para conhecer o mesmo;
     \item \textbf{Propostas:} serviço no qual os interessados, após passarem pela etapa
       de visitação, avaliam o imóvel e fazem uma proposta para o proprietário do
       imóvel referente ao valor a ser pago pela locação e possíveis ajustes que
-      desejam que sejam feitos na propriedade.
+      desejam que sejam feitos na propriedade;
     \item \textbf{Contrato:} etapa final, destinada a automatizar a avaliação por parte
       das seguradoras, envio de documentos e assinatura do contrato.
   \end{enumerate}
@@ -118,7 +118,7 @@ cada fase será nomeada da seguinte forma:
 
     \begin{description}
         \item [Fase 1] referente a fase inicial de desenvolvimento na qual foi adotada
-        uma arquitetura de microsserviços.
+        uma arquitetura de microsserviços;
         \item [Fase 2] referente a segunda fase de desenvolvimento na qual foi adotada
         uma arquitetura monolítica.
     \end{description}
@@ -135,7 +135,7 @@ distribuídos nos lambdas da \gls{AWS}. Os dois serviços principais são:
 
     \begin{description}
         \item [r2service] responsável por gerir o cadastro de imóveis e as propostas
-        de locação do imóvel.
+        de locação do imóvel;
         \item [r2visit] responsável por gerir a lógica de agendamento de visitas
         a um imóvel.
     \end{description}
@@ -159,29 +159,29 @@ enumeração disposta na imagem:
       o imóvel apresentado no site da imobiliária está disponível no banco
       de dados da Rua Dois. Uma vez que esteja disponível, o \textit{widget}
       exibe um botão que disponibiliza o agendamento da visita \textit{online}
-      para o interessado.
+      para o interessado;
     \item O locatário ao clicar nesse botão, dispara uma requisição ao lambda
     que identifica o time de corretores responsável por atender as visitas
     ao imóvel selecionado. E em seguida, uma nova requisição é disparada ao
     serviço \textit{r2visit} solicitando o calendário com os horários
-    disponíveis do respectivo time.
+    disponíveis do respectivo time;
     \item Após o locatário ter selecionado o horário da visita, uma nova
     requisição é lançada para registrar a visita no \textit{r2visit}, que por
     sua vez dispara uma série de mensagens por meio das ferramentas de comunicação
     e atualiza o Pipedrive\footnote{O Pipedrive é uma ferramenta de \gls{CRM} utilizada pela
     empresa para realizar o gerenciamento operacional e monitoramento dos resultados obtidos.
-    Saiba mais em: \url{https://www.pipedrive.com}}.
+    Saiba mais em: \url{https://www.pipedrive.com}};
     \item Após a visita ser realizada, o corretor sinaliza por meio do aplicativo
     a conclusão da visita, disparando novamente no \textit{r2visit} os eventos
     de atualização do Pipedrive e as ferramentas de comunicação, para que se
-    possa dar início a nova fase de Negociação, referente ao produto de propostas.
+    possa dar início a nova fase de Negociação, referente ao produto de propostas;
     \item Nessa nova fase, locatário e locador trocam mensagens por meio do portal
     da Rua Dois, o qual é gerido pelo \textit{r2service}. Ao final da negociação,
     os cliente entram na fase de contrato, na qual seu dados são recolhidos e
     enviados por meio do \textit{r2service} para \glspl{API} externas de seguradoras as quais
     realizam uma avaliação de crédito do locatário. Quando concedida a avaliação
     de crédito, o contrato é gerado automaticamente com os dados já recolhidos
-    do locatário, locador, da imobiliária e do próprio imóvel.
+    do locatário, locador, da imobiliária e do próprio imóvel;
     \item Por fim, o \textit{r2service} é responsável por atualizar uma planilha do
     Google Sheets\footnote{Saiba mais em: \url{https://www.google.com/sheets/about/}}
     que serve de insumo para geração de relatórios dentro do Data Studio
@@ -196,19 +196,19 @@ si e a forma como isto foi organizado gerou as seguintes dificuldades dentro da 
         um bom planejamento em relação a interação entre os serviços \textit{r2service}
         e \textit{r2visit}, o que ocasionou a duplicação da tabela referente aos dados
         dos imóveis - uma tabela no banco de dados da Virgínia e a outra tabela no banco
-        de dados de São Paulo.}
+        de dados de São Paulo;}
         \item{Dificuldade de gerir as associações necessárias entre os dados armazenados
         no banco. A empresa optou pelo uso do banco não relacional DynamoDB, visando
         novamente a escalabilidade, mas sem planejar corretamente o armazenamento desses
         dados nessa estrutura não relacional. Isso impactou diretamente o desenvolvimento,
         visto que existe uma necessidade da empresa de tratar esse dado como relacional
-        mas fez isso em cima de uma tecnologia inadequada para tal.}
+        mas fez isso em cima de uma tecnologia inadequada para tal;}
         \item{Dificuldade de manter essa infraestrutura, tanto pela complexidade na forma
         como o sistema está organizado quanto pela escolha de utilizar a infraestrutura da
         \gls{AWS}, que é mais árdua de trabalhar do que outras soluções disponíveis no mercado
-        \cite{kavya}}
+        \cite{kavya};}
         \item{Dificuldade de inserção de novos membros na equipe de desenvolvimento, visto
-        que entender como esses vários serviços se relacionam não é uma tarefa simples.}
+        que entender como esses vários serviços se relacionam não é uma tarefa simples;}
         \item{Dificuldade de mudança e inserção de novas funcionalidades. Nessa primeira
         fase a Rua Dois encontrava-se fortemente no período de validação da ideia dentro
         de uma \textit{startup} o que exigia uma rápida reação da equipe em relação aos
