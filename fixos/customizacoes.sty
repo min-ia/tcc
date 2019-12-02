@@ -100,11 +100,15 @@
 
 \let\oldquotation\quotation
 \let\endoldquotation\endquotation
- \renewenvironment{quotation}[1][]{%
-   \if\relax\detokenize{#1}\relax
+ \renewenvironment{quotation}[2]{%
+  \if\relax\detokenize{#1}\relax
     \def\quotationauthor{}%
   \else
-    \def\quotationauthor{\cite{#1}}%
+    \if\relax\detokenize{#2}\relax
+      \def\quotationauthor{\cite{#1}}%
+    \else
+      \def\quotationauthor{\cite[tradução nossa]{#1}}%
+    \fi
   \fi
   \small\list{}{\rightmargin=0cm \leftmargin=4cm}%
   \item\relax
