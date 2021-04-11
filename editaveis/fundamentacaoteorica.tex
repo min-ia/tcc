@@ -1,9 +1,117 @@
 \chapter{Fundamentação Teórica}
 
+Neste capítulo serão apresentadas as bases teóricas que permeiam o escopo do presente trabalho.
+Partindo do entendimento sobre o conceito de arquitetura de software e como ela reflete nos
+sistemas. Em seguida abordando estilos de arquitetura de software pertinentes para o contexto
+estudado. As seções estão dispostas em:
+
+  \begin{enumerate}
+    \item \textbf{Arquitetura de software:} definição do termo arquitetura dentro da área de
+        software e suas características.
+    \item \textbf{Sistemas monolíticos:}
+    \item \textbf{Microsserviços:}
+  \end{enumerate}
+
+\section{Arquitetura de Software}
+
+\begin{quotation}{Bass2015:SoftwareArchitetureInPratice}{transleted=true}
+Software systems are constructed to satisfy organizations' business goals. The architecture is a bridge between those (often abstract) business goals and the final (concrete) resulting system. While the path from abstract goals to concrete systems can be complex, the good news is that software architecture can be designed, analyzed, documented, and implemented using know techniques that will support the achievement of these business and mission goals. The complexity can be tamed, made tractable.
+\end{quotation}
+
+Como retratado na citação acima, arquitetura de software representa a ponte entre os sistemas
+construídos e os objetivos de cada organização. A publicação \textit{What is your definition of
+software architecture?} do \textit{Software Engineering Institute} da \textit{Carnegie Mellon
+University} \cite{SEI2017:WhatIsYourSoftwareArchitectureDefinition} apresenta uma variedade de diferentes
+conceitos a respeito de arquitetura de software abordados pela bibliografia, exemplificando a
+dificuldade existente em compreender o conceito de arquitetura dentro da área de \gls{TI}.
+
+Segundo \citeonline{Vogel2011:SoftwareArchiteture} arquitetura é um aspecto implícito com o qual os desenvolvedores são confrontados
+diariamente e que não pode ser ignorado ou eliminado, ainda que eles nem sempre tenham consciência
+sobre a sua constante presença.
+
+\citeonline{Bass2015:SoftwareArchitetureInPratice} traz a seguinte definição a respeito de
+arquitetura de software:
+
+\begin{quotation}{Bass2015:SoftwareArchitetureInPratice}{transleted=true}
+The software architecture of a system is the set of structures needed to
+reason about the system, which comprise software elements, relations
+among them, and properties of both.
+\end{quotation}
+
+Com base nessa abordagem, os autores defendem que os sistemas de software são compostos por diversas
+estruturas e por como essas estruturas se relacionam entre si. Assim, a arquitetura se torna uma
+abstração do sistema, destacando aspectos desejados do mesmo e omitindo outros aspectos, com
+o intuito de minimizar a complexidade com a qual o compreendemos.
+
+A \autoref{fig:ArchitectureDefinition} apresenta uma segunda visão abordada por
+\citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} a respeito de arquitetura.
+Nessa abordagem eles defendem quatro dimensões as quais definem o que é arquitetura de software. A primeira
+dimensão consiste em estruturas: microsserviços, camadas e módulos são exemplos de conceitos abarcados
+por esse ponto, todavia, para eles descrever a arquitetura por meio de estruturas não é suficiente para contemplar
+todo o escopo acerca de arquitetura de software. Diante desta problemática, eles introduzem os
+conceitos de características, decisão e princípios de design referentes a arquitetura. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.6]{figuras/richardsAndFord-architectureDefinition.eps}
+  \caption{Elementos que compõem a arquitetura de um software\label{fig:ArchitectureDefinition} \source{Richards2020:FundamentalsOfSoftwareArchitecture}}
+\end{figure}
+
+As características da arquitetura, por sua vez, referem-se aos critérios de sucesso do sistema,
+trazendo pontos como disponibilidade, confiabilidade, segurança, etc., os quais são anteriores e
+independentes ao conhecimento acerca das funcionalidades do sistema.
+
+O terceiro aspecto apresentado pelos autores consiste nas decisões de arquitetura responsáveis por definir
+as regras sob as quais o sistema deve ser construído. Isto diz ao time de desenvolvimento o que ele
+pode ou não fazer. A exemplo, em uma arquitetura \gls{MVC}\footnote{\textit{Model-View-Controller} (MVC)
+consiste em um estilo arquitetural adotado por várias aplicações. A \textit{Model} representa a
+camada de dados, a \textit{View} a camada de apresentação e a \textit{Controller} é a camada de
+lógica.\cite{mcgovern2004practical}}, a \textit{View} é
+impossibilitada de consumir dados da \textit{Model}, e cabe aos desenvolvedores garantir que isso
+seja respeitado.
+
+Por fim, a última dimensão refere-se aos princípios de design. Estes consistem em um guia pelo o qual
+os desenvolvedores podem se orientar quando for necessário tomar alguma decisão. Diferentemente das
+decisões de arquitetura que devem ser sempre seguidas afim de  garantir as características desejadas
+para a arquitetura, os princípios trazem maior flexibilidade e autonomia para o desenvolvedor, podendo
+este analisar o contexto do problema em mãos e decidir se seguir os princípios é a melhor abordagem
+para a funcionalidade desenvolvida, ou se deve seguir por um caminho diferente o qual ele julgue que
+os ganhos são maiores para a aplicação.
+
+\subsection{Leis da Arquitetura de Software}
+
+\begin{quotation}{Richards2020:FundamentalsOfSoftwareArchitecture}{transleted=true}
+  \begin{description}
+    \item [Tudo em arquitetura de software é um \textit{trade-off}.] Primeira Lei da Arquitetura de
+        Software
+    \item [\textit{Por que} é mais importantes do que \textit{como}.] Segunda Lei da Arquitetura de Software
+  \end{description}\footnote{Texto original: \textit{Everything in software architecture is a trade-off. First Law
+    of Software Architecture. Why is more important than how. Second Law of Software Architecture.}}
+\end{quotation}
+
+A Primeira Lei da Arquitetura de Software traz a tona a realidade do arquiteto de
+software, o qual precisa lidar constantemente com conflitos de escolha. O papel do arquiteto está
+intrinsecamente ligado a análise da situação e a tomada de decisão sobre qual caminho seguir. Para
+tal, é necessário que o mesmo esteja alinhado com uma série de fatores, como práticas de engenharia,
+\textit{DevOps}\footnote{\textit{DevOps} é um movimento cultural que altera como indivíduos pensam
+sobre o seu trabalho, dando suporte a processos que aceleram a entrega de valor pelas empresas ao
+desenvolverem práticas sustentáveis de trabalho.\cite{davis2016effective}}, processos, negócio, etc
+\cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+
+A segunda lei traz uma perspectiva que por diversas vezes é ignorada, na qual tendemos a olhar para
+a topologia dos sistemas, observando suas estruturas e como estas se relacionam, e não damos a devida
+atenção ao porquê das decisões arquiteturais tomadas\cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+
+Nesse sentindo, o ponto defendido pelos autores busca olhar o por quê certas decisões são
+tomadas mediante os \textit{trade-offs} enfrentados.
+
+\iffalse
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 Neste capítulo será apresentado as bases teóricas que permeiam o escopo
 do presente trabalho. Partindo do entendimento sobre o contexto de
 \textit{startups} até as questões relacionadas a escalabilidade de softwares.
-As seções estão dispostas em:
 
   \begin{enumerate}
     \item \textbf{\textit{Startups}:} contexto, organização e propósitos de uma 
@@ -761,3 +869,5 @@ Seguindo a analogia apresentada por Brikman, as \textit{startups} em suas primei
 do ciclo de vida devem se preocupar com a escalabilidade do código, que seria o equivalente
 as marchas baixas, ajustá-las antes de se preocupar com as marchas mais altas pois estas,
 por sua vez, podem nunca nem ser atingidas.
+
+\fi
