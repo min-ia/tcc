@@ -8,8 +8,9 @@ estudado. As seções estão dispostas em:
   \begin{enumerate}
     \item \textbf{Arquitetura de software:} definição do termo arquitetura dentro da área de
         software e suas características.
-    \item \textbf{Sistemas monolíticos:}
-    \item \textbf{Microsserviços:}
+    \item \textbf{Sistemas monolíticos:} descrição, vantagens e desvantagens da arquitetura monolítica.
+    \item \textbf{Microsserviços:} descrição, vantagens e desvantagens da arquitetura de
+        microsserviços.
   \end{enumerate}
 
 \section{Arquitetura de Software}
@@ -39,9 +40,9 @@ among them, and properties of both.
 \end{quotation}
 
 Com base nessa abordagem, os autores defendem que os sistemas de software são compostos por diversas
-estruturas e por como essas estruturas se relacionam entre si. Assim, a arquitetura se torna uma
-abstração do sistema, destacando aspectos desejados do mesmo e omitindo outros aspectos, com
-o intuito de minimizar a complexidade com a qual o compreendemos.
+estruturas e elementos, por como essas estruturas se relacionam entre si e pelas propriedades que os
+caracterizam. Assim, a arquitetura se torna uma abstração do sistema, destacando aspectos desejados
+do mesmo e omitindo outros aspectos, com o intuito de minimizar a complexidade com a qual o compreendemos.
 
 A \autoref{fig:ArchitectureDefinition} apresenta uma segunda visão abordada por
 \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} a respeito de arquitetura.
@@ -104,6 +105,61 @@ atenção ao porquê das decisões arquiteturais tomadas\cite{Richards2020:Funda
 
 Nesse sentindo, o ponto defendido pelos autores busca olhar o por quê certas decisões são
 tomadas mediante os \textit{trade-offs} enfrentados.
+
+\section{Sistemas monolíticos}
+
+A Arquitetura Monolítica é um padrão de desenvolvimento de software no qual um aplicativo
+é criado com uma única base de código, um único sistema de compilação, um único binário
+executável e vários módulos para recursos técnicos ou de negócios. Seus componentes
+trabalham compartilhando mesmo espaço de memória e recursos formando uma unidade de
+código coesa \cite{NatalliaSakovich}.
+
+Esse padrão arquitetural permite um desenvolvimento fácil por ser de conhecimento
+da maioria dos desenvolvedores de software e apresentar baixa complexidade para a
+execução de tarefas como \textit{deploy}, confecção de testes e compartilhamento
+do código. Contudo, a longo prazo começam a surgir dificuldades para manter essa
+arquitetura, entre elas estão:
+
+  \begin{enumerate}
+    \item Dificuldade em entender e alterar o código que ao longo do tempo se torna
+    muito extenso e coeso;
+    \item Limitação na agilidade de atualização do software, uma vez que para cada
+    pequena alteração é necessário reimplantar o código por completo;
+    \item Necessita de muito esforço para adotar uma nova tecnologia, sendo
+    necessário adaptar todo o código da aplicação para a nova ferramenta;
+    \item O sistema perde a confiabilidade pois a medida que cresce um \textit{bug}
+    em uma única parte do código pode interromper todo o software já que todos os
+    componentes estão conectados.
+  \end{enumerate}
+
+\section{Microsserviços}
+
+Segundo \citeonline{Newman2015}, microsserviços são pequenos serviços autônomos que
+trabalham juntos. O objetivo desses serviços é tornar o código coeso e focado em
+resolver as regras de negócio dentro de um limite específico. As vantagens de adotar
+essa arquitetura consistem em:
+
+\begin{enumerate}
+    \item{Uso de tecnologias heterogêneas;}
+    \item{Maior resiliência do sistema;}
+    \item{Facilidade em escalar pequenas partes do sistema, ao invés do sistema por
+    completo;}
+    \item{Facilidade e maior estabilidade no processo de \textit{deploy};}
+    \item{Maior produtividade da equipe, uma vez que se passa a adotar equipes
+    menores com bases de código menores;}
+    \item{Reusabilidade dos serviços;}
+    \item{Otimização da substituibilidade: organizações de médio e grande porte costumam
+    possuir sistemas legados, com uma base de código enorme funcionando com tecnologias
+    antigas tanto de software quanto de hardware. A substituição desses códigos é um
+    processo custoso e arriscado. Com serviços pequenos realizar essa substituição
+    se torna um processo mais fácil de gerenciar.}
+\end{enumerate}
+
+Para o desenvolvimento de microsserviços é necessário pensar sobre o que deve ser
+exposto e o que deve ser ocultado. Se houver muito compartilhamento os serviços de
+consumo se acoplam às nossas representações internas, diminuindo a nossa autonomia
+e consequentemente a nossa capacidade de realizar alterações \cite{Newman2015}.
+
 
 \iffalse
 
@@ -761,60 +817,6 @@ para pequenos pacotes de registros, como \textit{logs}, leitura de medidores,
 \textit{snapshots} e para dados semi-estruturados ou não-estruturados, como arquivos
 de e-mail, \textit{xml} e documentos. A estrutura distribuída desses bancos também
 os tornam ideias para processamento massivo de dados em lote \cite{NewEraOfDatabases}.
-
-\subsection{Sistemas monolíticos}
-
-A Arquitetura Monolítica é um padrão de desenvolvimento de software no qual um aplicativo
-é criado com uma única base de código, um único sistema de compilação, um único binário
-executável e vários módulos para recursos técnicos ou de negócios. Seus componentes
-trabalham compartilhando mesmo espaço de memória e recursos formando uma unidade de
-código coesa \cite{NatalliaSakovich}.
-
-Esse padrão arquitetural permite um desenvolvimento fácil por ser de conhecimento
-da maioria dos desenvolvedores de software e apresentar baixa complexidade para a
-execução de tarefas como \textit{deploy}, confecção de testes e compartilhamento
-do código. Contudo, a longo prazo começam a surgir dificuldades para manter essa
-arquitetura, entre elas estão:
-
-  \begin{enumerate}
-    \item Dificuldade em entender e alterar o código que ao longo do tempo se torna
-    muito extenso e coeso;
-    \item Limitação na agilidade de atualização do software, uma vez que para cada
-    pequena alteração é necessário reimplantar o código por completo;
-    \item Necessita de muito esforço para adotar uma nova tecnologia, sendo
-    necessário adaptar todo o código da aplicação para a nova ferramenta;
-    \item O sistema perde a confiabilidade pois a medida que cresce um \textit{bug}
-    em uma única parte do código pode interromper todo o software já que todos os
-    componentes estão conectados.
-  \end{enumerate}
-
-\subsection{Microsserviços}
-
-Segundo \citeonline{Newman2015}, microsserviços são pequenos serviços autônomos que
-trabalham juntos. O objetivo desses serviços é tornar o código coeso e focado em
-resolver as regras de negócio dentro de um limite específico. As vantagens de adotar
-essa arquitetura consistem em:
-
-\begin{enumerate}
-    \item{Uso de tecnologias heterogêneas;}
-    \item{Maior resiliência do sistema;}
-    \item{Facilidade em escalar pequenas partes do sistema, ao invés do sistema por
-    completo;}
-    \item{Facilidade e maior estabilidade no processo de \textit{deploy};}
-    \item{Maior produtividade da equipe, uma vez que se passa a adotar equipes
-    menores com bases de código menores;}
-    \item{Reusabilidade dos serviços;}
-    \item{Otimização da substituibilidade: organizações de médio e grande porte costumam
-    possuir sistemas legados, com uma base de código enorme funcionando com tecnologias
-    antigas tanto de software quanto de hardware. A substituição desses códigos é um
-    processo custoso e arriscado. Com serviços pequenos realizar essa substituição
-    se torna um processo mais fácil de gerenciar.}
-\end{enumerate}
-
-Para o desenvolvimento de microsserviços é necessário pensar sobre o que deve ser
-exposto e o que deve ser ocultado. Se houver muito compartilhamento os serviços de
-consumo se acoplam às nossas representações internas, diminuindo a nossa autonomia
-e consequentemente a nossa capacidade de realizar alterações \cite{Newman2015}.
 
 \subsection{Escalabilidade de software em \textit{startups}}
 
