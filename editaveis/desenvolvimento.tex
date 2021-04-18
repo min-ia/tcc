@@ -17,6 +17,7 @@ As seções estão dispostas em:
 
 \section{Relato de alguns casos reais}
 \subsection{Análise de caso: KN Login}
+\label{sec:KNLogin}
 
 O caso apresentado nessa seção é um relato de \citeonline{Olga2016:SelfContainedSystems} a respeito
 da transição realizada por Björn Kimminich\footnote{Gerente sênior de arquitetura de TI na empresa
@@ -66,11 +67,11 @@ Mediante as dificuldades enfrentadas, a Kuehne + Nagel optou por seguir os segui
     \item Ter ciência de quão dependentes são cada módulo dentro do monolítico, de tal forma que
         alguns sejam aparentemente impossíveis de separar;
     \item Começar a separação de cada módulo aos poucos, de maneira que pedaços possam ser
-        desativados no monolítico a medida que cada novo módulo é liberdado;
+        desativados no monolítico a medida que cada novo módulo é liberado;
 \end{itemize}
 
 Após analisar esses quatro fatores, a equipe técnica da Kuehne + Nagel chegou ao ponto de que a
-mudança diretamente para microsserviços seria inviável mediante a grande complexidade do monolótico,
+mudança diretamente para microsserviços seria inviável mediante a grande complexidade do monolítico,
 além de que esta mudança não iria contribuir para deixar mais fácil a visualização que eles
 tinham do sistema. Diante desta situação a equipe optou por abordar uma arquitetura de sistemas
 autocontidos.
@@ -85,10 +86,125 @@ do KN Login.
 \subsubsection{Perspectiva pós-adoção da solução}
 
 O relato apresentado por \citeonline{Olga2016:SelfContainedSystems}, não traz informações a respeito
-de quais forãos os resultados efetivos da adoção de sistemas autocontidos mediante as dificuldades
+de quais foram os resultados efetivos da adoção de sistemas autocontidos mediante as dificuldades
 que a equipe enfrentava dentro no monolítico KN Login, mas a autora traz a perspectiva de utilizar
 sistemas autocontidos como um passo intermediário em direção aos microsserviços quando o monolítico
 em mãos tem uma complexidade muito alta para ser quebrado.
+
+\subsection{Otto.de}
+
+Nesta seção será apresentado o caso relatado por  \citeonline{Guido2015:OnMonolithsAndMicrosrvices}, a
+respeito da construção do novo \textit{e-commerce} Otto.de\footnote{O relato original e completo do autor
+sobre o caso pode ser encontrado nos links
+\url{https://www.otto.de/jobs/technology/techblog/artikel/on-monoliths-and-microservices_2015-09-30.php}
+e \url{https://www.otto.de/jobs/technology/techblog/artikel/why-microservices_2016-03-20.php}}.O Grupo
+Otto\footnote{Vide: \url{https://www.otto.de}} é uma empresa de origem alemã que trabalha em diversos países
+desenvolvendo soluções de negócios voltadas a necessidade do setor de \textit{e-commerce}.
+
+\subsubsection{Problemática da aplicação}
+
+O sistema da Otto originou-se inicialmente em um projeto que deveria ser simples, no qual
+implicitamente a equipe adotou uma macroarquitetura monolítica sem considerar ou até mesmo enxergar
+que tal decisão estava sendo tomada. E mediante tal decisão, a equipe passou a ter dificuldades
+com os problemas apresentados abaixo:
+
+\begin{itemize}
+    \item Escalabilidade limitada ao balanceamento de carga;
+    \item Dificuldade de manutenção crescia juntamente com o crescimento da aplicação;
+    \item Dificuldade de contratar desenvolvedores dispostos a trabalhar em um sistema de alta
+        complexidade;
+    \item Dificuldades ao realizar o \textit{deploy} principalmente no caso de aplicações sem
+        períodos de inatividade;
+    \item Dificuldades para trabalhar com várias equipes diferentes em uma mesma aplicação.
+\end{itemize}
+
+\citeonline{Guido2015:OnMonolithsAndMicrosrvices} enfatiza três pontos que para ele são importantes:
+
+\begin{itemize}
+    \item O desenvolvimento começa em equipe e no início a aplicação é bastante compreensível,
+        necessitando apenas de uma única aplicação;
+    \item Quando se tem um único aplicativo, o custo inicial é relativamente baixo: construção do
+        repositório, automatização da \textit{build} e do processo de \textit{deploy}, configurar
+        ferramentas de monitoramento, etc. Ativar e operar um novo aplicativo é relativamente fácil;
+    \item É mais complexo operar grandes sistemas distribuídos do que um \textit{cluster}
+        balanceador de carga.
+\end{itemize}
+
+\subsubsection{Solução adotada}
+
+Diante do contexto apresentado, a Otto decidiu por começar um novo sistema de \textit{e-commerce},
+adotando dessa vez uma arquitetura semelhante a apresentada na \autoref{sec:KNLogin} de sistemas autocontidos. Para
+tal, eles estabeleceram quatro equipes funcionais dando origem a quatro aplicações. Os custos
+iniciais de cada aplicação foram minimizados padronizando o processo de automação.
+
+A medida que o sistema da Otto evoluía foram criados novos sistemas autocontidos, cada um com sua própria equipe
+de desenvolvimento, seu próprio \textit{frontend} e seu próprio
+banco de dados, tudo dentro de um escopo de negócio muito bem definido a respeito das suas
+atribuições.
+
+A Otto definiu aspectos macro e microarquiteturais. Os aspectos
+microarquiteturais estavam voltados ao contexto local de cada sistema autocontido construído,
+enquanto que nos aspectos macro foram definidos questões mais globais a respeito da arquitetura, como por exemplo:
+
+\begin{itemize}
+    \item A comunicação entre os sistemas autocotidos deveria ser feita sempre por meio do modelo
+        \gls{REST};
+    \item Não poderia existir estado mutável compartilhado entre as aplicações;
+    \item Os dados devem ser compartilhados por meio de uma \gls{API} \gls{REST}, havendo somente
+        uma aplicação responsável pelo dado e as outras unicamente com a permissão de leitura sobre o
+        mesmo.
+\end{itemize}
+
+Nessa abordagem arquitetural escolhida, a Otto se deparou com dificuldades no compartilhamento
+de dados entre as aplicações, o que os levou a adotar a estratégia de replicação de dados, na qual,
+eventualmente eles precisam lhe dar com inconsistências temporárias entre os sistemas.
+
+Contudo, alguns sistemas autocontidos ficaram bastante volumosos após cerca de três anos trabalhando
+em cima dessa arquitetura. Essa nova situação fez com que a Otto adota-se uma nova medida em direção
+a uma arquitetura de microsserviços. Decisão esta que segundo \citeonline{Guido2016:WhyMicroservices}
+não gerou um processo tão árduo dentro da empresa uma vez que eles já vinham trabalhando em cima de
+uma arquitetura bastante modularizada e já trabalhavam de forma concisa as questões de limites de
+cada aplicação.
+
+\subsubsection{Perspectiva pós-adoção da solução}
+
+Após a adoção de uma arquitetura autocontida e a migração para uma arquitetura de microsserviços,
+\citeonline{Guido2016:WhyMicroservices} traz como pontos positivos de ambas as arquiteturas os
+seguintes pontos:
+
+\begin{itemize}
+    \item Facilidade em estabelecer uma pirâmide de testes que funcione de forma eficiente e rápida,
+        auxiliando os desenvolvedores no lançamento de novas versões do código;
+    \item Facilidade em gerenciar e integrar o trabalho de diferentes equipes uma vez que cada uma
+        está trabalhando em seu próprio serviço;
+    \item Aumento na velocidade de implantação de novas funcionalidades, sendo mais fácil testar e
+        coletar rapidamente \textit{feedback};
+    \item Cada aplicativo pode ser implementado de forma independente;
+    \item Não há necessidade de coordenar o processo de implantação, cada equipe possui autonomia
+        para gerenciar o seu processo de implantação sem afetar as demais equipes;
+    \item Baixa curva de aprendizado, os microsserviços de compreensão pelos desenvolvedores;
+    \item Escalabilidade em relação a aplicação e aos próprios times de desenvolvimento;
+    \item A complexidade de um serviço é extremamente baixa quando comparada a uma arquitetura
+        monolítica;
+    \item O sistema não está limitado a uma tecnologia específica;
+    \item Exige que todos os processo estejam automatizados;
+    \item Facilidade em reverter a versão do projeto quando algum \textit{bug} é introduzido;
+    \item A ocorrência de falhas não afeta o sistema por inteiro, somente uma parte dele;
+    \item Permite manter com facilidade a alta coesão e o baixo acoplamento do sistema;
+\end{itemize}
+
+Segundo a visão do autor, os microserviços possibilitam a construção de um sistema de software muito
+mais sustentável ao longo dos anos do que um sistema monolítico, de forma que nessa arquitetura é
+possível substituir pequenos pedaços da aplicação quando for necessário, enquanto que em sistemas
+monolíticos essa abordagem se torna muito mais complexa.
+
+A adoção de sistemas autocontidos é apresentada por ele como uma porta de entrada na qual é possível
+resolver problemas semelhante aos microsserviços de uma forma mais pragmática, deixando ainda a
+possibilidade de migrar futuramente para uma arquitetura de microsserviços de uma forma não tão
+árdua\cite{Guido2016:WhyMicroservices}.
+
+
+
 
 
 % Esta seção tem por propósito apresentar o estudo realizado sobre a
