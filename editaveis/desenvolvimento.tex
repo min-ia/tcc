@@ -15,8 +15,8 @@ As seções estão dispostas em:
     \item \textbf{Análise comparativa}
   \end{enumerate}
 
-\section{Relato de alguns casos reais}
-\subsection{Análise de caso: KN Login}
+\section{Relatos de casos reais}
+\subsection{KN Login}
 \label{sec:KNLogin}
 
 O caso apresentado nessa seção é um relato de \citeonline{Olga2016:SelfContainedSystems} a respeito
@@ -201,10 +201,92 @@ monolíticos essa abordagem se torna muito mais complexa.
 A adoção de sistemas autocontidos é apresentada por ele como uma porta de entrada na qual é possível
 resolver problemas semelhante aos microsserviços de uma forma mais pragmática, deixando ainda a
 possibilidade de migrar futuramente para uma arquitetura de microsserviços de uma forma não tão
-árdua\cite{Guido2016:WhyMicroservices}.
+árdua \cite{Guido2016:WhyMicroservices}.
+
+\subsection{Segment}
 
 
+O caso apresentado a seguir foi retratado por \citeonline{Noonan:ToMicroservicesAndBackAgain} na
+conferência QCon London. Ela trata a respeito do sistema da Segment\footnote{Vide:
+\url{https://segment.com}}, o qual foi construído inicialmente em uma arquitetura monolítica,
+passou por uma migração para uma arquitetura de microsserviços e após 3 anos em cima desta
+arquitetura, decidiram por retornar para a arquitetura monolítica.
 
+A Segment é uma empresa responsável por fazer a integração entre as aplicações de software de seus
+clientes com diversas ferramentas de análise de dados, atuando como um \textit{pipeline} facilitador
+na integração entre as partes citadas. 
+
+\subsubsection{Problemática da aplicação}
+
+Em 2013, quando a empresa foi criada havia necessidade de construir um sistema que possuísse uma
+baixa sobrecarga operacional, sendo simples de gerenciar e fácil de iterar, assim, diante de tais
+necessidades a primeira versão do sistema da Segment foi construído em cima de uma arquitetura monolítica.
+
+A arquitetura inicial consistia em uma \gls{API} de entrada que recebia os dados enviados pelas aplicações dos
+clientes da Segment, e colocava esses dados em uma fila de processamento. A partir deste ponto,
+havia uma monolítico responsável por consumir a fila e enviar os dados para as aplicações de destino
+(Google Analytics, Salesforce...). O consumo dessa fila ocorria no modelo \gls{FIFO}\footnote{Vide
+\url{https://pt.wikipedia.org/wiki/FIFO}}. A dificuldade enfrentada pela equipe da Segment nessa
+arquitetura estava na tentativa de reenviar algum dado quando por algum motivo a primeira tentativa
+tinha falhado. De acordo com \citeonline{Noonan:ToMicroservicesAndBackAgain}, cerca de 10\% das
+solicitações para as aplicações de destino falhavam e nesses casos, o monolítico fazia de 2 a 10
+tentativas de reenvio.
+
+Nessa abordagem, a Segment passou a enfrentar um bloqueio frontal na fila. Sempre que uma aplicação
+de destino estava muito instável ou ficava fora do ar, o monolítico travava a fila tentando refazer
+o envio, de forma que o problema se propagava: ao invés de ter uma integração X fora do ar, todas as
+outras integrações também paravam de funcionar visto que a fila estava bloqueada.
+
+Após um ano trabalhando em cima dessa arquitetura, o time de desenvolvimento da Segment decidiu por
+mudar para uma arquitetura de microsserviços visando o isolamento do ambiente, de forma que
+problemas com uma determinada integração não impactasse na outra. Para tal, eles segregaram cada
+integração em um serviço próprio acompanhado de sua própria fila e adicionaram antes das filas um
+roteador capaz de receber os dados da \gls{API} de entrada e direcioná-los para as filas necessárias.
+Essa abordagem trouxe as seguintes vantagens para a Segment:
+
+\begin{itemize}
+    \item Diminui a necessidade de \textit{backup} da fila, uma vez que ao falhar uma aplicação de
+        destino eles não precisam mais salvar a fila toda, mas somente a parte referente a
+        integração problemática;
+    \item A falha em uma aplicação de destino não afetava mais as outras integrações;
+    \item Facilitou a inserção de novas aplicações de destino ao sistema da empresa, permitindo um
+        desenvolvimento mais rápido;
+    \item Facilidade em tratar as peculiaridades de cada integração dentro do seu próprio serviço,
+        sem precisar compatibilizar os dados com todas as aplicações de uma única vez;
+    \item Agregou a visibilidade de toda a pilha do processo, permitindo identificar mais facilmente
+        as falhas e a qual serviço específico elas eram referentes.
+\end{itemize}
+
+Em 2016, a Segment possui 50 serviços integrando diferentes aplicações. Com o aumento na quantidade
+de serviços para gerenciar eles começaram a ter algumas dificuldades, entre elas:
+
+\begin{itemize}
+    \item Não possuíam processos de \textit{build} e \textit{deploy} automatizados, o que acaba
+        exigindo bastante tempo da equipe mediante a quantidade de serviços no ar;
+    \item Cada sistema realizava diferentes tratamentos sobre o dado antes de enviar para a
+        aplicação de destino e como cada cliente podia enviar os dados de diferentes formas, acabou
+        se tornando árduo entender o que estava se passando dentro de cada serviço. Nesse caso, eles
+        optaram por criar bibliotecas comuns entre os serviços para fazer tal tratamento.
+        Inicialmente, isto se refletiu positivamente dentro da equipe, mas sem os processos de
+        implantação automatizados, a atualização da versão das bibliotecas em cada serviço se tornou
+        um problema de tal forma que eles passaram a preferir não corrigir um \textit{bug} dentro da
+        biblioteca do que fazer a atualização;
+    \item Administrar o escalonamento da arquitetura não era uma tarefa fácil. Alguns clientes
+        geravam um tráfego de milhares de requisições por segundo, e frequentemente acontecia de
+        algum desses clientes ativarem alguma integração com o intuito de experimentar, e apesar das regras
+        automáticas de escalonamento e dimensionamento de recursos, o time de \gls{TI} da Segment
+        não conseguia encontrar uma regra de escalabilidade que se adequasse bem ao contexto deles.
+        Diante desse caso, eles pensaram em soluções de supervisionamento da arquitetura, manter
+        sempre alguns trabalhadores mínimos, etc., mas chegaram a conclusão de que essas abordagens
+        teriam um custo muito alto para a empresa;
+    \item Mesmo com todas as dificuldades, eles continuavam adicionando cerca de três aplicações de
+        destino por mês. O que tornava cada vez mais complexa a base de código e fazia a carga
+        operacional, diante dos processos não automatizados, crescer linearmente ainda que o tamanho
+        da equipe fosse constante;
+    \item A empresa chegou a parar de desenvolver novas funcionalidades visto que a complexidade e a
+        dificuldade para manter os microsserviços funcionando estava altíssima.
+
+\end{itemize}
 
 
 % Esta seção tem por propósito apresentar o estudo realizado sobre a
