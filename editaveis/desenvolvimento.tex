@@ -205,7 +205,6 @@ possibilidade de migrar futuramente para uma arquitetura de microsserviços de u
 
 \subsection{Segment}
 
-
 O caso apresentado a seguir foi retratado por \citeonline{Noonan:ToMicroservicesAndBackAgain} na
 conferência QCon London. Ela trata a respeito do sistema da Segment\footnote{Vide:
 \url{https://segment.com}}, o qual foi construído inicialmente em uma arquitetura monolítica,
@@ -284,10 +283,66 @@ de serviços para gerenciar eles começaram a ter algumas dificuldades, entre el
         operacional, diante dos processos não automatizados, crescer linearmente ainda que o tamanho
         da equipe fosse constante;
     \item A empresa chegou a parar de desenvolver novas funcionalidades visto que a complexidade e a
-        dificuldade para manter os microsserviços funcionando estava altíssima.
-
+        dificuldade para manter os microsserviços funcionando estava altíssima;
+    \item A carga encaminhada dos clientes havia aumentado consideravelmente e eles ainda
+        continuavam com o mesmo problema de limitação do tráfego pelo lado das aplicações de
+        destino, o mesmo bloqueio frontal mencionado anteriormente;
 \end{itemize}
 
+\subsubsection{Solução adotada}
+
+Em 2017, \citeonline{Noonan:ToMicroservicesAndBackAgain} relata que eles chegaram ao ponto de
+ruptura: haviam 140 serviços rodando, uma equipe pequena mantendo uma série de processos
+operacionais e uma base de código complexa fazendo com que a arquitetura que inicialmente parecia
+ideal e que os auxiliaria a escalar, se torna-se o fator paralisador de todo o sistema. Nesse ponto,
+eles reunirão todas as experiências que haviam reunido desde 2013, e tomaram a decisão de retornar
+para uma arquitetura monolítica, com um sistema único que eles fossem capaz de gerenciar e escalar.
+
+A solução adotada reuniu todas as 140 integrações no mesmo repositório novamente, ao invés de ter
+uma fila para cada aplicação eles optaram por salvar os dados em um banco MySQL\footnote{Vide
+\url{https://www.mysql.com}}, com as condições de que:
+
+\begin{itemize}
+    \item As linhas do banco deveriam ser imutáveis, devendo o monolítico sempre inserir o novo
+        estado mas nunca atualizar o antigo;
+    \item Operações de JOIN não deveriam ser realizadas. No modelo desenvolvido por eles, o
+        monolítico deveria apenas ler informações básicas sobre os dados a serem tratados;
+    \item A escrita deve ser a operação predominante. Nessa nova arquitetura, a maioria dos dados
+        eram tratados em cache e tinham apenas o seu estado registrado no banco de dados.
+\end{itemize}
+
+Dessa forma, os dados chegavam ao monolítico, o qual registrava os mesmos no banco mas ainda os
+mantinham em cache. A medida que os dados eram tratados, o monolítico removia os dados do cache e
+registrava o novo estado no banco. Quando alguma integração falhava, o estado de falha era
+registrado no banco para que fosse tratado posteriormente por meio da estratégia de \textit{backoff}
+definida por eles.
+
+Olhando a perspectiva da escalabilidade, o monolítico podia ser replicado sempre que houvesse a
+necessidade. Para tal, havia um serviço responsável por gerenciar as instâncias de banco de dados.
+Sempre que um novo monolítico era colocado no ar, ele recebia por meio desse serviço o acesso a um
+banco de dados exclusivamente seu. Dessa forma, eles conseguiram automatizar o processo de
+escalabilidade de acordo com o uso da CPU \cite{Segment2018:Centrifuge}\footnote{A descrição
+completa da solução adotada pela Segment pode ser encontrada no link \url{https://segment.com/blog/introducing-centrifuge/}}.
+
+\subsubsection{Perspectiva pós-adoção da solução}
+
+A solução adotada pela Segment permitiu a eles:
+
+\begin{itemize}
+    \item Escalar melhor a sua aplicação, lidando de forma mais eficiente com as limitações de
+        capacidade das aplicações destino e permitindo a adição de novos serviços sem a necessidade
+        de aumentar os custos operacionais da equipe;
+    \item Aumentou consideravelmente a produtividade do time;
+    \item Solucionou o problema de compatibilidade de diferentes versões de bibliotecas
+        compartilhadas entre os serviços;
+    \item Facilitou o desenvolvimento de novas funcionalidades para o sistema;
+\end{itemize}
+
+Os problemas que eles tinham na primeira arquitetura monolítica relacionados às dificuldades de
+isolamento de ambiente continuaram presentes nessa nova arquitetura, contudo, agora o time de
+desenvolvimento da Segment soube lhe dar de forma muito mais madura com essa situação, procurando
+outras soluções diferente de microsserviços para tratar os obstáculos com os quais eles se
+deparavam.
 
 % Esta seção tem por propósito apresentar o estudo realizado sobre a
 % \textit{startup} Rua Dois Tecnologias, sendo esta o objeto de análise
