@@ -40,29 +40,27 @@ aos seus objetivos de crescimento do sistema.
 
 \section{Justificativa}
 
-As metodologias ágeis\footnote{Métodos iterativos para desenvolvimento de software,
-que visam a reação a mudanças conforme sejam as necessidades do cliente. Vide
-\url{http://agilemanifesto.org/}} visam diminuir os custos com retrabalho mediante as
-constantes mudanças de requisitos no processo de desenvolvimento de software,
-não apenas acomodando essas mudanças, mas abraçando-as. Assim, o design do
-software é construído de forma contínua \cite{AgileSoftwareInnovation}.
-Mas como garantir qualidade na construção desse design sendo que esses requisitos
-na verdade são hipóteses a serem comprovadas sobre o software? E em paralelo
-a validação dessas hipóteses, preparar esse software para atender a grande
-demanda que é almejada para as \textit{startups}? \citeonline{StartupEnxuta}
-em seu livro \textit{A Startup Enxuta}, traz a seguinte reflexão sobre esta
-realidade:
+No livro \textit{Software Architeture in Pratice}, os autores \citeonline{Bass2015:SoftwareArchitetureInPratice}
+apresentam a arquitetura de software como a ponte capaz de auxiliar as empresas a atingirem seus
+objetivos de negócio. Objetivos estes que por diversas vezes tendem a ser bastante abstratos,
+cabendo a arquitetura de software o grande papel de concretizar esses objetivos em sistemas
+\cite{Bass2015:SoftwareArchitetureInPratice}.
 
-  \begin{quotation}{}{}
-    Como sociedade, dispomos de um conjunto comprovado de técnicas para
-    administrar grandes empresas, e conhecemos as melhores práticas para
-    construir produtos físicos. No entanto, quando se trata de \textit{startups}
-    e inovação, ainda estamos atirando no escuro.
-  \end{quotation}
+Na intenção de construir essa ponte, frequentemente times de software se encontram ansiosos para
+adotar uma arquitetura de microsserviços levando aos seus sistemas as grandes vantagens que essa
+arquitetura é capaz de trazer, contudo o grande prêmio oferecido vêm acompanhado de vários custos e
+riscos que os desenvolvedores tendem a não considerar quando optam pela utilização de
+microsserviços \cite{MartinFowler:MicroservicePremium}.
 
-Portanto, este trabalho justifica-se por sua contribuição em buscar, neste
-cenário citado por Ries como obscuro, compreender as necessidades do desenvolvimento
-de software e como essas necessidades podem ser alinhadas ao ciclo de vida de uma \textit{startup}.
+Do outro lado, a arquitetura monolítica, comumente adotada por diversas aplicações, é inicialmente
+simples e agradável de manter, mas tende a crescer a sua complexidade mediante a sua inerente
+característica de ser acoplada \cite{StefanTilkov:DontStartWithAMonolith}.
+
+Diante deste contexto, o presente trabalho justifica-se por buscar esclarecer as diferenças entre
+ambos os estilos arquiteturais, monolítico e microsserviços, visando fornecer embasamento para equipes
+de desenvolvimento de software analisarem de forma mais consciente o contexto em que os projetos
+estão inseridos e como a escolha de determinado tipo arquitetural pode influenciar, positivamente ou
+negativamente, o alcance dos objetivos mencionados.
 
 \section{Objetivos}
 
