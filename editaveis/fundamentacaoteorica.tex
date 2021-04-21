@@ -197,9 +197,9 @@ mesmas:
 \begin{enumerate}
     \item Problemática a ser resolvida;
     \item Recursos necessários
-    \item Aspectos cotidianos relacionados a manutenção da aplicação;
     \item Características arquiteturais;
-    \item Evolução do sistema.
+    \item Manutenibilidade;
+    \item Evolucionabilidade.
 \end{enumerate}
 
 \subsection{Problemática a ser resolvida}
@@ -224,9 +224,21 @@ microsserviços. De forma que os custos e impactos de errar os limites de cada s
 tendem a ser muito maiores do que em um software monolítico mal projetado por não conhecer muito bem o
 domínio do problema. 
 
+Um outro ponto a ser considerado na problemática da aplicação refere-se ao tamanho que essa
+aplicação terá. \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} apontam que a arquitetura
+monolítica é uma arquitetura de menor custo portanto costuma ser uma boa escolha para sistemas
+pequenos.
+
 \subsection{Recursos necessários}
 
 \subsubsection{Recursos financeiros}
+
+De acordo com \cite{Richards2020:FundamentalsOfSoftwareArchitecture}, a simplicidade da arquitetura
+monolítica reflete em seu baixo custo de desenvolvimento e manutenção. Diferentemente, de uma arquitetura
+de microsserviços que exige uma série de fatores: monitoramento, replicação, expertise sobre as
+ferramentas, etc., fazendo com o que o custo para desenvolver e manter tal arquitetura seja elevado.
+Mediante essa visão, os autores indicam o uso desse modelo para empresas de grande porte,
+enquanto que empresas pequenas tendem a lhe dar melhor com monolíticos.
 
 \subsubsection{Recursos humanos}
 
@@ -236,7 +248,7 @@ estilo arquitetural, referente a relevância de possuir alguém na equipe que de
 aprofundado acerca do negócio e da problemática abordada. No texto \textit{Microservices For
 Greenfield?}, \citeonline{Newman:Greenfield} relata um projeto no qual eles estavam reimplementando
 um sistema que já existia há muitos anos, mas com uma equipe relativamente nova, ou seja, apesar do
-domínio de negócio ter sido explorado por um bom tempo, eles não possuiam a expertise necessária
+domínio de negócio ter sido explorado por um bom tempo, eles não possuíam a expertise necessária
 para a construção da aplicação de forma distribuída.
 
 Nesse contexto, \citeonline{Newman:Greenfield} indica a adoção de uma arquitetura monolítica como uma
@@ -273,9 +285,16 @@ mais rápido no mercado, uma vez que nesse modelo não há tais necessidades e p
 produtividade inicial tende a decrescer com o tempo, a medida que o monolítico vai ganhando mais
 funcionalidades e, consequentemente, aumentando a sua complexidade.
 
+\subsection{Características arquiteturais}
+
+\susubsection{Escalabilidade}
+\susubsection{Volume de dados}
+\susubsectionT{Tolerância a falhas}
+\susubsectionT{Confiabilidade}
+\susubsectionT{Disponibilidade}
+\susubsectionT{Performance}
+
 % \iffalse
-%
-% AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 %
 % Neste capítulo será apresentado as bases teóricas que permeiam o escopo
 % do presente trabalho. Partindo do entendimento sobre o contexto de
