@@ -144,6 +144,21 @@ permite a ele distinguir os seguintes tipos de monolíticos:
         migração.
 \end{description}
 
+% Contudo, a longo prazo começam a surgir dificuldades para manter essa
+% arquitetura, entre elas estão:
+%
+%   \begin{enumerate}
+%     \item Dificuldade em entender e alterar o código que ao longo do tempo se torna
+%     muito extenso e coeso;
+%     \item Limitação na agilidade de atualização do software, uma vez que para cada
+%     pequena alteração é necessário reimplantar o código por completo;
+%     \item Necessita de muito esforço para adotar uma nova tecnologia, sendo
+%     necessário adaptar todo o código da aplicação para a nova ferramenta;
+%     \item O sistema perde a confiabilidade pois a medida que cresce um \textit{bug}
+%     em uma única parte do código pode interromper todo o software já que todos os
+%     componentes estão conectados.
+%   \end{enumerate}
+
 \section{Microsserviços}
 
 Segundo \citeonline{Newman2015}, microsserviços são pequenos serviços autônomos que
@@ -181,13 +196,14 @@ mesmas:
 
 \begin{enumerate}
     \item Problemática a ser resolvida;
-    \item Recursos financeiros, humanos e de tempo;
+    \item Recursos necessários
     \item Aspectos cotidianos relacionados a manutenção da aplicação;
     \item Características arquiteturais;
     \item Evolução do sistema.
 \end{enumerate}
 
 \subsection{Problemática a ser resolvida}
+\label{Perpectivas:Problematica}
 
 Ao iniciar um projeto é comum se ter um baixo domínio sobre o problema a ser resolvido. A exemplo,
 as denominadas \textit{startups} estão continuamente surgindo no mercado com o intuito de descobrir
@@ -202,26 +218,43 @@ um desenvolvimento fácil por ser de conhecimento da maioria dos desenvolvedores
 apresentar baixa complexidade para a execução de tarefas como \textit{deploy}, confecção de testes
 e compartilhamento do código.
 
-\citeonline{Newman:Greenfield} corrobora com essa visão apontando que conhecer os limites do seu
-software é de extrema importância antes de iniciar uma arquitetura de microsserviços. De forma que
-os custos e impactos de errar os limites de cada serviço nessa arquitetura tendem a ser muito
-maiores do que em um software monolítico mal projetado por não conhecer muito bem o domínio do
-problema.
+\citeonline{MartinFowler:MonolithFirst} e \citeonline{Newman:Greenfield} fortalecem essa visão apontando
+que conhecer os limites do seu software é de extrema importância antes de iniciar uma arquitetura de
+microsserviços. De forma que os custos e impactos de errar os limites de cada serviço nessa arquitetura
+tendem a ser muito maiores do que em um software monolítico mal projetado por não conhecer muito bem o
+domínio do problema. 
 
-Contudo, a longo prazo começam a surgir dificuldades para manter essa
-arquitetura, entre elas estão:
+\subsection{Recursos necessários}
 
-  \begin{enumerate}
-    \item Dificuldade em entender e alterar o código que ao longo do tempo se torna
-    muito extenso e coeso;
-    \item Limitação na agilidade de atualização do software, uma vez que para cada
-    pequena alteração é necessário reimplantar o código por completo;
-    \item Necessita de muito esforço para adotar uma nova tecnologia, sendo
-    necessário adaptar todo o código da aplicação para a nova ferramenta;
-    \item O sistema perde a confiabilidade pois a medida que cresce um \textit{bug}
-    em uma única parte do código pode interromper todo o software já que todos os
-    componentes estão conectados.
-  \end{enumerate}
+\subsubsection{Recursos financeiros}
+
+\subsubsection{Recursos humanos}
+
+\subsubsection{Esforço e tempo inicial}
+
+O tempo de lançamento no mercado costuma ser um fator prioritário para diversas empresas, em geral,
+elas desejam lançar o produto no menor tempo possível, seja para validar a ideia, como
+vimos na \autoref{Perpectivas:Problematica}, ou por uma questão estratégica de mercado.
+
+Nesse sentido, \citeonline{MartinFowler:MicroservicePremium} aponta que a arquitetura de
+microsserviços consegue te entregar uma séries de recompensas (escalabilidade, tolerância a falhas,
+etc.) contudo, essas recompensas vêem acompanhada do alto custo que é inerente dos sistemas distribuídos.
+Esse modelo arquitetural necessita de \textit{deploy} automatizado, monitoramento, lidar com
+eventuais inconsistências dos dados e outros fatores que acabam contribuindo para aumentar o tempo e o esforço
+inicial necessário para lançar um produto no mercado. Nas palavras de
+\citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}:
+
+\begin{quotation}{Richards2020:FundamentalsOfSoftwareArchitecture}{transleted=true}
+    Microsserviços não poderiam existir sem a revolução \textit{DevOps} e a implacável marcha em direção à
+    automação de questões operacionais.\footnote{Texto original: \textit{Microservices couldn't exist
+    without the DevOps revolution and the relentless march toward automating operational concerns.}}
+\end{quotation}
+
+Por outro lado, a simplicidade da arquitetura monolítica permite que funcionalidades cheguem muito
+mais rápido no mercado, uma vez que nesse modelo não há tais necessidades e processos como
+\textit{deploy} podem ser realizados de maneira operacional. Contudo, vale ressaltar que essa alta
+produtividade inicial tende a decrescer com o tempo, a medida que o monolítico vai ganhando mais
+funcionalidades e, consequentemente, aumentando a sua complexidade.
 
 % \iffalse
 %
