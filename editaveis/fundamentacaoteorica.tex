@@ -135,10 +135,12 @@ permite a ele distinguir os seguintes tipos de monolíticos:
         ser implantados juntos. Nas palavras de \citeonline{newman2019monolith}:
 
         \begin{quotation}{newman2019monolith}{transleted=true}
-        Um monolítico distribuído pode muito bem atender a definição de uma \gls{SOA}, mas muitas vezes
-        falha em cumprir as promessas do padrão.\footnote{Texto original: \textit{A distributed
-        monolithic may well meet the definition of a service oriented-architecture, but all too
-        often fails to deliver on the promises of SOA.}}
+            Um monolítico distribuído pode muito bem atender a definição de uma
+            \gls{SOA}\footnote{A Arquitetura orientada a serviço - SOA é uma abordagem arquitetural na qual
+            vários serviços trabalham juntos para entregar um conjunto de funcionalidades.
+            \cite{Newman2015}}, mas muitas vezes falha em cumprir as promessas do padrão.
+            \footnote{Texto original: \textit{A distributed monolithic may well meet the definition of a
+            service oriented-architecture, but all too often fails to deliver on the promises of SOA.}}
         \end{quotation}
     \item [Sistemas caixa preta de terceiros] também são abordados por \citeonline{newman2019monolith}
         como sendo monolíticos, uma vez que não é possível decompor os esforços referente a uma
@@ -147,10 +149,12 @@ permite a ele distinguir os seguintes tipos de monolíticos:
 
 \subsection{Estrutura de um monolítico}
 
-A arquitetura monolítica é em sua essência uma arquitetura tecnicamente particionada
-\cite{Richards2020:FundamentalsOfSoftwareArchitecture}. Isso significa que seus componentes
+A arquitetura monolítica é um padrão de fácil compreensão que permite as empresas desfrutar de forma
+branda dos processos de construção e implantação de sistemas de software no início dos projetos.
+Esse modelo arquitetural é caracterizado por ser tecnicamente particionado
+\cite{Richards2020:FundamentalsOfSoftwareArchitecture}, ou seja, seus componentes
 (classes, métodos, etc.) estão agrupados por sua função técninca dentro do sistema. Na
-\label{fig:monolithicStructure}, podemos ver essa organização na qual temos:
+\autoref{fig:monolithicStructure}, podemos ver essa organização na qual temos:
 
 \begin{figure}[h]
   \centering
@@ -165,20 +169,32 @@ A arquitetura monolítica é em sua essência uma arquitetura tecnicamente parti
     \item [Camada de dados] destinada aos armazenamentos dos dados.
 \end{description}
 
-% Contudo, a longo prazo começam a surgir dificuldades para manter essa
-% arquitetura, entre elas estão:
-%
-%   \begin{enumerate}
-%     \item Dificuldade em entender e alterar o código que ao longo do tempo se torna
-%     muito extenso e coeso;
-%     \item Limitação na agilidade de atualização do software, uma vez que para cada
-%     pequena alteração é necessário reimplantar o código por completo;
-%     \item Necessita de muito esforço para adotar uma nova tecnologia, sendo
-%     necessário adaptar todo o código da aplicação para a nova ferramenta;
-%     \item O sistema perde a confiabilidade pois a medida que cresce um \textit{bug}
-%     em uma única parte do código pode interromper todo o software já que todos os
-%     componentes estão conectados.
-%   \end{enumerate}
+\citeonline{StefanTilkov:DontStartWithAMonolith} defende que essa arquitetura é um modelo
+essencialmente acoplado, no qual as abstrações que compõe o sistema compartilham de todos os mesmos
+recursos da aplicação: bibliotecas, canais de comunicação dentro do próprio processo, modelos de
+persistência no banco de dados, etc. A \autoref{fig:monolithicInPractice} exemplifica como mesmo no
+modelo modularizado é fácil ultrapassar os limites definidos para cada módulo visto que não há barreiras
+técnicas que impeçãm os desenvolvedores de tal. Dessa forma, garantir as características de alta coesão
+e baixo acoplamento, tão desejadas na manutenibilidade dos softwares, se torna uma tarefa difícil dependendo
+exclusivamente da disciplina dos desenvolvedores \cite{StefanTilkov:DontStartWithAMonolith,MartinFowler:MicroserviceTradeOffs}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.4]{figuras/monolith-theory-practice.eps}
+  \caption{Teoria vs Realidade de um monolítico\label{fig:monolithicInPractice} \source{StefanTilkov:DontStartWithAMonolith}}
+\end{figure}
+
+A \autoref{fig:monolithicsharedcomponents} aprofunda ainda mais nesse contexto da arquitetura
+monolítica, mostrando a tendência de compartilhar componentes, a exemplo classes de \textit{log},
+classes com funções compartilhadas por todo o sistema, etc., transparecendo como a reausabilidade do
+código dentro de sistemas monolíticos tende a aumentar o acoplamento entre seus componentes
+\cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.4]{figuras/monolith-theory-practice.eps}
+    \caption{PAGINA 189\label{fig:monolithicsharedcomponents} \source{StefanTilkov:Richards2020:FundamentalsOfSoftwareArchitecture}}
+\end{figure}
 
 \section{Microsserviços}
 
@@ -261,7 +277,7 @@ pequenos.
 
 \subsubsection{Recursos financeiros}
 
-De acordo com \cite{Richards2020:FundamentalsOfSoftwareArchitecture}, a simplicidade da arquitetura
+De acordo com \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, a simplicidade da arquitetura
 monolítica reflete em seu baixo custo de desenvolvimento e manutenção. Diferentemente, de uma arquitetura
 de microsserviços que exige uma série de fatores: monitoramento, replicação, expertise sobre as
 ferramentas, etc., fazendo com o que o custo para desenvolver e manter tal arquitetura seja elevado.
@@ -321,8 +337,8 @@ funcionalidades e, consequentemente, aumentando a sua complexidade.
 A arquitetura monolítica pode ser escalada horizontalmente utilizando de um \textit{load
 balancer}\footnote{\textcolor{red}{DESCREVER}} para executar várias instâncias do sistema
 \cite{MartinFowler:Microservices}. Entretanto, a escalabilidade oferecida por essa arquitetura é
-bastante limitada. A falta de modularidade exige que toda a aplicação seja replicada e
-não somente as funções que apresentam maior demanda. Existe a possibilidade de aplicar técnicas
+bastante limitada. A falta de modularidade exige que toda a aplicação seja replicada ao invés
+de replicarmos somente as funções que apresentam maior demanda. Existe a possibilidade de aplicar técnicas
 que amenizam esse problema, contudo, isto requer um esforço considerável para adaptar o modelo
 arquitetural \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
@@ -338,15 +354,16 @@ do estilo arquitetural \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 \subsubsection{Tolerância a falhas}
 
 O padrão arquitetural monolítico não suporta tolerância a falhas visto que se algo inesperado
-acontece em uma determinada parte do código, como uma leitura de memória inválida, a falha se
+acontece em uma determinada parte do código, como uma leitura de memória inválida, essa falha se
 propaga até matar o processo no qual roda todo o código monolítico, indisponibilizando a
 aplicação por inteiro, a qual pode levar em média, dependendo do tamanho do monolítico, de de 2 a
 15 minutos para ser reinicializada \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
 Do outro lado, os microsserviços naturalmente apresentam aspectos positivos em relação a tolerância
-a falhas uma vez que a falha em um serviço tende a impactar somente uma parte da aplicação.
-\citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} ressalta que essa tolerância pode ser
-negativamente impactada se houver muita dependência diante da comunicação entre os serviços.
+a falhas uma vez que uma falha em um serviço tende a impactar somente uma parte da aplicação.
+\citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} fazem uma ressalva que essa tolerância pode
+decair se houver muita dependência comunicativa entre os serviços, por isso definir cuidadosamente a
+granularidade do serviço é um ponto que deve bem avaliado.
 
 \subsubsection{Confiabilidade}
 
@@ -366,7 +383,7 @@ de baixa performance \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 A característica simplista dos monolíticos também não contribui nesse quesito. Segundo
 \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, a arquitetura monolítica não é por si
 mesma uma arquitetura de alta performance, exigindo esforço dos engenheiros para proporcionar
-performance na aplicação por meio de desenvolvimento paralelo, \textit{multithreading}, etc.
+tal fator para a aplicação por meio de desenvolvimento paralelo, \textit{multithreading}, etc.
 
 \subsection{Manutenibilidade}
 
@@ -439,8 +456,6 @@ forma que a equipe possua toda a gama de habilidades necessárias \cite{MartinFo
 \end{figure}
 
 \subsection{Evolucionabilidade}
-% microsservicos: perspectiva global e local
-% monoliticos: so tenho a global
 
 \subsubsection{Heterogeneidade das tecnologias}
 
@@ -455,3 +470,5 @@ desacoplados. Isso permite aos engenheiros de software escolherem a melhor tecno
 solução de acordo com problema abordado \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
 \subsubsection{Complexidade}
+
+
