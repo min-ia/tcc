@@ -332,10 +332,41 @@ ainda apoiada pelas técnicas modernas de provisionamento de recursos que benefi
 do estilo arquitetural \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
 \subsubsection{Volume de dados}
-\subsubsection{Tolerância a falhas}
-\subsubsection{Confiabilidade}
+
 \subsubsection{Disponibilidade}
+
+\subsubsection{Tolerância a falhas}
+
+O padrão arquitetural monolítico não suporta tolerância a falhas visto que se algo inesperado
+acontece em uma determinada parte do código, como uma leitura de memória inválida, a falha se
+propaga até matar o processo no qual roda todo o código monolítico, indisponibilizando a
+aplicação por inteiro, a qual pode levar em média, dependendo do tamanho do monolítico, de de 2 a
+15 minutos para ser reinicializada \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+
+Do outro lado, os microsserviços naturalmente apresentam aspectos positivos em relação a tolerância
+a falhas uma vez que a falha em um serviço tende a impactar somente uma parte da aplicação.
+\citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} ressalta que essa tolerância pode ser
+negativamente impactada se houver muita dependência diante da comunicação entre os serviços.
+
+\subsubsection{Confiabilidade}
+
+A arquitetura monolítica quando comparada a uma arquitetura distribuída, como microsserviços, tende
+a apresentar maior confiabilidade uma vez que esta não possui os problemas de conexão da rede,
+largura de banda e latência que os mesmos apresentam. Contudo, como será abordado na
+\autoref{testabilidade}, a testabilidade é um problema desse modelo arquitetural e consequentemente
+isso decresce a confiabilidade do sistema \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+
 \subsubsection{Performance}
+
+A característica desacoplada dos microsserviços traz consigo um enorme número de requisições
+sendo disparadas na rede juntamente com várias camadas adicionais de segurança na comunicação entre
+os serviços, o que faz com que o tempo de processamento cresça, tornando este um modelo arquitetural
+de baixa performance \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+
+A característica simplista dos monolíticos também não contribui nesse quesito. Segundo
+\citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, a arquitetura monolítica não é por si
+mesma uma arquitetura de alta performance, exigindo esforço dos engenheiros para proporcionar
+performance na aplicação por meio de desenvolvimento paralelo, \textit{multithreading}, etc.
 
 \subsection{Manutenibilidade}
 
@@ -358,6 +389,7 @@ fácil e rápida. Essa abordagem se caracteriza por somente uma parte do código
 produção, minimizando os impactos que possam ocorrer ao disponibilizar a funcionalidade.
 
 \subsubsection{Testabilidade}
+\label{testabilidade}
 
 A testabilidade de uma arquitetura monolítica é apontada por \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}
 como um ponto fraco nesse estilo arquitetural. Os autores defendem que este é um aspecto que decresce a
