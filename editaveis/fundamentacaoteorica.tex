@@ -226,10 +226,10 @@ de processos separados e independentes, se comunicando por meio de algum protoco
 
 Um dos grandes benefícios proporcionados por esta arquitetura são os limites impostos por cada
 serviço, os quais trazem maiores garantias sobre alta coesão, baixo acoplamento e modularização do
-sistema do que os modelos arquitetura mais tradicionais \cite{MartinFowler:MicroserviceTradeOffs}.
-Outra característica que contríbui para tal é que nesse padrão a duplicação do código é, em diversas
-situacões, preferível a reutilização do mesmo, visto que apesar do reuso de código ser algo
-benéfico, ele favore o acoplamento por meio de herança e composição
+sistema do que os modelos arquiteturais mais tradicionais \cite{MartinFowler:MicroserviceTradeOffs}.
+Outra característica que contribui para tal é que nesse padrão a duplicação do código é, em diversas
+situações, preferível a reutilização do mesmo, visto que apesar do reuso de código ser algo
+benéfico, ele favorece o acoplamento por meio de herança e composição
 \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
 Todas essas vantagens oferecidas pelos limites de domínio, fazem com que a
@@ -250,23 +250,6 @@ palavras de \citeonline{Newman2015}:
 distribuído para prover toda essa modularidade, e como tal, acabam trazendo junto todas as
 desvantagens deste modelo, principalmente, a complexidade.
 
-%
-% \begin{enumerate}
-%     \item{Uso de tecnologias heterogêneas;}
-%     \item{Maior resiliência do sistema;}
-%     \item{Facilidade em escalar pequenas partes do sistema, ao invés do sistema por
-%     completo;}
-%     \item{Facilidade e maior estabilidade no processo de \textit{deploy};}
-%     \item{Maior produtividade da equipe, uma vez que se passa a adotar equipes
-%     menores com bases de código menores;}
-%     \item{Reusabilidade dos serviços;}
-%     \item{Otimização da substituibilidade: organizações de médio e grande porte costumam
-%     possuir sistemas legados, com uma base de código enorme funcionando com tecnologias
-%     antigas tanto de software quanto de hardware. A substituição desses códigos é um
-%     processo custoso e arriscado. Com serviços pequenos realizar essa substituição
-%     se torna um processo mais fácil de gerenciar.}
-% \end{enumerate}
-%
 % Para o desenvolvimento de microsserviços é necessário pensar sobre o que deve ser
 % exposto e o que deve ser ocultado. Se houver muito compartilhamento os serviços de
 % consumo se acoplam às nossas representações internas, diminuindo a nossa autonomia
@@ -512,4 +495,22 @@ solução de acordo com problema abordado \cite{Richards2020:FundamentalsOfSoftw
 
 \subsubsection{Complexidade}
 
+Como abordado na \autoref{monolithics}, a arquitetura monolítica é naturalmente uma arquitetura
+simplista, de conhecimento da grande maioria de desenvolvedores, o que faz com que a sua
+complexidade no início de um projeto seja extremamente baixa. Contudo, existe uma tendência nessa
+arquitetura de promover o acoplamento e consequentemente aumentar a complexidade do sistema. Mesmo
+em monolíticos modularizados, é extremamente difícil evitar a criação de conexões entre os módulos
+\cite{StefanTilkov:DontStartWithAMonolith}, fazendo com o que a medida que cresce a base de código
+o sistema vá perdendo os benefícios de ser uma arquitetura simplista.
 
+Do outro lado, os microsserviços apresentam uma arquitetura distribuída e naturalmente isso vêm
+acompanhado da complexidade de coordenar todas essas partes independentes que o compõem para prover
+a funcionalidade final. Juntamente com esse contexto vêm as necessidades de monitorar e automatizar
+os processos que tornam ainda mais árdua tal tarefa.
+
+Apesar dessa perspectiva global da complexidade dos microsserviços, existe também uma perspectiva
+local, referente ao domínio de um único serviço, na qual nota-se uma baixa complexidade mediante a
+as características de alta coesão, baixo acoplamento e limite de domínio sobre as quais cada serviço
+é imposto. Isso faz dos microsserviços complexos quando olhamos globalmente para eles, mas
+simplistas quando olhamos localmente, de forma que é fácil para os desenvolvedores lidar com os
+\textit{trade-offs} de cada serviço.
