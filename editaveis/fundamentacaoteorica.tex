@@ -16,7 +16,18 @@ estudado. As seções estão dispostas em:
 \section{Arquitetura de Software}
 
 \begin{quotation}{Bass2015:SoftwareArchitetureInPratice}{transleted=true}
-Software systems are constructed to satisfy organizations' business goals. The architecture is a bridge between those (often abstract) business goals and the final (concrete) resulting system. While the path from abstract goals to concrete systems can be complex, the good news is that software architecture can be designed, analyzed, documented, and implemented using know techniques that will support the achievement of these business and mission goals. The complexity can be tamed, made tractable.
+    Sistemas de software são construídos para satisfazer os objetivos de negócios das organizações. A
+    arquitetura é a ponte entre esses objetivos (frequentemente abstratos) e o sistema resultante
+    (concreto). Enquanto o caminho de objetivos abstratos para sistemas concretos possa
+    ser complexo, a boa notícia é que a arquitetura de software pode ser projetada, analisada,
+    documentada e implementada usando técnicas conhecidas que apoiarão a realização desses objetivos
+    de negócios e missão. A complexidade pode ser domada, tornada tratável.
+    \footnote{Texto original: \textit{Software systems are constructed to satisfy organizations' business goals. The
+    architecture is a bridge between those (often abstract) business goals and the final (concrete)
+    resulting system. While the path from abstract goals to concrete systems can be complex, the
+    good news is that software architecture can be designed, analyzed, documented, and implemented
+    using know techniques that will support the achievement of these business and mission goals. The
+    complexity can be tamed, made tractable.}}
 \end{quotation}
 
 Como retratado na citação acima, arquitetura de software representa a ponte entre os sistemas
@@ -34,9 +45,11 @@ sobre a sua constante presença.
 arquitetura de software:
 
 \begin{quotation}{Bass2015:SoftwareArchitetureInPratice}{transleted=true}
-The software architecture of a system is the set of structures needed to
+    A arquitetura de software de um sistema é o conjunto de estruturas necessárias para raciocinar
+    sobre o sistema, que compreende os elementos do software, as relações entre eles e as propriedades de ambos.
+    \footnote{Texto original: \textit{The software architecture of a system is the set of structures needed to
 reason about the system, which comprise software elements, relations
-among them, and properties of both.
+    among them, and properties of both.}}
 \end{quotation}
 
 Com base nessa abordagem, os autores defendem que os sistemas de software são compostos por diversas
@@ -201,13 +214,41 @@ código dentro de sistemas monolíticos tende a aumentar o acoplamento entre seu
 Segundo \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, microsserviços é um estilo
 arquitetural fortemente inspirado nas ideias de \gls{DDD}, trazendo deste design o conceito de limites
 de contexto. Esses limites referem-se a um domínio sob o qual estão entidades e comportamentos que
-podemos desacoplar do restante do sistema. Essa abordagem torna os microsserviços pequenos serviços
-autônomos que trabalham juntos, em cima de uma base de código coesa e focada em resolver as regras de
-negócio dentro do domínio especificado \cite{Newman2015}.
+podemos desacoplar do restante do sistema. Assim, diferentemente da arquitetura monolítica que é
+organizada por atribuições técnicas, os microsseviços trazem em sua estrutura um reflexo de como o
+contexto é organizado no mundo real.
 
-Dessa forma, a aplicação deixa de ser um único processo e passa a ser vários serviços rodando em
-processos separados e independentes, os quais se comunicam por meio de algum protocolo \textit{web}
-\cite{MartinFowler:Microservices}.
+Essa abordagem torna os microsserviços pequenas partes autônomas que trabalham juntas em cima de uma
+base de código coesa e focada em resolver as regras de negócio dentro do domínio especificado
+\cite{Newman2015}. Dessa forma, a aplicação deixa de ser um único processo e se torna um conjunto
+de processos separados e independentes, se comunicando por meio de algum protocolo, comumente
+\gls{REST} \cite{MartinFowler:Microservices}.
+
+Um dos grandes benefícios proporcionados por esta arquitetura são os limites impostos por cada
+serviço, os quais trazem maiores garantias sobre alta coesão, baixo acoplamento e modularização do
+sistema do que os modelos arquitetura mais tradicionais \cite{MartinFowler:MicroserviceTradeOffs}.
+Outra característica que contríbui para tal é que nesse padrão a duplicação do código é, em diversas
+situacões, preferível a reutilização do mesmo, visto que apesar do reuso de código ser algo
+benéfico, ele favore o acoplamento por meio de herança e composição
+\cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+
+Todas essas vantagens oferecidas pelos limites de domínio, fazem com que a
+escolha cuidadosa sobre quais são esses limites seja de grande importância para o sistema. Nas
+palavras de \citeonline{Newman2015}:
+
+\begin{quotation}{Newman2015}{transleted=true}
+    Sem desacoplamento, tudo pode desabar. A regra de ouro: você pode alterar um serviço e
+    implantá-lo sozinho sem alterar nada mais? Se a resposta for não, então será difícil pra você
+    alcançar muitas das vantagens que discutiremos ao longo deste livro.  \footnote{Texto original:
+    \textit{Without decoupling, everything breaks down for us. The golden
+    rule: can you make a change to a service and deploy it by itself without changing anything else?
+    If the answer is no, then many of the advantages we discuss throughout this book will be hard for
+    you to achieve. }}
+\end{quotation}
+
+\citeonline{MartinFowler:MicroserviceTradeOffs} ainda ressalta que os microsserviços utilizam de um sistema
+distribuído para prover toda essa modularidade, e como tal, acabam trazendo junto todas as
+desvantagens deste modelo, principalmente, a complexidade.
 
 %
 % \begin{enumerate}
