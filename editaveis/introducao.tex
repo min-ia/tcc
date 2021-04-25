@@ -1,47 +1,65 @@
 \chapter[Introdução]{Introdução}
-% \addcontentsline{toc}{chapter}{Introdução}
 
+Há cerca de 10 anos atrás, a Amazon e a Netflix se destacavam no mercado de software trazendo ao
+mundo uma tendência arquitetural: os microsserviços. A grande promessa era que essa
+arquitetura era capaz de prover escalabilidade, resiliência e diversos outros benefícios para os
+problemas comumente enfrentados pelas empresas com seus sistemas legados e monolíticos. Assim,
+dava-se início a uma nova corrida entre as empresas: Spotify, Coca Cola e muitos outros
+grandes nomes, começaram a migrar a sua arquitetura para esse novo padrão tão promissor
+\cite{Aleksandra2019}.
 
+10 anos após o início dessa grande tendência no mundo de software, têm se observado o movimento
+inverso: um crescente interesse em cima da arquitetura monolítica, em particular, dos monolíticos
+modulares \cite{QTrends}. A realidade é que muitas empresas têm se aventurado na arquitetura de
+microsserviços e se deparado com uma séries de desafios além do que estavam preparadas para
+enfrentar. Nas palavras de \citeonline{MartinFowler:MicroserviceTradeOffs}:
 
+\begin{quotation}{MartinFowler:MicroserviceTradeOffs}{transleted=true}
+    Muitas equipes de desenvolvimento descobriram no estilo arquitetural dos microsserviços uma
+    abordagem superior a uma arquitetura monolítica. Mas outras equipes descobriram que eles
+    são um fardo que enfraquece a produtividade. \footnote{Texto original: \textit{Many
+    development teams have found the microservices architectural style to be a superior approach
+    to a monolithic architecture. But other teams have found them to be a productivity-sapping
+    burden.}}
+\end{quotation}
 
-If you are actually able to build a well-structured monolith, you probably don’t need microservices in the first place. Which is OK! I definitely agree with Martin: You shouldn’t introduce the complexity of additional distribution into your system if you don’t have a very good reason for doing so.
+Assim, nos deparamos com uma realidade na qual existe uma frustração antiga das empresas em trabalhar
+com a arquitetura monolítica devido as dificuldades de manutenibilidade que eventualmente essa arquitetura
+acaba demonstrando, e que na tentativa de sair desses problemas e conquistar a modularidade e todos os outros
+benefícios oferecidos pelos microsserviços essas empresas acabam se frustrando novamente mediante os desafios
+desse estilo arquitetural.
 
-% Existe no mundo um novo cenário emergente no qual, empresas nascentes,
-% denominadas \textit{startups}, produzem inovação ao ponto de serem capazes
-% de competir com empresas já estabelecidas no mercado \cite{CapacidadeDeInovacao}.
-% O ambiente de negócios está mudando devido a fatores como globalização, política
-% e tecnologia. Neste novo contexto, tudo que se conhece dos negócios são
-% hipóteses e um constante alto grau de risco \cite{Akiyoshi}.
+Diante desta situação, o presente trabalho visa realizar uma análise comparativa entre os dois estilos
+arquiteturais, monolítico e microsserviços, com o intuito de compreender as diferenças entre cada estilo
+e quais são os fatores que influenciam, positivamente ou negativamente, cada uma dessas abordagens
+arquiteturais.
+
+% Assim espera-se ao final deste trabalho, obter um comparativo claro sobre cada uma
+% das arquiteturas que possa servir de embasamento par auxiliar engenheiros de software na análise
+% sobre seus próprios contextos arquiteturais.
 %
-% Nesse cenário, surgiu a \textit{startup} Rua Dois Tecnologias. Com uma série
-% de hipóteses sobre o mercado imobiliário, a empresa visa inovar esse ramo que
-% é ainda muito burocrático e carente de melhorias \cite{LouisaXu}. E nessa
-% euforia por inovação, a \textit{startup} tem em seu modelo de negócios a
-% constante busca pela validação rápida de ideias mas de uma forma que ela
-% esteja preparada pra crescer e se expandir rapidamente, conforme os princípios
-% de repetibilidade e escalabilidade\footnote{Os princípios de Steve Blank sobre
-% \textit{startups} serão abordados com maior profundidade na 
-% \autoref{sec:OQueEUmaStartup}.} de \citeonline{SteveBlankFirstPrinciples} para
-% \textit{startups}.
-%
-% Nessa busca por escalabilidade a empresa tomou uma série de decisões tecnológicas
-% baseadas no que seria escalável, mas sem uma análise coerente com o sistema
-% proposto e com o contexto de validação de ideias que a empresa vivenciava.
-% A exemplo está a escolha de utilizar uma arquitetura de microsserviços sem conhecer
-% de fato a demanda dos serviços que seriam prestados, ocasionando dificuldades para
-% a empresa de modificar e evoluir esse sistema com a rapidez que é desejada para uma
-% \textit{startup}.
-%
-% Assim surgem as indagações do presente trabalho. Neste contexto das \textit{startups}
-% o software produzido é incessantemente alterado em busca da melhor solução para um
-% determinado problema, é possível preparar esse software de forma que ele possa ser
-% escalável? Se for possível, quais práticas e recomendações podem ser aplicadas para
-% alcançar este objetivo?
-%
-% Com foco nessas questões, este trabalho almeja realizar um estudo de caso sobre o
-% desenvolvimento de software na \textit{startup} Rua Dois, visando avaliar as questões
-% apresentadas e direcionar esta empresa para um caminho mais consolidade em relação
-% aos seus objetivos de crescimento do sistema.
+
+% \begin{quotation}{StefanTilkov:DontStartWithAMonolith}{transleted=true}
+%     Se você realmente é capaz de construir um monolítico bem estruturado, provavelmente não precisa
+%     de microsserviços em primeiro lugar.\footnote{Texto original: \textit{If you are actually able
+%     to build a well-structured monolith, you probably don’t need microservices in the first place.}}
+% \end{quotation}
+
+
+% \begin{quotation}{QTrends}{transleted=true}
+%     Por volta de 2010, arquiteturas baseadas em microsserviços começaram a ganhar grande relevância no mercado de desenvolvimento de software. No entanto, no começo de 2020, 10 anos depois, foi possível começar a observar um movimento de retrocesso nessa abordagem, ao mesmo tempo que se observa um aumento no interesse em monolitos modulares e bem projetados.
+% \end{quotation}
+
+
+% \begin{quotation}{StefanTilkov:DontStartWithAMonolith}{transleted=true}
+%     Se você realmente é capaz de contruir um monolítico bem estruturado, provavelmente não precisa
+%     de microsserviços em primeiro lugar. O que é ok! Eu definitivamente concordo com Martin: você
+%     realmente não deve introduzir a complexidade adicional da distribuição em seus sistemas se não
+%     tiver um bom motivo para fazer isso.\footnote{Texto original: \textit{If you are actually able
+%     to build a well-structured monolith, you probably don’t need microservices in the first place.
+%     Which is OK! I definitely agree with Martin: You shouldn’t introduce the complexity of
+%     additional distribution into your system if you don’t have a very good reason for doing so.}}
+% \end{quotation}
 
 \section{Justificativa}
 
