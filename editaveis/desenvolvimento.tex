@@ -48,6 +48,8 @@ avaliando os respectivos pontos presentes:
     \end{tabularx}
 \end{quadro}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Síntese da arquitetura monolítica}
 
 \begin{quadro}
@@ -260,10 +262,234 @@ avaliando os respectivos pontos presentes:
     \end{tabularx}
 \end{quadro}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Síntese da arquitetura de microsserviços}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre o domínio do problema\label{microsservicos:sintese-dominio}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
+    \textbf{mediante o aspecto}     & de domínio sobre o problema \\ \hline
+    \textbf{gera um impacto}        & de necessidade de domínio sobre o contexto\\ \hline
+    \textbf{devido à }              & definição dos limites que impacta toda a arquitetura \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a }          & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre o tamanho da aplicação\label{microsservicos:sintese-tamanho}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
+    \textbf{mediante o aspecto}     & do tamanho planejado para a aplicação \\ \hline
+    \textbf{gera um impacto}        & de custo muito alto para aplicações pequenas \\ \hline
+    \textbf{devido ao}              & custo muito alto de implementação e manutenção\\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre os recursos financeiros\label{microsservicos:sintese-financeiros}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
+    \textbf{mediante o aspecto}     & de recursos financeiros \\ \hline
+    \textbf{gera um impacto}        & alto custo \\ \hline
+    \textbf{devido à }              & necessidade de mão de obra especializada, monitoramento, replicação...\\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:recursosFinanceiros} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre os recursos humanos\label{microsservicos:sintese-humanos}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
+    \textbf{mediante o aspecto}     & de recursos humanos \\ \hline
+    \textbf{gera um impacto}        & necessita de expertise sobre as tecnologias \\ \hline
+    \textbf{devido à }              & complexidade da arquitetura \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:recursosHumanos} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre esforço e tempo inicial\label{microsservicos:sintese-esforco}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
+    \textbf{mediante o aspecto}     & esforço e tempo inicial \\ \hline
+    \textbf{gera um impacto}        & alto esforço inicial e demorado lançamento no mercado \\ \hline
+    \textbf{devido à }              & complexidade da arquitetura e a necessidade de automatizar todos os processos operacionais \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{effortsAndTime} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre escalabilidade\label{microsservicos:sintese-escalabilidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & da escalabilidade \\ \hline
+    \textbf{gera um impacto}        & de ser altamente escalável \\ \hline
+    \textbf{devido à }              & alta modularidade e automatização dos processos \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{pers:escalabilidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre tolerância a falhas\label{microsservicos:sintese-tolerancia}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & de tolerância a falhas \\ \hline
+    \textbf{gera um impacto}        & alta tolerância \\ \hline
+    \textbf{devido à }              & presença de vários pontos de falha, comprometendo apenas parcialmente a aplicação\\ \hline
+    \textbf{contudo}                & é preciso lidar com a escalabilidade da rede \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{pers:tolerancia} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre confiabilidade\label{microsservicos:sintese-confiabilidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & de confiabilidade do sistema \\ \hline
+    \textbf{gera um impacto}        & alta confiabilidade \\ \hline
+    % \textbf{devido à }              & \\ \hline
+    \textbf{contudo}                & é preciso lidar com eventuais inconsistências e escalabilidade da rede\\ \hline
+    % \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código aumenta \\ \hline
+    \textbf{com base na}            & \autoref{pers:confiabilidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre performance\label{microsservicos:sintese-performance}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & de performance do sistema \\ \hline
+    \textbf{gera um impacto}        & baixa performance \\ \hline
+    \textbf{devido à }              & dependência da rede e da adição de várias camadas de segurança
+        na comunicação entre os serviços \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{pers:performance} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre o processo de \textit{deploy}\label{microsservicos:sintese-deploy}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
+    \textbf{mediante o aspecto}     & de implantação do sistema \\ \hline
+    \textbf{gera um impacto}        & de fácil e rápida de implantação \\ \hline
+    \textbf{devido}                 & aos processos automatizados \\ \hline
+    \textbf{contudo}                & é preciso automatizar os processos operacionais \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código fica maior \\ \hline
+    \textbf{com base na}            & \autoref{pers:deploy} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese da testabilidade\label{microsservicos:sintese-testabilidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
+    \textbf{mediante o aspecto}     & de testabilidade do sistema \\ \hline
+    \textbf{gera um impacto}        & fácil de uma perspectiva local e difícil de uma perspectiva global \\ \hline
+    \textbf{devido à }              & modularidade local e a complexidade global respectivamente \\ \hline
+    % \textbf{contudo}                & é preciso lidar com a crescente complexidade\\ \hline
+    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
+    \textbf{com base na}            & \autoref{testabilidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese da comunicação\label{microsservicos:sintese-comunicacao}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
+    \textbf{mediante o aspecto}     & de comunicação entre os times \\ \hline
+    \textbf{gera um impacto}        & positivo \\ \hline
+    \textbf{devido aos}             & times multifuncionais \\ \hline
+    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
+    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
+    \textbf{com base na}            & \autoref{pers:comunicacao} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese da heterogeneidade das tecnologias\label{microsservicos:sintese-heterogeneidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
+    \textbf{mediante o aspecto}     & de heterogeneidade das tecnologias \\ \hline
+    \textbf{gera um impacto}        & de alta heterogeneidade \\ \hline
+    \textbf{devido ao}              & modelo arquitetural com baixo acoplamento \\ \hline
+    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
+    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
+    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura de microsserviços - síntese sobre complexidade do sistema\label{microsservicos:sintese-complexidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
+    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
+    \textbf{mediante o aspecto}     & da complexidade do sistema \\ \hline
+    \textbf{gera um impacto}        & de baixa complexidade de uma perspectiva local e alta
+        complexidade de uma perspectiva global\\ \hline
+    \textbf{devido ao}              & característica distribuída da arquitetura \\ \hline
+    % \textbf{contudo}                & é preciso lidar com o acoplamento do código \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & crescer a medida que ao crescimento da base de código\\ \hline
+    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.8]{figuras/sintese-monolitico-1.eps}
+  \caption{Síntese do monolítico\label{fig:ArquiteturaFase1}}
+\end{figure}
 
 
 
 
+\newpage
 
         % \begin{description}
         %     \item [Problemática a ser resolvida:] perspectiva a respeito do contexto inicial da
