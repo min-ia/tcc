@@ -8,12 +8,308 @@ arquitetura e análise comparativa realizada.
 As seções estão dispostas em:
 
   \begin{enumerate}
-    \item \textbf{Referencias bibliográficas ?} \textcolor{red}{ainda não sei como abordar isso};
+    \item \textbf{Síntese das perspectivas teóricas} síntese a respeitos das informações
+        coletadas nos referenciais teóricos sobre cada arquitetura;
     \item \textbf{Relatos de alguns casos reais:} detalhamento sobre as experiências de algumas empresas
     que optaram por fazer a migração de uma arquitetura monolítica para uma arquitetura de
     microsserviços ou vice-versa.
     \item \textbf{Análise comparativa}
   \end{enumerate}
+
+\section{Síntese das perspectivas teóricas}
+
+O presente tópico visa apresentar a síntese das perspectivas abordadas na \autoref{perspectivas} da
+fundamentação teórica com o intuito de esclarecer os pontos chaves presentes em cada arquitetura.
+Para tal, organizou-se os temas discutidos na fundamentação teórica no seguinte modelo de quadro,
+avaliando os respectivos pontos presentes:
+
+% \begin{description}
+%     \item [Perspectiva:] ponto de vista sob o qual a arquitetura está sendo analisada;
+%     \item [Aspecto:] quais aspectos impactam a arquitetura dentro daquela perspectiva;
+%     \item [Impacto:] qual o impacto que um dado aspecto causa em relação a arquitetura;
+%     \item [Causa:] qual fator presente na natureza daquela arquitetura é responsável por gerar o dado impacto;
+%     \item [Fatores adversos:] fatores que podem ser trabalhados com o intuito de minimizar o impacto;
+%     \item [Constância] tendência do impacto a aumentar ou diminuir a medida que a base de código
+%         cresce.
+% \end{description}
+
+\begin{quadro}
+    \caption{Definição da tabela de síntese\label{quad:sintese}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{Estilo arquitetural} & Estilo arquitetural em análise. \\ \hline
+    \textbf{Perspectiva}         & Ponto de vista sob o qual a arquitetura está sendo analisada. \\ \hline
+    \textbf{Aspecto}             & Quais aspectos impactam a arquitetura dentro daquela perspectiva. \\ \hline
+    \textbf{Impacto}             & Qual o impacto que um dado aspecto causa em relação a arquitetura. \\ \hline
+    \textbf{Causa}               & Qual fator presente na natureza daquela arquitetura é responsável por gerar o dado impacto. \\ \hline
+    \textbf{Fatores adversos}    & Fatores que podem ser trabalhados com o intuito de minimizar o impacto. \\ \hline
+    \textbf{Constância}          & Tendência do impacto a aumentar ou diminuir a medida que a base de código. \\ \hline
+    \textbf{Embasamento}         & Seção da fundamentação teórica que dado aspecto é discutido. \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\subsection{Síntese da arquitetura monolítica}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre o domínio do problema\label{monolitico:sintese-dominio}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
+    \textbf{mediante o aspecto}     & de domínio sobre o problema \\ \hline
+    \textbf{gera um impacto}        & positivo se o domínio sobre o contexto é baixo\\ \hline
+    \textbf{devido à }              & arquitetura simplista \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a }          & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre o tamanho da aplicação\label{monolitico:sintese-tamanho}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
+    \textbf{mediante o aspecto}     & do tamanho planejado para a aplicação \\ \hline
+    \textbf{gera um impacto}        & positivo se a aplicação é pequena \\ \hline
+    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre os recursos financeiros\label{monolitico:sintese-financeiros}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
+    \textbf{mediante o aspecto}     & de recursos financeiros \\ \hline
+    \textbf{gera um impacto}        & baixo custo \\ \hline
+    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:recursosFinanceiros} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre os recursos humanos\label{monolitico:sintese-humanos}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
+    \textbf{mediante o aspecto}     & de recursos humanos \\ \hline
+    \textbf{gera um impacto}        & não necessitar de expertise sobre as tecnologias \\ \hline
+    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{Perspectivas:recursosHumanos} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre esforço e tempo inicial\label{monolitico:sintese-esforco}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
+    \textbf{mediante o aspecto}     & esforço e tempo inicial \\ \hline
+    \textbf{gera um impacto}        & baixo esforço inicial e rápido lançamento no mercado \\ \hline
+    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{effortsAndTime} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre escalabilidade\label{monolitico:sintese-escalabilidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & da escalabilidade \\ \hline
+    \textbf{gera um impacto}        & de escalabilidade limitada \\ \hline
+    \textbf{devido à }              & baixa modularidade da arquitetura \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{pers:escalabilidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre tolerância a falhas\label{monolitico:sintese-tolerancia}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & de tolerância a falhas \\ \hline
+    \textbf{gera um impacto}        & não possui tolerância a falhas \\ \hline
+    \textbf{devido à }              & a existência de um único ponto de falha em toda a arquitetura \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{pers:tolerancia} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre confiabilidade\label{monolitico:sintese-confiabilidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & de confiabilidade do sistema \\ \hline
+    \textbf{gera um impacto}        & alta confiabilidade \\ \hline
+    % \textbf{devido à }              & \\ \hline
+    \textbf{contudo}                & é preciso lidar com a testabilidade do sistema\\ \hline
+    \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código aumenta \\ \hline
+    \textbf{com base na}            & \autoref{pers:confiabilidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre performance\label{monolitico:sintese-performance}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
+    \textbf{mediante o aspecto}     & de performance do sistema \\ \hline
+    \textbf{gera um impacto}        & baixa performance \\ \hline
+    \textbf{devido à }              & arquitetura simplista \\ \hline
+    % \textbf{contudo}                & \\ \hline
+    % \textbf{consciente de que este aspecto tende a} & \\ \hline
+    \textbf{com base na}            & \autoref{pers:performance} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre o processo de \textit{deploy}\label{monolitico:sintese-deploy}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
+    \textbf{mediante o aspecto}     & de implantação do sistema \\ \hline
+    \textbf{gera um impacto}        & de fácil implantação \\ \hline
+    \textbf{devido à }              & arquitetura simplista \\ \hline
+    \textbf{contudo}                & é preciso lidar com a crescente base de código\\ \hline
+    \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código fica maior \\ \hline
+    \textbf{com base na}            & \autoref{pers:deploy} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese da testabilidade\label{monolitico:sintese-testabilidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
+    \textbf{mediante o aspecto}     & de testabilidade do sistema \\ \hline
+    \textbf{gera um impacto}        & de facilidade para realizar testes \\ \hline
+    \textbf{devido à }              & arquitetura simplista \\ \hline
+    \textbf{contudo}                & é preciso lidar com a crescente complexidade\\ \hline
+    \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
+    \textbf{com base na}            & \autoref{testabilidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese da comunicação\label{monolitico:sintese-comunicacao}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
+    \textbf{mediante o aspecto}     & de comunicação entre os times \\ \hline
+    \textbf{gera um impacto}        & negativo \\ \hline
+    \textbf{devido aos}              & times segregados por domínio tecnológico \\ \hline
+    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
+    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
+    \textbf{com base na}            & \autoref{pers:comunicacao} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese da heterogeneidade das tecnologias\label{monolitico:sintese-heterogeneidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
+    \textbf{mediante o aspecto}     & de heterogeneidade das tecnologias \\ \hline
+    \textbf{gera um impacto}        & de heterogeneidade limitada \\ \hline
+    \textbf{devido ao}              & modelo arquitetural com alto acoplamento \\ \hline
+    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
+    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
+    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+\begin{quadro}
+    \caption{Arquitetura monolítica - síntese sobre complexidade do sistema\label{monolitico:sintese-complexidade}}
+    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
+    \hline
+    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
+    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
+    \textbf{mediante o aspecto}     & da complexidade do sistema \\ \hline
+    \textbf{gera um impacto}        & de baixa complexidade \\ \hline
+    \textbf{devido ao}              & arquitetura simplista \\ \hline
+    \textbf{contudo}                & é preciso lidar com o acoplamento do código \\ \hline
+    \textbf{consciente de que este aspecto tende a} & crescer a medida que ao crescimento da base de código\\ \hline
+    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+
+
+
+
+
+        % \begin{description}
+        %     \item [Problemática a ser resolvida:] perspectiva a respeito do contexto inicial da
+        %         aplicação;
+        %     \item [Recursos necessários:] perspectiva a respeito dos recursos financeiros, humanos,
+        %         esforços e de tempo necessários para cada arquitetura;
+        %     \item [Características arquiteturais:] capacidade da arquitetura de prover
+        %         escalabilidade, tolerância a falhas, etc.
+        %     \item [Manutenibilidade:] visão a respeito de processos cotidianos relacionados a
+        %         manutenção do sistema;
+        %     \item [Evolucinabilidade:] visão a respeito das características arquiteturais que
+        %         influênciam na evolução do sistema.
+        % \end{description}
+
+\begin{itemize}
+    \item Problemática da aplicação
+        \begin{itemize}
+            \item Domínio do contexto
+            \item Tamanho da aplicação
+        \end{itemize}
+    \item Recursos
+        \begin{itemize}
+            \item Recursos financeiros
+            \item Recursos humanos
+            \item Esforço inicial e tempo
+        \end{itemize}
+    \item Características arquiteturais 
+        \begin{itemize}
+            \item Escalabilidade
+            \item Tolerância a falhas
+            \item Confiabilidade
+            \item Performance
+        \end{itemize}
+    \item Manutenibilidade
+        \begin{itemize}
+            \item \textit{Deploy}
+            \item Testabilidade
+            \item \textit{Debugger}
+            \item Comunicação
+        \end{itemize}
+    \item Evolucionabilidade 
+        \begin{itemize}
+            \item Heterogeneidade das tecnologias
+            \item Complexidade
+        \end{itemize}
+\end{itemize}
 
 \section{Relatos de casos reais}
 
@@ -125,43 +421,6 @@ em mãos tem uma complexidade muito alta para ser quebrado.
 
 % Eu não vou avaliar a escolha ou não de uma arquitetura X.
 % Eu vou avaliar se o caso de estudo evidência ou não uma perpectiva/aspecto X
-
-\begin{itemize}
-    \item Problemática da aplicação
-        \begin{itemize}
-            \item Domínio do contexto
-            \item Tamanho da aplicação
-        \end{itemize}
-    \item Recursos
-        \begin{itemize}
-            \item Recursos financeiros
-            \item Recursos humanos
-            \item Esforço inicial e tempo
-        \end{itemize}
-    \item Características arquiteturais 
-        \begin{itemize}
-            \item Escalabilidade
-            \item Elasticidade
-            \item Tolerância a falhas
-            \item Confiabilidade
-            \item Disponibilidade
-            \item Performance
-            \item Volume de dados
-        \end{itemize}
-    \item Manutenibilidade
-        \begin{itemize}
-            \item \textit{Deploy}
-            \item Testabilidade
-            \item \textit{Debugger}
-            \item Comunicação
-            \item Curva de aprendizado
-        \end{itemize}
-    \item Evolucionabilidade 
-        \begin{itemize}
-            \item Heterogeneidade das tecnologias
-            \item Complexidade
-        \end{itemize}
-\end{itemize}
 
 % 1. Problemática da aplicação
 %     1. Domínio do contexto
@@ -440,6 +699,14 @@ isolamento de ambiente continuaram presentes nessa nova arquitetura, contudo, ag
 desenvolvimento da Segment soube lhe dar de forma muito mais madura com essa situação, procurando
 outras soluções diferente de microsserviços para tratar os obstáculos com os quais eles se
 deparavam.
+
+\section{Perspectivas sobre os casos de estudo}
+
+\subsection{Problemática a ser resolvida}
+\subsection{Recursos}
+\subsection{Características arquiteturais}
+\subsection{Manutenibilidade}
+\subsection{Evolucionabilidade}
 
 % Esta seção tem por propósito apresentar o estudo realizado sobre a
 % \textit{startup} Rua Dois Tecnologias, sendo esta o objeto de análise

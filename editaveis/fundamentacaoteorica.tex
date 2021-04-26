@@ -256,6 +256,7 @@ desvantagens deste modelo, principalmente, a complexidade.
 % e consequentemente a nossa capacidade de realizar alterações \cite{Newman2015}.
 
 \section{Perspectivas a respeito de cada estilo arquitetural}
+\label{perspectivas}
 
 Esta seção visa aprofundar no entendimento sobre as vantagens e desafios encontrados na adoção
 de cada um dos estilos arquiteturais abordados nesse trabalho. Para tal, será explorado as seguintes
@@ -271,7 +272,7 @@ mesmas:
 \end{enumerate}
 
 \subsection{Problemática a ser resolvida}
-\label{Perpectivas:Problematica}
+\label{Perspectivas:Problematica}
 
 Ao iniciar um projeto é comum se ter um baixo domínio sobre o problema a ser resolvido. A exemplo,
 as denominadas \textit{startups} estão continuamente surgindo no mercado com o intuito de descobrir
@@ -300,6 +301,7 @@ pequenos.
 \subsection{Recursos necessários}
 
 \subsubsection{Recursos financeiros}
+\label{Perspectivas:recursosFinanceiros}
 
 De acordo com \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, a simplicidade da arquitetura
 monolítica reflete em seu baixo custo de desenvolvimento e manutenção. Diferentemente, de uma arquitetura
@@ -309,8 +311,9 @@ Mediante essa visão, os autores indicam o uso desse modelo para empresas de gra
 enquanto que empresas pequenas tendem a lhe dar melhor com monolíticos.
 
 \subsubsection{Recursos humanos}
+\label{Perspectivas:recursosHumanos}
 
-Na seção \autoref{Perpectivas:Problematica}, nós enfatizamos a importância de conhecer os limites da
+Na seção \autoref{Perspectivas:Problematica}, nós enfatizamos a importância de conhecer os limites da
 sua aplicação antes de optar por uma arquitetura de microsserviços. Isso nos leva a uma outra necessidade desse
 estilo arquitetural, referente a relevância de possuir alguém na equipe que detenha esse conhecimento
 aprofundado acerca do negócio e da problemática abordada. No texto \textit{Microservices For
@@ -320,7 +323,7 @@ domínio de negócio ter sido explorado por um bom tempo, eles não possuíam a 
 para a construção da aplicação de forma distribuída.
 
 Nesse contexto, \citeonline{Newman:Greenfield} indica a adoção de uma arquitetura monolítica como uma
-melhor opção uma vez que, como citado na \autoref{Perpectivas:Problematica}, este estilo arquitetural
+melhor opção uma vez que, como citado na \autoref{Perspectivas:Problematica}, este estilo arquitetural
 é indicado para contextos nos quais não se possui domínio e, para completar, apresenta a vantagem de ser uma
 arquitetura familiar para boa parte dos desenvolvedores
 \cite{Richards2020:FundamentalsOfSoftwareArchitecture}, dessa forma, ele se diferencia de uma
@@ -332,7 +335,7 @@ arquitetura de microsserviços por não precisar de um especialista sobre a tecn
 
 O tempo de lançamento no mercado costuma ser um fator prioritário para diversas empresas, em geral,
 elas desejam lançar o produto no menor tempo possível, seja para validar a ideia, como
-vimos na \autoref{Perpectivas:Problematica}, ou por uma questão estratégica de mercado.
+vimos na \autoref{Perspectivas:Problematica}, ou por uma questão estratégica de mercado.
 
 Nesse sentido, \citeonline{MartinFowler:MicroservicePremium} aponta que a arquitetura de
 microsserviços consegue te entregar uma séries de recompensas (escalabilidade, tolerância a falhas,
@@ -357,6 +360,7 @@ funcionalidades e, consequentemente, aumentando a sua complexidade.
 \subsection{Características arquiteturais}
 
 \subsubsection{Escalabilidade}
+\label{pers:escalabilidade}
 
 A arquitetura monolítica pode ser escalada horizontalmente utilizando de um \textit{load
 balancer}\footnote{\textcolor{red}{DESCREVER}} para executar várias instâncias do sistema
@@ -371,11 +375,8 @@ altamente desacoplada que favorece a escalabilidade em um nível incremental. Es
 ainda apoiada pelas técnicas modernas de provisionamento de recursos que beneficiam a elasticidade
 do estilo arquitetural \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
-\subsubsection{Volume de dados}
-
-\subsubsection{Disponibilidade}
-
 \subsubsection{Tolerância a falhas}
+\label{pers:tolerancia}
 
 O padrão arquitetural monolítico não suporta tolerância a falhas visto que se algo inesperado
 acontece em uma determinada parte do código, como uma leitura de memória inválida, essa falha se
@@ -390,6 +391,7 @@ decair se houver muita dependência comunicativa entre os serviços, por isso de
 granularidade do serviço é um ponto que deve bem avaliado.
 
 \subsubsection{Confiabilidade}
+\label{pers:confiabilidade}
 
 A arquitetura monolítica quando comparada a uma arquitetura distribuída, como microsserviços, tende
 a apresentar maior confiabilidade uma vez que esta não possui os problemas de conexão da rede,
@@ -398,6 +400,7 @@ largura de banda e latência que os mesmos apresentam. Contudo, como será abord
 isso decresce a confiabilidade do sistema \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
 \subsubsection{Performance}
+\label{pers:performance}
 
 A característica desacoplada dos microsserviços traz consigo um enorme número de requisições
 sendo disparadas na rede juntamente com várias camadas adicionais de segurança na comunicação entre
@@ -412,6 +415,8 @@ tal fator para a aplicação por meio de desenvolvimento paralelo, \textit{multi
 \subsection{Manutenibilidade}
 
 \subsubsection{\textit{Deploy}}
+\label{pers:deploy}
+
 Na \autoref{monolithics} foi apresentado como monolíticos são em sua essência uma unidade de
 \textit{deploy}. No início do projeto, esta característica contribui com a simplicidade e a
 velocidade em lançar o sistema, como relatado na \autoref{effortsAndTime}. Porém, a medida que a
@@ -444,9 +449,8 @@ ressaltam que a base desse modelo arquitetural são os limites de domínio de ca
 para tal é importante coordenar qualquer mudança nas interfaces de comunicação adicionando camadas
 extras de compatibilidade de versões, o que acaba tornando o processo de testes mais difícil.
 
-\subsubsection{\textit{Debugger}}
-\subsubsection{Curva de aprendizado}
 \subsubsection{Comunicação}
+\label{pers:comunicacao}
 
 \begin{quotation}{Conway}{transleted=true}
     Qualquer organização que projeta um sistema (definido de forma mais ampla aqui do que apenas sistemas de informação)
@@ -482,6 +486,7 @@ forma que a equipe possua toda a gama de habilidades necessárias \cite{MartinFo
 \subsection{Evolucionabilidade}
 
 \subsubsection{Heterogeneidade das tecnologias}
+\label{pers:heterogeneidade}
 
 Tradicionalmente, as empresas padronizam a \textit{stack} de tecnologias com a qual trabalham. Na
 arquitetura monolítica esse fator acaba se tornando algo enraizado no sistema devido a sua
