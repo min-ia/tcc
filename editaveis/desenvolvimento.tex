@@ -51,6 +51,7 @@ avaliando os respectivos pontos presentes:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Síntese da arquitetura monolítica}
+\label{monoSintese}
 
 \begin{quadro}
     \caption{Arquitetura monolítica - síntese sobre o domínio do problema\label{monolitico:sintese-dominio}}
@@ -261,6 +262,19 @@ avaliando os respectivos pontos presentes:
     \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
     \end{tabularx}
 \end{quadro}
+
+\newpage
+
+A \autoref{fig:SinteseMono} visa ilustrar um resumo dos pontos destacados com base na síntese do
+referêncial teórico. Nela podemos observar de verde os fatores positivos da arquitetura, de amarelo
+os fatores negativos e de vermelho os fatores que inicialmente são positivos dentro do modelo
+arquitetural mas que tendem a decair a medida que a base de código aumenta.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/sintese-monolitico.eps}
+  \caption{Mapa mental do processo de síntese realizado sobre a arquitetura monolítica\label{fig:SinteseMono}}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -479,14 +493,22 @@ avaliando os respectivos pontos presentes:
     \end{tabularx}
 \end{quadro}
 
+\newpage
+
+A \autoref{fig:SinteseMicro} visa ilustrar um resumo dos pontos destacados com base na síntese
+elaborada a partir do referêncial teórico. Nela podemos observar de verde os fatores positivos da
+arquitetura, de amarelo os fatores negativos e de roxo os fatores que em geral são positivos na
+arquitetura mas que exigem que o time de desenvolvimento lide com algum fator adverso. Por exemplo,
+o \textit{deploy} é apontado como um fator positivo dentro da arquitetura de microsserviços, visto
+que é fácil e rápido atualizar um serviço, contudo existe o fator adverso de que todo o processo
+deve estar automatizado, caso a equipe não automatize esse processo, provavelmente eles terão algum
+problema pra lidar com o \textit{deploy} dentro dessa arquitetura.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=0.8]{figuras/sintese-monolitico-1.eps}
-  \caption{Síntese do monolítico\label{fig:ArquiteturaFase1}}
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/sintese-microsservicos.eps}
+  \caption{Mapa mental do processo de síntese realizado sobre a arquitetura de microsserviços\label{fig:SinteseMicro}}
 \end{figure}
-
-
 
 
 \newpage
@@ -503,41 +525,41 @@ avaliando os respectivos pontos presentes:
         %     \item [Evolucinabilidade:] visão a respeito das características arquiteturais que
         %         influênciam na evolução do sistema.
         % \end{description}
+%
+% \begin{itemize}
+%     \item Problemática da aplicação
+%         \begin{itemize}
+%             \item Domínio do contexto
+%             \item Tamanho da aplicação
+%         \end{itemize}
+%     \item Recursos
+%         \begin{itemize}
+%             \item Recursos financeiros
+%             \item Recursos humanos
+%             \item Esforço inicial e tempo
+%         \end{itemize}
+%     \item Características arquiteturais 
+%         \begin{itemize}
+%             \item Escalabilidade
+%             \item Tolerância a falhas
+%             \item Confiabilidade
+%             \item Performance
+%         \end{itemize}
+%     \item Manutenibilidade
+%         \begin{itemize}
+%             \item \textit{Deploy}
+%             \item Testabilidade
+%             \item \textit{Debugger}
+%             \item Comunicação
+%         \end{itemize}
+%     \item Evolucionabilidade 
+%         \begin{itemize}
+%             \item Heterogeneidade das tecnologias
+%             \item Complexidade
+%         \end{itemize}
+% \end{itemize}
 
-\begin{itemize}
-    \item Problemática da aplicação
-        \begin{itemize}
-            \item Domínio do contexto
-            \item Tamanho da aplicação
-        \end{itemize}
-    \item Recursos
-        \begin{itemize}
-            \item Recursos financeiros
-            \item Recursos humanos
-            \item Esforço inicial e tempo
-        \end{itemize}
-    \item Características arquiteturais 
-        \begin{itemize}
-            \item Escalabilidade
-            \item Tolerância a falhas
-            \item Confiabilidade
-            \item Performance
-        \end{itemize}
-    \item Manutenibilidade
-        \begin{itemize}
-            \item \textit{Deploy}
-            \item Testabilidade
-            \item \textit{Debugger}
-            \item Comunicação
-        \end{itemize}
-    \item Evolucionabilidade 
-        \begin{itemize}
-            \item Heterogeneidade das tecnologias
-            \item Complexidade
-        \end{itemize}
-\end{itemize}
-
-\section{Relatos de casos reais}
+\section{Análise dos casos de estudo}
 
 A presente seção visa relatar casos reais de empresas que vivenciaram os estilos arquiteturais
 estudados. A proposta é entender o contexto dessas empresas, as decisões tomadas e qual a percepção
@@ -643,40 +665,31 @@ que a equipe enfrentava dentro no monolítico KN Login, mas a autora traz a pers
 sistemas autocontidos como um passo intermediário em direção aos microsserviços quando o monolítico
 em mãos tem uma complexidade muito alta para ser quebrado.
 
-\subsubsection{Perspectivas sobre o caso de estudo}
+\subsubsection{Análise sobre o caso de estudo}
 
-% Eu não vou avaliar a escolha ou não de uma arquitetura X.
-% Eu vou avaliar se o caso de estudo evidência ou não uma perpectiva/aspecto X
+O caso da KN Login traz a típica história dos monolíticos: inicialmente uma aplicação que deveria
+ser simples mas que com o tempo o sistema foi inflando com várias funcionalidades. Nota-se que a
+equipe do KN Login se deparou com um contexto complexo: rastreio dos contêineres, análise climática,
+etc. E mediante esse contexto, eles tentaram lidar com toda a problemática dentro do monolítico sem
+considerar a limitação que este estilo arquitetural oferece referente a heterogeneidade das
+tecnologias envolvidas.
 
-% 1. Problemática da aplicação
-%     1. Domínio do contexto
-%     1. Tamanho da aplicação
-% 1. Recursos
-%     1. Recursos financeiros
-%     1. Recursos humanos
-%     1. Esforço e tempo inicial
-% 1. Características arquiteturais
-%     1. Escalabilidade
-%     1. Elasticidade
-%     1. Tolerancia a falhas
-%     1. Confiabilidade
-%     1. Disponibilidade
-%     1. Performance
-%     1. Volume de dados
-% 1. Manutenibilidade
-%     1. Deploy
-%     1. Testabilidade
-%     1. Debugger
-%     1. Comunicação
-%     1. Curva de aprendizado
-% 1. Evolucionabilidade
-%     1. Heterogeneidade das tecnologias
-%     1. Complexidade
+Diante da combinação: contexto complexo e heterogeneidade de tecnologias, o monolítico KN Login
+resultou em uma aplicação de alta complexidade e baixa confiabilidade, se tornando um sistema
+instável e difícil de manter. A \autoref{fig:monoKN} visa ilustrar os pontos destacados na
+arquitetura monolítica do KN Login mediante aos fatores levantados sobre essa arquitetura na
+\autoref{monoSintese}. 
 
-\subsection{Otto.de}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/analise-knlogin.eps}
+  \caption{Fatores apresentados no caso de estudo da arquitetura monolítica do sistema KN Login\label{fig:monoKN}}
+\end{figure}
+
+\subsection{Otto}
 
 Nesta seção será apresentado o caso relatado por  \citeonline{Guido2015:OnMonolithsAndMicrosrvices}, a
-respeito da construção do novo \textit{e-commerce} Otto.de\footnote{O relato original e completo do autor
+respeito da construção do novo \textit{e-commerce} Otto\footnote{O relato original e completo do autor
 sobre o caso pode ser encontrado nos links
 \url{https://www.otto.de/jobs/technology/techblog/artikel/on-monoliths-and-microservices_2015-09-30.php}
 e \url{https://www.otto.de/jobs/technology/techblog/artikel/why-microservices_2016-03-20.php}}.O Grupo
@@ -764,7 +777,7 @@ seguintes pontos:
     \item Cada aplicativo pode ser implementado de forma independente;
     \item Não há necessidade de coordenar o processo de implantação, cada equipe possui autonomia
         para gerenciar o seu processo de implantação sem afetar as demais equipes;
-    \item Baixa curva de aprendizado, os microsserviços de compreensão pelos desenvolvedores;
+    \item Baixa curva de aprendizado, cada serviço é de fácil compreensão pelos desenvolvedores;
     \item Escalabilidade em relação a aplicação e aos próprios times de desenvolvimento;
     \item A complexidade de um serviço é extremamente baixa quando comparada a uma arquitetura
         monolítica;
@@ -784,6 +797,53 @@ A adoção de sistemas autocontidos é apresentada por ele como uma porta de ent
 resolver problemas semelhante aos microsserviços de uma forma mais pragmática, deixando ainda a
 possibilidade de migrar futuramente para uma arquitetura de microsserviços de uma forma não tão
 árdua \cite{Guido2016:WhyMicroservices}.
+    
+\subsubsection{Análise sobre o caso de estudo}
+
+A figura \autoref{fig:analise-mono-otto} ilustra os pontos da arquitetura monolítica levantados pelo
+caso de estudo da Otto. Percebe-se que a experiência deles atesta os pontos referentes ao início do
+projeto quando a aplicação é pequena, de fácil compreensão por todos, tem um custo baixo, etc.
+Também atesta os problemas de complexidade e de implantação que tendem nesse modelo arquitetural a
+crescer juntamente com a base de código.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/monoOtto.eps}
+  \caption{Fatores apresentados no caso de estudo da arquitetura monolítica da Otto\label{fig:analise-mono-otto}}
+\end{figure}
+
+A tomada de decisão por passar para uma arquitetura de sistemas auto-contidos auxilia eles como um
+passo intermediário antes de aderir toda a complexidade da arquitetura de microsserviços. Nessa
+abordagem percebe-se que eles vivenciam características dos dois estilos arquiteturais. Olhando da
+perspectiva dos microsserviços, eles definem protocolos de comunicação e compartilhamento de dados e lidam
+com eventuais inconsistência de dados (um problema comum da arquitetura de microsserviços). Por
+outro lado, eles ainda precisam lidar com a crescente base de código dos monolíticos dentro de cada
+sistema auto-contido.
+
+A figura \autoref{fig:analise-micro-otto} ressalta os pontos de alta escalabilidade, alta
+tolerância a falhas, facilidade no \textit{deploy}, testabilidade e alta heterogeneidade de
+tecnologias observados no caso de estudo. A experiência da Otto também outros pontos dessa
+arquitetura como baixa curva de aprendizado e a necessidade de automatizar todos os
+processos.  
+
+Um ponto que se diferencia do esperado, de acordo com a fundamentação teórica levantada para esse
+trabalho, é que a Otto apresenta a coleta de \textit{feedbacks} como um ponto positivo da
+arquitetura de microsserviços enquanto o referencial teórico aponta a arquitetura monolítica como
+mais indicada para tal. Nesse sentido, percebe-se que existe o fator tempo de projeto envolvido.
+Como relatado na \autoref{Perspectivas:Problematica} e na \autoref{effortsAndTime}, ao iniciar um
+projeto a arquitetura monolítica é melhor para a rápida coleta de \textit{feedbacks} por ser mais
+simplista, contudo no caso da Otto, eles já tinham um sistema monolítico com uma base de código
+grande e devido aos problemas de complexidade já discutidos evoluir e testar rápido esse sistema com
+os usuários já não deveria ser um processo tão fácil. Já na arquitetura de microsserviços, existe a
+esforço inicial de automatizar todos os processos, mas após essa automatização alterar e testar um
+novo serviço tende a ser fácil.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/monoOtto.eps}
+  \caption{Fatores apresentados no caso de estudo da arquitetura de microsserviços da Otto\label{fig:analise-micro-otto}}
+\end{figure}
 
 \subsection{Segment}
 
@@ -926,13 +986,53 @@ desenvolvimento da Segment soube lhe dar de forma muito mais madura com essa sit
 outras soluções diferente de microsserviços para tratar os obstáculos com os quais eles se
 deparavam.
 
-\section{Perspectivas sobre os casos de estudo}
+\subsubsection{Análise sobre o caso de estudo}
 
-\subsection{Problemática a ser resolvida}
-\subsection{Recursos}
-\subsection{Características arquiteturais}
-\subsection{Manutenibilidade}
-\subsection{Evolucionabilidade}
+O caso da Segment conta com três fases que precisam ser avaliadas: o monolítico inicial, os
+microsserviços e o monolítico final. A figura \autoref{fig:analise-mono-segment-1} representa o
+primeiro monolítico construído pela empresa. A escolha inicial de uma arquitetura monolítica condiz
+com o contexto da empresa, a qual era composta por uma equipe pequena de engenheiros de software e
+estava buscando validar sua ideia e descobrir o domínio no qual estavam imersos. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/monoOtto.eps}
+  \caption{Fatores apresentados no caso de estudo da primeira arquitetura monolítica da Segment\label{fig:analise-mono-segment-1}}
+\end{figure}
+
+No caso, a Segment se depara logo com a limitação de tolerância a falhas dessa arquitetura e decidem
+mudar para uma arquitetura de microsserviços. Visto que o sistema da Segment era um software novo,
+com um ano de funcionamento quando eles optaram por fazer a migração, percebe-se que outros problemas
+da arquitetura monolítica não aparecem no relato, como alta complexidade, dificuldades de
+manutenibilidade, etc., evidenciando o ponto levantado na \autoref{monoSintese} de que essas
+características são inicialmente positivas no sistema e estão diretamente relacionadas ao tamanho da
+base de código.
+
+Ao passar o sistema para a arquitetura de microsserviços, o time consegue perceber os pontos
+destacados na \autoref{fig:analise-micro-segment} como a tolerância a falhas, a baixa complexidade
+local, etc. Vale ressaltar que a Segment também relata, semelhante a Otto, a facilidade e velocidade
+de adicionar novas funcionalidades nessa arquitetura. Contudo, percebe-se também a ausência da expertise,
+comentada na \autoref{Perspectivas:recursosHumanos}, sobre este modelo arquitetural visto que os processos
+operacionais não são automatizados pela equipe da Segment. Este fator somado ao crescente número de
+serviços funcionando faz com que a equipe se afogue na grande demanda de processos operacionais
+exigida por essa arquitetura. Assim, eles param todo o desenvolvimento mediante a inviabilidade de
+gerenciar essa arquitetura nas proporções que ela tomou.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/monoOtto.eps}
+  \caption{Fatores apresentados no caso de estudo da arquitetura de microsserviços da Segment\label{fig:analise-micro-segment}}
+\end{figure}
+
+No meio desta situação, a Segment opta por voltar para a arquitetura monolítica mas de uma forma
+mais consciente sobre quais eram as dificuldades do contexto deles, planejando estratégias para
+lidar com as adversidades que eles já conheciam. Assim, eles conseguem construir um sistema que
+possa prover escalabilidade, tolerância a falhas e produtividade para a equipe em cima de uma
+arquitetura monolítica. Vale salientar que, a respeito da produtividade da equipe, a Segment se
+encontra com um monolítico relativamente novo, que foi planejado e assim ele apresenta o perfil de
+um monolítico em sua fase inicial: baixa complexidade, módulos bem definidos, etc., contudo, é
+necessário que a equipe se empenhe para conseguir manter essas características a medida que sua base
+de código cresce.
 
 % Esta seção tem por propósito apresentar o estudo realizado sobre a
 % \textit{startup} Rua Dois Tecnologias, sendo esta o objeto de análise
