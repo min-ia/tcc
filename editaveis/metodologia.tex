@@ -1,126 +1,89 @@
 \chapter{Metodologia}
 \label{sec:Metodologia}
 
-\section{Levantamento bibliográfico}
+Com o propósito de atingir o objetivo descrito na \autoref{sec:ObjetivoGeral}, o presente trabalho
+realizou uma pesquisa exploratória acerca do tema abordado juntamente com a análise de alguns casos
+práticos de empresas que fizeram a migração de uma arquitetura monolítica para uma arquitetura de
+microsserviços, ou vice e versa. Assim, o desenvolvimento deste estudo baseou-se nas seguintes etapas:
 
-Para referenciamento deste trabalho foram realizados estudos acerca de
-\textit{startups}, desenvolvimento de software e aspectos relacionados
-a escalabilidade de um sistema por meio de livros, Google Scholar, dentre
-outras fontes. Os tópicos abordados dentro de cada tema foram selecionados
-com base na sua respectiva importância dentro do assunto e no seu envolvimento
-com o contexto aprensentado. Individualmente, os temas citados são bem explorados e
-abordados pela comunidade acadêmica, contudo, quando relacionados os artigos e
-estudos a respeito tendem a ser mais escassos.
+\begin{description}
+    \item [Etapa 1] Levantamento teórico inicial acerca dos objetos de análise diante dos
+        referências teóricos adotados;
+    \item [Etapa 2] Fichamento e agrupamento dos pontos de vista descobertos na Etapa 1, afim de
+        encontrar as perspectivas comuns e divergentes entre os autores estudados;
+    \item [Etapa 3] Síntese acerca dos aspectos levantados sobre cada estilo arquitetural;
+    \item [Etapa 4] Descrição dos casos de estudo relevantes para o tema;
+    \item [Etapa 5] Análise dos casos de estudo diante das perspectivas teóricas levantadas;
+    \item [Etapa 6] Análise final comparando os dois modelos arquiteturais com base nos referências
+        teóricos adotados e nos casos práticos estudados.
+\end{description}
 
-Publicações e palestras de empresas de referencia voltadas ao desenvolvimento de
-software no contexto de \textit{startups} também foram utilizadas com o intuito de
-contribuir com perspectivas mais atuais a respeito do tema.
+A seguir serão apresentados os objetos de análise, as ferramentas utilizadas e a descrição de cada
+etapa adotada.
 
-\section{Metodologia de pesquisa}
-\label{sec:MetodologiaPesquisa}
-
-A proposta deste trabalho é correlacionar técnicas de desenvolvimento de software escalável com as
-fases de vida de uma \textit{startup}. Para tal, foi aplicado o METODO X, visando estabelecer essa
-correlação. Esta seção visa descrever os objetos de análise, o método aplicado e
-as etapas envolvidas no desenvolvimento de toda a pesquisa. 
-
-\subsection{Objetos de análise}
+\section{Objetos de análise}
 \label{sec:ObjetosDeAnalise}
 
-
-Os objetos de análise do presente estudo consistem em:
-
-    \begin{description}
-        \item [Ciclo de vida de uma \textit{startup}] Fases pelas quais uma \textit{startup} passa
-            desde o seu nascimento até a sua estabilização no mercado.
-        \item [Técnicas de escalabilidade] Técnicas e boas práticas aplicadas no mercado em busca da
-            construção de sistemas escaláveis e/ou com a capacidade para tal.
-    \end{description}
-
-\subsection{Método de correlação}
-
-\subsection{Etapas do desenvolvimento}
-\label{sec:EtapasDoDesenvolvimento}
-
-A etapas adotadas na construção da seguinte pesquisa foram:
+Os objetos de análise pertinentes para o presente estudo consistem em:
 
     \begin{description}
-        \item [Etapa 1] Definição do método de análise a ser aplicado;
-        \item [Etapa 2] Coleta de dados a respeito dos objetos de análise;
-        \item [Etapa 3] Aplicação do método de análise sobre os dados coletados;
-        \item [Etapa 4] Análise dos resultados obtidos;
-        \item [Etapa 5] Classificação das técnicas de escalabilidade;
-        \item [Etapa 6] Validação ??.
+        \item [Arquitetura monolítica:] estilo arquitetural tradicionalmente adotado em diversas
+            empresas, no qual se detém uma base única de código.
+        \item [Arquitetura de microsserviços:] estilo arquitetural distribuído, largamente adotado
+            nos últimos anos por diversas empresas.
     \end{description}
-
-A seguir segue a descrição de cada etapa.
-
-\subsubsection{Etapa 1: Definição do método de análise a ser aplicado}
-
-Nesta etapa, foi definido o método de análise utilizado, o qual tem como objetivo de estabelecer
-a correlação entre entre as técnicas de escalabilidade elencadas e as fases do cicla de vida de uma
-\textit{startup}.
-
-\subsubsection{Etapa 2: Coleta de dados a respeito dos objetos de análise}
-\label{sec:Etapa2}
-
-Mediante o método de análise escolhido, foram coletados por meio de pesquisa bibliográfica as
-informações necessárias acerca dos objetos de análise definidos na \autoref{sec:ObjetosDeAnalise}.
-Dessa forma obteve-se as características sobre os objetos de análise pertinentes a aplicação do método.
-
-\subsubsection{Etapa 3: Aplicação do método de análise sobre os dados coletados}
-
-Com os dados em mãos, nessa etapa aplicou-se o méotodo de análise proposto visando obter a
-correlação entre os objetos analisados.
-
-\subsubsection{Etapa 4: Análise dos resultados obtidos}
-
-A partir dos resultados obtidos na etapa anterior, realizou-se uma análise afim de compreender os
-mesmos e analisar a coerência com o que era esperado.
-
-\subsubsection{Etapa 5: Classificação das técnicas de escalabilidade}
-
-Por fim, classificou-se as técnicas de escalabilidade elencadas em relação as fases da
-\textit{startup} usando como base os resultados obtidos nas etapas anteriores. Obtendo assim, as
-recomendações almejadas no objetivo geral deste trabalho, o qual está disposto na \autoref{sec:ObjetivoGeral}.
-
-\section{Planejamento das atividades}
-
-Esta seção destina-se a descrever o planejamento realizado visando atingir as etapas definidas
-na \autoref{sec:EtapasDoDesenvolvimento} e com base na metodologia de pesquisa descrita
-na \autoref{sec:MetodologiaPesquisa}.
-
-Mediante o escopo da pesquisa a ser realizada, planejou-se a execução para um total
-de 7 semanas, iniciando na metade do mês de Março/2020 e indo até a primeira semana de
-Maio/2020. No \autoref{quad:Cronograma} estão dispostas as atividades que pretende-se cumprir
-ao longo deste período.
-
-\begin{quadro}
-    \caption{Cronograma das atividades\label{quad:Cronograma}}
-    \begin{tabular}{ | c | l | }
-    \hline
-    \textbf{Semana} &
-        \textbf{Atividades} \\ \hline
-        1 & Definição do método de análise a ser aplicado \\ \hline
-        2 & Coleta de dados a respeito dos objetos de análise \\ \hline
-        3 & Aplicação do método de análise sobre os dados coletados \\ \hline
-        4 & Análise dos resultados obtidos e classificação das técnicas de escalabilidade \\ \hline
-        6 & Revisão e escrita do documento \\ \hline
-        7 & Apresentação \\ \hline
-    \end{tabular}
-\end{quadro}
 
 \section{Ferramentas}
 
-As ferramentas que pretende-se usar para a execução deste trabalho são:
+As ferramentas utilizadas para auxiliar na confecção do presente estudo foram:
 
 \begin{description}
-    \item[Draw.io] editor gráfico online que permite a construção de processos e
-    desenhos relevantes ao conteúdo apresentado;
-    \item[Google Planilhas] ferramenta para construção de tabelas e gráficos.
-    A qual pretende-se usar para realizar análises sobre os dados coletados.
-    \item[Trello] quadro interativo que auxilia na organização de projetos. O mesmo foi utilizado
-        para gerenciar as etapas e tarefas alocadas para cada semana de execução do projeto,
-        permitindo acompanhar o andamento do mesmo.
+    \item[Miro] editor gráfico online que permite a construção de diagramas, mapa mentais, entre
+        outros recursos gráficos relevantes ao conteúdo apresentado;
+    \item[Google Planilhas] ferramenta para construção de tabelas.
+    \item[Trello] quadro interativo que auxilia na organização de projetos utilizando do modelo
+        Kanban.
 \end{description}
 
+\section{Descrição das etapas}
+\subsection{Etapa 1 - Levantamento teórico}
+
+A fundamentação teórica deste trabalho visou explorar os temas de arquitetura de software,
+estilo arquitetural monolítico e estilo arquitetural de microsserviços por meio de livros, Google Scholar e
+outras fontes de informação. Os tópicos abordados foram selecionados com base na sua respectiva
+relevância dentro do assunto estudado e tiveram embasamento principalmente nos autores Martin Fowler,
+Sam Newman, Mark Richards e Neal Ford, dentre outros.
+
+\subsection{Etapa 2 - Perspectivas}
+\label{met:perspectivas}
+
+Mediante a fundamentação teórica construída na Etapa 1, levantou-se os principais pontos acerca dos
+estilos arquiteturais abordados que eram tratados pelos autores estudados, para tal utilizou-se da
+ferramenta Trello com o intuito de organizar os referências teóricos e destacar o ponto de vista de
+cada autor. A partir daí, utilizou-se \textit{post-its} para agrupar pontos de vista em comum entre
+os autores e classificar quais eram os aspectos positivos e negativos de cada arquitetura.
+
+Diante dos agrupamentos formados, levantou-se a definição de \textbf{perspectivas} para o presente
+estudo, as quais referem-se a formas diferentes de olhar para a arquitetura. Assim, elencou-se as
+seguintes perspectivas:
+
+\begin{description}
+    \item[Problemática a ser resolvida:] fatores que influenciam o sistema sob a perspectiva do
+        problema e do contexto no qual a aplicação está sendo construída;
+    \item[Recursos necessários:] fatores que influenciam o sistema sob a perspectiva de quais
+        recursos: financeiro, humano e tempo, são necessários para o desenvolvimento de uma
+        aplicação nos modelos arquiteturais analisados;
+    \item[Características arquiteturais:] fatores que influenciam o sistema sob a perspectiva de
+        capacidade da arquitetura de prover algum aspecto que possa ser relevante para a empresa,
+        como escalabilidade;
+    \item[Manutenibilidade:] fatores que influenciam o sistema sob a perspectiva cotidiana de
+        manutenção de cada modelo arquitetural, como processos rotineiros de \textit{deploy} e
+        integração contínua e comunicação das equipes;
+    \item[Evolucionabilidade:] fatores que influenciam o sistema sob a perspectiva de tomada de
+        decisão dentro de cada modelo arquitetural.
+\end{description}
+
+Nota-se que a fundamentação teórica foi apresentada sob a organização dessas perspectivas com o
+intuito de facilitar a compreensão do presente estudo.
+
+\subsection{Etapa 3 - Síntese}

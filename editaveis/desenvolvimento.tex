@@ -17,21 +17,12 @@ As seções estão dispostas em:
   \end{enumerate}
 
 \section{Síntese das perspectivas teóricas}
+\label{sinteses}
 
 O presente tópico visa apresentar a síntese das perspectivas abordadas na \autoref{perspectivas} da
 fundamentação teórica com o intuito de esclarecer os pontos chaves presentes em cada arquitetura.
 Para tal, organizou-se os temas discutidos na fundamentação teórica no seguinte modelo de quadro,
 avaliando os respectivos pontos presentes:
-
-% \begin{description}
-%     \item [Perspectiva:] ponto de vista sob o qual a arquitetura está sendo analisada;
-%     \item [Aspecto:] quais aspectos impactam a arquitetura dentro daquela perspectiva;
-%     \item [Impacto:] qual o impacto que um dado aspecto causa em relação a arquitetura;
-%     \item [Causa:] qual fator presente na natureza daquela arquitetura é responsável por gerar o dado impacto;
-%     \item [Fatores adversos:] fatores que podem ser trabalhados com o intuito de minimizar o impacto;
-%     \item [Constância] tendência do impacto a aumentar ou diminuir a medida que a base de código
-%         cresce.
-% \end{description}
 
 \begin{quadro}
     \caption{Definição da tabela de síntese\label{quad:sintese}}
@@ -269,6 +260,14 @@ A \autoref{fig:SinteseMono} visa ilustrar um resumo dos pontos destacados com ba
 referêncial teórico. Nela podemos observar de verde os fatores positivos da arquitetura, de amarelo
 os fatores negativos e de vermelho os fatores que inicialmente são positivos dentro do modelo
 arquitetural mas que tendem a decair a medida que a base de código aumenta.
+
+É importante ter em mente que os fatores marcados como negativo, cor amarela, são características da
+arquitetura monolítica, com as quais a equipe de software ao optar por este modelo arquitetural vai
+ter que lhe dar conscientemente que estes problemas existem. Já os fatores marcados com a cor
+vermelha, que tendem a cair, são mais traiçoeiros, de forma que inicialmente eles não são um
+problema, pelo contrário, eles são algo positivo quando se tem um monolítico novo, porém a medida que
+a base de código cresce eles tendem a se tornar um problema que se instala na arquitetura sem a
+equipe de \gls{TI} perceba.
 
 \begin{figure}[h]
   \centering
