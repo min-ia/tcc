@@ -550,8 +550,7 @@ Serão abordados três casos:
 
 \begin{enumerate}
     \item \textbf{KN Login:} um monolítico legado transformado em uma série de sistemas
-        autocontidos\footnote{\textcolor{red}{DESCREVER}}, com o
-        intuito de caminhar em direção a uma arquitetura de microsserviços;
+        autocontidos, com o intuito de caminhar em direção a uma arquitetura de microsserviços;
     \item \textbf{Otto:} a reimplementação do zero de um monolítico em uma arquitetura de sistemas
         autocontidos que posteriormente é evoluída para microsserviços;
     \item \textbf{Segment}: a transição de um monolítico para uma arquitetura de microsserviços,
@@ -616,7 +615,8 @@ Após analisar esses quatro fatores, a equipe técnica da Kuehne + Nagel chegou 
 mudança diretamente para microsserviços seria inviável mediante a grande complexidade do monolítico,
 além de que esta mudança não iria contribuir para deixar mais fácil a visualização que eles
 tinham do sistema. Diante desta situação a equipe optou por abordar uma arquitetura de sistemas
-autocontidos.
+autocontidos\footnote{Abordagem arquitetural que consiste em quebrar o sistema em vários sistemas
+independentes, cada um com sua propría \gls{UI}, camada de lógica e persistência de dados.}.
 
 Sistemas autocontidos segundo \citeonline{Olga2016:SelfContainedSystems}, diference dos
 microsserviços por serem aplicações web autônomas e substituíveis as quais tendem a ser maiores do

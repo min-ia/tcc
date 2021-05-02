@@ -167,7 +167,7 @@ A arquitetura monolítica é um padrão de fácil compreensão que permite as em
 branda dos processos de construção e implantação de sistemas de software no início dos projetos.
 Esse modelo arquitetural é caracterizado por ser tecnicamente particionado
 \cite{Richards2020:FundamentalsOfSoftwareArchitecture}, ou seja, seus componentes
-(classes, métodos, etc.) estão agrupados por sua função técninca dentro do sistema. Na
+(classes, métodos, etc.) estão agrupados por sua função técnica dentro do sistema. Na
 \autoref{fig:monolithicStructure}, podemos ver essa organização na qual temos:
 
 \begin{figure}[h]
@@ -188,7 +188,7 @@ essencialmente acoplado, no qual as abstrações que compõe o sistema compartil
 recursos da aplicação: bibliotecas, canais de comunicação dentro do próprio processo, modelos de
 persistência no banco de dados, etc. A \autoref{fig:monolithicInPractice} exemplifica como mesmo no
 modelo modularizado é fácil ultrapassar os limites definidos para cada módulo visto que não há barreiras
-técnicas que impeçãm os desenvolvedores de tal. Dessa forma, garantir as características de alta coesão
+técnicas que impeçam os desenvolvedores de tal. Dessa forma, garantir as características de alta coesão
 e baixo acoplamento, tão desejadas na manutenibilidade dos softwares, se torna uma tarefa difícil dependendo
 exclusivamente da disciplina dos desenvolvedores \cite{StefanTilkov:DontStartWithAMonolith,MartinFowler:MicroserviceTradeOffs}.
 
@@ -200,7 +200,7 @@ exclusivamente da disciplina dos desenvolvedores \cite{StefanTilkov:DontStartWit
 
 A \autoref{fig:monolithicsharedcomponents} aprofunda ainda mais nesse contexto da arquitetura
 monolítica, mostrando a tendência de compartilhar componentes, a exemplo classes de \textit{log},
-classes com funções compartilhadas por todo o sistema, etc., transparecendo como a reausabilidade do
+classes com funções compartilhadas por todo o sistema, etc., transparecendo como a reusabilidade do
 código dentro de sistemas monolíticos tende a aumentar o acoplamento entre seus componentes
 \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
@@ -213,17 +213,20 @@ código dentro de sistemas monolíticos tende a aumentar o acoplamento entre seu
 \section{Microsserviços}
 
 Segundo \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, microsserviços é um estilo
-arquitetural fortemente inspirado nas ideias de \gls{DDD}\footnote{\textcolor{red}{DESCREVER}}, trazendo deste design o conceito de limites
-de contexto. Esses limites referem-se a um domínio sob o qual estão entidades e comportamentos que
-podemos desacoplar do restante do sistema. Assim, diferentemente da arquitetura monolítica que é
-organizada por atribuições técnicas, os microsseviços trazem em sua estrutura um reflexo de como o
-contexto é organizado no mundo real.
+arquitetural fortemente inspirado nas ideias de \gls{DDD}\footnote{\textit{Domain-Driven Design} é
+uma estratégia de modelagem de software que visa a resolução de problemas complexos se concentrando
+do domínio principal e explorando modelos colaborativos entre profissionais de diferentes áreas.},
+trazendo deste design o conceito de limites de contexto. Esses limites referem-se a um domínio sob
+o qual estão entidades e comportamentos que podemos desacoplar do restante do sistema. Assim,
+diferentemente da arquitetura monolítica que é organizada por atribuições técnicas, os microsseviços
+trazem em sua estrutura um reflexo de como o contexto é organizado no mundo real.
 
 Essa abordagem torna os microsserviços pequenas partes autônomas que trabalham juntas em cima de uma
 base de código coesa e focada em resolver as regras de negócio dentro do domínio especificado
 \cite{Newman2015}. Dessa forma, a aplicação deixa de ser um único processo e se torna um conjunto
 de processos separados e independentes, se comunicando por meio de algum protocolo, comumente
-\gls{REST}\footnote{\textcolor{red}{DESCREVER}} \cite{MartinFowler:Microservices}.
+\gls{REST}\footnote{\gls{REST} é um protocolo de comunicação entre \textit{web services} que utiliza
+a semântica dos métodos HTTP.} \cite{MartinFowler:Microservices}.
 
 Um dos grandes benefícios proporcionados por esta arquitetura são os limites impostos por cada
 serviço, os quais trazem maiores garantias sobre alta coesão, baixo acoplamento e modularização do
@@ -364,13 +367,12 @@ funcionalidades e, consequentemente, aumentando a sua complexidade.
 \subsubsection{Escalabilidade}
 \label{pers:escalabilidade}
 
-A arquitetura monolítica pode ser escalada horizontalmente utilizando de um \textit{load
-balancer}\footnote{\textcolor{red}{DESCREVER}} para executar várias instâncias do sistema
-\cite{MartinFowler:Microservices}. Entretanto, a escalabilidade oferecida por essa arquitetura é
-bastante limitada. A falta de modularidade exige que toda a aplicação seja replicada ao invés
-de replicarmos somente as funções que apresentam maior demanda. Existe a possibilidade de aplicar técnicas
-que amenizam esse problema, contudo, isto requer um esforço considerável para adaptar o modelo
-arquitetural \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
+A arquitetura monolítica pode ser escalada horizontalmente utilizando de um balanceador de carga
+para executar várias instâncias do sistema \cite{MartinFowler:Microservices}. Entretanto, a
+escalabilidade oferecida por essa arquitetura é bastante limitada. A falta de modularidade exige que
+toda a aplicação seja replicada ao invés de replicarmos somente as funções que apresentam maior demanda.
+Existe a possibilidade de aplicar técnicas que amenizam esse problema, contudo, isto requer um esforço
+considerável para adaptar o modelo arquitetural \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
 No caso dos microsserviços, a escalabilidade é um fator predominante mediante a sua estrutura
 altamente desacoplada que favorece a escalabilidade em um nível incremental. Essa característica é
