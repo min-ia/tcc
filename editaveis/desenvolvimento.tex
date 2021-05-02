@@ -2,7 +2,7 @@
 
 Esta seção tem por propósito apresentar a pesquisa elaborada a respeito dos estilos arquiteturais
 abordados no presente trabalho. O escopo deste capítulo abrangerá o estudo feito sobre os objetos de
-análise referidos na \textcolor{red}{SECAO DA METODOLOGIA AQUI}, os aspectos levantados sobre cada
+análise referidos na \autoref{sec:ObjetosDeAnalise}, os aspectos levantados sobre cada
 arquitetura e análise comparativa realizada.
 
 As seções estão dispostas em:
@@ -10,10 +10,9 @@ As seções estão dispostas em:
   \begin{enumerate}
     \item \textbf{Síntese das perspectivas teóricas} síntese a respeitos das informações
         coletadas nos referenciais teóricos sobre cada arquitetura;
-    \item \textbf{Relatos de alguns casos reais:} detalhamento sobre as experiências de algumas empresas
+    \item \textbf{Análise dos casos de estudo} detalhamento sobre as experiências de algumas empresas
     que optaram por fazer a migração de uma arquitetura monolítica para uma arquitetura de
     microsserviços ou vice-versa.
-    \item \textbf{Análise comparativa}
   \end{enumerate}
 
 \section{Síntese das perspectivas teóricas}
@@ -21,25 +20,8 @@ As seções estão dispostas em:
 
 O presente tópico visa apresentar a síntese das perspectivas abordadas na \autoref{perspectivas} da
 fundamentação teórica com o intuito de esclarecer os pontos chaves presentes em cada arquitetura.
-Para tal, organizou-se os temas discutidos na fundamentação teórica no seguinte modelo de quadro,
-avaliando os respectivos pontos presentes:
-
-\begin{quadro}
-    \caption{Definição da tabela de síntese\label{quad:sintese}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{Estilo arquitetural} & Estilo arquitetural em análise. \\ \hline
-    \textbf{Perspectiva}         & Ponto de vista sob o qual a arquitetura está sendo analisada. \\ \hline
-    \textbf{Aspecto}             & Quais aspectos impactam a arquitetura dentro daquela perspectiva. \\ \hline
-    \textbf{Impacto}             & Qual o impacto que um dado aspecto causa em relação a arquitetura. \\ \hline
-    \textbf{Causa}               & Qual fator presente na natureza daquela arquitetura é responsável por gerar o dado impacto. \\ \hline
-    \textbf{Fatores adversos}    & Fatores que podem ser trabalhados com o intuito de minimizar o impacto. \\ \hline
-    \textbf{Constância}          & Tendência do impacto a aumentar ou diminuir a medida que a base de código. \\ \hline
-    \textbf{Embasamento}         & Seção da fundamentação teórica que dado aspecto é discutido. \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Para tal, organizou-se os temas discutidos na fundamentação teórica no modelo do \autoref{modelo-sintese} 
+apresentado na seção metodológica.
 
 \subsection{Síntese da arquitetura monolítica}
 \label{monoSintese}
@@ -567,7 +549,8 @@ que elas obtiveram sobre seus sistemas ao experimentar diferentes arquiteturas.
 Serão abordados três casos:
 
 \begin{enumerate}
-    \item \textbf{KN Login:} um monolítico legado transformado em uma série de sistemas autocontidos, com o
+    \item \textbf{KN Login:} um monolítico legado transformado em uma série de sistemas
+        autocontidos\footnote{\textcolor{red}{DESCREVER}}, com o
         intuito de caminhar em direção a uma arquitetura de microsserviços;
     \item \textbf{Otto:} a reimplementação do zero de um monolítico em uma arquitetura de sistemas
         autocontidos que posteriormente é evoluída para microsserviços;
@@ -798,7 +781,7 @@ crescer juntamente com a base de código.
   \caption{Fatores apresentados no caso de estudo da arquitetura monolítica da Otto\label{fig:analise-mono-otto}}
 \end{figure}
 
-A tomada de decisão por passar para uma arquitetura de sistemas auto-contidos auxilia eles como um
+A tomada de decisão por migrar para uma arquitetura de sistemas auto-contidos auxilia eles como um
 passo intermediário antes de aderir toda a complexidade da arquitetura de microsserviços. Nessa
 abordagem percebe-se que eles vivenciam características dos dois estilos arquiteturais. Olhando da
 perspectiva dos microsserviços, eles definem protocolos de comunicação e compartilhamento de dados e lidam
@@ -806,11 +789,11 @@ com eventuais inconsistência de dados (um problema comum da arquitetura de micr
 outro lado, eles ainda precisam lidar com a crescente base de código dos monolíticos dentro de cada
 sistema auto-contido.
 
-A figura \autoref{fig:analise-micro-otto} ressalta os pontos de alta escalabilidade, alta
-tolerância a falhas, facilidade no \textit{deploy}, testabilidade e alta heterogeneidade de
-tecnologias observados no caso de estudo. A experiência da Otto também outros pontos dessa
-arquitetura como baixa curva de aprendizado e a necessidade de automatizar todos os
-processos.  
+A figura \autoref{fig:analise-micro-otto} ressalta os pontos da arquitetura de microsserviços
+adotada pela Otto, na qual nota-se alta escalabilidade, alta tolerância a falhas, facilidade no
+\textit{deploy}, testabilidade e alta heterogeneidade de tecnologias observados no caso de estudo.
+A experiência da Otto também traz outros pontos dessa arquitetura, não presentes no mapa mental
+construído, como baixa curva de aprendizado e a necessidade de automatizar todos os processos.  
 
 Um ponto que se diferencia do esperado, de acordo com a fundamentação teórica levantada para esse
 trabalho, é que a Otto apresenta a coleta de \textit{feedbacks} como um ponto positivo da
@@ -820,13 +803,14 @@ Como relatado na \autoref{Perspectivas:Problematica} e na \autoref{effortsAndTim
 projeto a arquitetura monolítica é melhor para a rápida coleta de \textit{feedbacks} por ser mais
 simplista, contudo no caso da Otto, eles já tinham um sistema monolítico com uma base de código
 grande e devido aos problemas de complexidade já discutidos evoluir e testar rápido esse sistema com
-os usuários já não deveria ser um processo tão fácil. Já na arquitetura de microsserviços, existe a
-esforço inicial de automatizar todos os processos, mas após essa automatização alterar e testar um
-novo serviço tende a ser fácil.
+os usuários já não deveria ser um processo tão fácil. Já na arquitetura de microsserviços, existe o
+esforço inicial de automatizar todos os processos e de planejar cuidadosamente os limites de domínio
+de cada aplicação, mas após essas etapas estarem bem definidas alterar e testar novos serviços tende
+a ser fácil.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=1]{figuras/monoOtto.eps}
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/analise-micro-otto.eps}
   \caption{Fatores apresentados no caso de estudo da arquitetura de microsserviços da Otto\label{fig:analise-micro-otto}}
 \end{figure}
 
@@ -981,7 +965,7 @@ estava buscando validar sua ideia e descobrir o domínio no qual estavam imersos
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=1]{figuras/monoOtto.eps}
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/analise-mono-segment-1.eps}
   \caption{Fatores apresentados no caso de estudo da primeira arquitetura monolítica da Segment\label{fig:analise-mono-segment-1}}
 \end{figure}
 
@@ -1005,7 +989,7 @@ gerenciar essa arquitetura nas proporções que ela tomou.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=1]{figuras/monoOtto.eps}
+  \includegraphics[keepaspectratio=true,scale=1]{figuras/analise-micro-segment.eps}
   \caption{Fatores apresentados no caso de estudo da arquitetura de microsserviços da Segment\label{fig:analise-micro-segment}}
 \end{figure}
 

@@ -93,6 +93,7 @@ para a funcionalidade desenvolvida, ou se deve seguir por um caminho diferente o
 os ganhos são maiores para a aplicação.
 
 \subsection{Leis da Arquitetura de Software}
+\label{leis}
 
 \begin{quotation}{Richards2020:FundamentalsOfSoftwareArchitecture}{transleted=true}
   \begin{description}
@@ -171,7 +172,7 @@ Esse modelo arquitetural é caracterizado por ser tecnicamente particionado
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=0.6]{figuras/richardsAndFord-architectureDefinition.eps}
+  \includegraphics[keepaspectratio=true,scale=0.6]{figuras/monolitico.eps}
   \caption{Estrutura básica de um monolítico\label{fig:monolithicStructure} \source{Richards2020:FundamentalsOfSoftwareArchitecture}}
 \end{figure}
 
@@ -205,14 +206,14 @@ código dentro de sistemas monolíticos tende a aumentar o acoplamento entre seu
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio=true,scale=0.4]{figuras/monolith-theory-practice.eps}
-    \caption{PAGINA 189\label{fig:monolithicsharedcomponents} \source{StefanTilkov:Richards2020:FundamentalsOfSoftwareArchitecture}}
+  \includegraphics[keepaspectratio=true,scale=0.4]{figuras/mono-shared-components.eps}
+    \caption{PAGINA 189\label{fig:monolithicsharedcomponents} \source{Richards2020:FundamentalsOfSoftwareArchitecture}}
 \end{figure}
 
 \section{Microsserviços}
 
 Segundo \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, microsserviços é um estilo
-arquitetural fortemente inspirado nas ideias de \gls{DDD}, trazendo deste design o conceito de limites
+arquitetural fortemente inspirado nas ideias de \gls{DDD}\footnote{\textcolor{red}{DESCREVER}}, trazendo deste design o conceito de limites
 de contexto. Esses limites referem-se a um domínio sob o qual estão entidades e comportamentos que
 podemos desacoplar do restante do sistema. Assim, diferentemente da arquitetura monolítica que é
 organizada por atribuições técnicas, os microsseviços trazem em sua estrutura um reflexo de como o
@@ -222,7 +223,7 @@ Essa abordagem torna os microsserviços pequenas partes autônomas que trabalham
 base de código coesa e focada em resolver as regras de negócio dentro do domínio especificado
 \cite{Newman2015}. Dessa forma, a aplicação deixa de ser um único processo e se torna um conjunto
 de processos separados e independentes, se comunicando por meio de algum protocolo, comumente
-\gls{REST} \cite{MartinFowler:Microservices}.
+\gls{REST}\footnote{\textcolor{red}{DESCREVER}} \cite{MartinFowler:Microservices}.
 
 Um dos grandes benefícios proporcionados por esta arquitetura são os limites impostos por cada
 serviço, os quais trazem maiores garantias sobre alta coesão, baixo acoplamento e modularização do
@@ -266,7 +267,7 @@ mesmas:
 
 \begin{enumerate}
     \item Problemática a ser resolvida;
-    \item Recursos necessários
+    \item Recursos necessários;
     \item Características arquiteturais;
     \item Manutenibilidade;
     \item Evolucionabilidade.
@@ -389,7 +390,7 @@ Do outro lado, os microsserviços naturalmente apresentam aspectos positivos em 
 a falhas uma vez que uma falha em um serviço tende a impactar somente uma parte da aplicação.
 \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} fazem uma ressalva que essa tolerância pode
 decair se houver muita dependência comunicativa entre os serviços, por isso definir cuidadosamente a
-granularidade do serviço é um ponto que deve bem avaliado.
+granularidade do serviço é um ponto que deve ser bem avaliado.
 
 \subsubsection{Confiabilidade}
 \label{pers:confiabilidade}
@@ -426,7 +427,7 @@ disponibilizar uma alteração tende a se tornar um processo árduo, fazendo com
 demorado disponibilizar as mudanças realizadas no sistema \cite{MartinFowler:Microservices}. Para
 completar o quadro, o \textit{deploy} de uma versão da aplicação monolítica com um \textit{bug},
 por exemplo, acresce os riscos dessa alteração atingir o banco de dados ou alguma outra parte do
-sistema, torando a reversão do impacto do processo de implantação mais difícil
+sistema, tornando a reversão do impacto do processo de implantação mais difícil
 \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
 Os microsserviços apresentam o caminho inverso: inicialmente eles exigem mais esforços para
