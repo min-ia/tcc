@@ -1,552 +1,12 @@
-\chapter{Desenvolvimento}
-
-Esta seção tem por propósito apresentar a pesquisa elaborada a respeito dos estilos arquiteturais
-abordados no presente trabalho. O escopo deste capítulo abrangerá o estudo feito sobre os objetos de
-análise referidos na \autoref{sec:ObjetosDeAnalise}, os aspectos levantados sobre cada
-arquitetura e análise comparativa realizada.
-
-As seções estão dispostas em:
-
-  \begin{enumerate}
-    \item \textbf{Síntese das perspectivas teóricas} síntese a respeitos das informações
-        coletadas nos referenciais teóricos sobre cada arquitetura;
-    \item \textbf{Análise dos casos de estudo} detalhamento sobre as experiências de algumas empresas
-    que optaram por fazer a migração de uma arquitetura monolítica para uma arquitetura de
-    microsserviços ou vice-versa.
-  \end{enumerate}
-
-\section{Síntese das perspectivas teóricas}
-\label{sinteses}
-
-O presente tópico visa apresentar a síntese das perspectivas abordadas na \autoref{perspectivas} da
-fundamentação teórica com o intuito de esclarecer os pontos chaves presentes em cada arquitetura.
-Para tal, organizou-se os temas discutidos na fundamentação teórica no modelo do \autoref{modelo-sintese} 
-apresentado na seção metodológica.
-
-\subsection{Síntese da arquitetura monolítica}
-\label{monoSintese}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre o domínio do problema\label{monolitico:sintese-dominio}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
-    \textbf{mediante o aspecto}     & de domínio sobre o problema \\ \hline
-    \textbf{gera um impacto}        & positivo se o domínio sobre o contexto é baixo\\ \hline
-    \textbf{devido à }              & arquitetura simplista \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a }          & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre o tamanho da aplicação\label{monolitico:sintese-tamanho}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
-    \textbf{mediante o aspecto}     & do tamanho planejado para a aplicação \\ \hline
-    \textbf{gera um impacto}        & positivo se a aplicação é pequena \\ \hline
-    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre os recursos financeiros\label{monolitico:sintese-financeiros}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
-    \textbf{mediante o aspecto}     & de recursos financeiros \\ \hline
-    \textbf{gera um impacto}        & baixo custo \\ \hline
-    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:recursosFinanceiros} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre os recursos humanos\label{monolitico:sintese-humanos}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
-    \textbf{mediante o aspecto}     & de recursos humanos \\ \hline
-    \textbf{gera um impacto}        & não necessitar de expertise sobre as tecnologias \\ \hline
-    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:recursosHumanos} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre esforço e tempo inicial\label{monolitico:sintese-esforco}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
-    \textbf{mediante o aspecto}     & esforço e tempo inicial \\ \hline
-    \textbf{gera um impacto}        & baixo esforço inicial e rápido lançamento no mercado \\ \hline
-    \textbf{devido à }              & arquitetura simplista e a simplicidade dos processos operacionais\\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{effortsAndTime} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre escalabilidade\label{monolitico:sintese-escalabilidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & da escalabilidade \\ \hline
-    \textbf{gera um impacto}        & de escalabilidade limitada \\ \hline
-    \textbf{devido à }              & baixa modularidade da arquitetura \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{pers:escalabilidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre tolerância a falhas\label{monolitico:sintese-tolerancia}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & de tolerância a falhas \\ \hline
-    \textbf{gera um impacto}        & não possui tolerância a falhas \\ \hline
-    \textbf{devido à }              & a existência de um único ponto de falha em toda a arquitetura \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{pers:tolerancia} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre confiabilidade\label{monolitico:sintese-confiabilidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & de confiabilidade do sistema \\ \hline
-    \textbf{gera um impacto}        & alta confiabilidade \\ \hline
-    % \textbf{devido à }              & \\ \hline
-    \textbf{contudo}                & é preciso lidar com a testabilidade do sistema\\ \hline
-    \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código aumenta \\ \hline
-    \textbf{com base na}            & \autoref{pers:confiabilidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre performance\label{monolitico:sintese-performance}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & de performance do sistema \\ \hline
-    \textbf{gera um impacto}        & baixa performance \\ \hline
-    \textbf{devido à }              & arquitetura simplista \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{pers:performance} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre o processo de \textit{deploy}\label{monolitico:sintese-deploy}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
-    \textbf{mediante o aspecto}     & de implantação do sistema \\ \hline
-    \textbf{gera um impacto}        & de fácil implantação \\ \hline
-    \textbf{devido à }              & arquitetura simplista \\ \hline
-    \textbf{contudo}                & é preciso lidar com a crescente base de código\\ \hline
-    \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código fica maior \\ \hline
-    \textbf{com base na}            & \autoref{pers:deploy} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese da testabilidade\label{monolitico:sintese-testabilidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
-    \textbf{mediante o aspecto}     & de testabilidade do sistema \\ \hline
-    \textbf{gera um impacto}        & de facilidade para realizar testes \\ \hline
-    \textbf{devido à }              & arquitetura simplista \\ \hline
-    \textbf{contudo}                & é preciso lidar com a crescente complexidade\\ \hline
-    \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
-    \textbf{com base na}            & \autoref{testabilidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese da comunicação\label{monolitico:sintese-comunicacao}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
-    \textbf{mediante o aspecto}     & de comunicação entre os times \\ \hline
-    \textbf{gera um impacto}        & negativo \\ \hline
-    \textbf{devido aos}              & times segregados por domínio tecnológico \\ \hline
-    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
-    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
-    \textbf{com base na}            & \autoref{pers:comunicacao} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese da heterogeneidade das tecnologias\label{monolitico:sintese-heterogeneidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
-    \textbf{mediante o aspecto}     & de heterogeneidade das tecnologias \\ \hline
-    \textbf{gera um impacto}        & de heterogeneidade limitada \\ \hline
-    \textbf{devido ao}              & modelo arquitetural com alto acoplamento \\ \hline
-    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
-    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
-    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura monolítica - síntese sobre complexidade do sistema\label{monolitico:sintese-complexidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura monolítica \\ \hline
-    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
-    \textbf{mediante o aspecto}     & da complexidade do sistema \\ \hline
-    \textbf{gera um impacto}        & de baixa complexidade \\ \hline
-    \textbf{devido ao}              & arquitetura simplista \\ \hline
-    \textbf{contudo}                & é preciso lidar com o acoplamento do código \\ \hline
-    \textbf{consciente de que este aspecto tende a} & crescer a medida que ao crescimento da base de código\\ \hline
-    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\newpage
-
-A \autoref{fig:SinteseMono} visa ilustrar um resumo dos pontos destacados com base na síntese do
-referêncial teórico. Nela podemos observar de verde os fatores positivos da arquitetura, de amarelo
-os fatores negativos e de vermelho os fatores que inicialmente são positivos dentro do modelo
-arquitetural mas que tendem a decair a medida que a base de código aumenta.
-
-É importante ter em mente que os fatores marcados como negativo, cor amarela, são características da
-arquitetura monolítica, com as quais a equipe de software ao optar por este modelo arquitetural vai
-ter que lidar conscientemente que estes problemas existem. Já os fatores marcados com a cor
-vermelha, que tendem a cair, são mais traiçoeiros, de forma que inicialmente eles não são um
-problema, pelo contrário, eles são algo positivo quando se tem um monolítico novo, porém a medida que
-a base de código cresce eles tendem a se tornar um problema que se instala na arquitetura sem a
-equipe de \gls{TI} perceba.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio=true,scale=1]{figuras/sintese-monolitico.eps}
-  \caption{Mapa mental do processo de síntese realizado sobre a arquitetura monolítica\label{fig:SinteseMono}}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-\subsection{Síntese da arquitetura de microsserviços}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre o domínio do problema\label{microsservicos:sintese-dominio}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
-    \textbf{mediante o aspecto}     & de domínio sobre o problema \\ \hline
-    \textbf{gera um impacto}        & de necessidade de domínio sobre o contexto\\ \hline
-    \textbf{devido à }              & definição dos limites que impacta toda a arquitetura \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a }          & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre o tamanho da aplicação\label{microsservicos:sintese-tamanho}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & da problemática a ser resolvida \\ \hline
-    \textbf{mediante o aspecto}     & do tamanho planejado para a aplicação \\ \hline
-    \textbf{gera um impacto}        & de custo muito alto para aplicações pequenas \\ \hline
-    \textbf{devido ao}              & custo muito alto de implementação e manutenção\\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:Problematica} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre os recursos financeiros\label{microsservicos:sintese-financeiros}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
-    \textbf{mediante o aspecto}     & de recursos financeiros \\ \hline
-    \textbf{gera um impacto}        & alto custo \\ \hline
-    \textbf{devido à }              & necessidade de mão de obra especializada, monitoramento, replicação...\\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:recursosFinanceiros} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre os recursos humanos\label{microsservicos:sintese-humanos}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
-    \textbf{mediante o aspecto}     & de recursos humanos \\ \hline
-    \textbf{gera um impacto}        & necessita de expertise sobre as tecnologias \\ \hline
-    \textbf{devido à }              & complexidade da arquitetura \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{Perspectivas:recursosHumanos} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre esforço e tempo inicial\label{microsservicos:sintese-esforco}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & recursos necessários \\ \hline
-    \textbf{mediante o aspecto}     & esforço e tempo inicial \\ \hline
-    \textbf{gera um impacto}        & alto esforço inicial e demorado lançamento no mercado \\ \hline
-    \textbf{devido à }              & complexidade da arquitetura e a necessidade de automatizar todos os processos operacionais \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{effortsAndTime} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre escalabilidade\label{microsservicos:sintese-escalabilidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & da escalabilidade \\ \hline
-    \textbf{gera um impacto}        & de ser altamente escalável \\ \hline
-    \textbf{devido à }              & alta modularidade e automatização dos processos \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{pers:escalabilidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre tolerância a falhas\label{microsservicos:sintese-tolerancia}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & de tolerância a falhas \\ \hline
-    \textbf{gera um impacto}        & alta tolerância \\ \hline
-    \textbf{devido à }              & presença de vários pontos de falha, comprometendo apenas parcialmente a aplicação\\ \hline
-    \textbf{contudo}                & é preciso lidar com a escalabilidade da rede \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{pers:tolerancia} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre confiabilidade\label{microsservicos:sintese-confiabilidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & de confiabilidade do sistema \\ \hline
-    \textbf{gera um impacto}        & alta confiabilidade \\ \hline
-    % \textbf{devido à }              & \\ \hline
-    \textbf{contudo}                & é preciso lidar com eventuais inconsistências e escalabilidade da rede\\ \hline
-    % \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código aumenta \\ \hline
-    \textbf{com base na}            & \autoref{pers:confiabilidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre performance\label{microsservicos:sintese-performance}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de características arquiteturais \\ \hline
-    \textbf{mediante o aspecto}     & de performance do sistema \\ \hline
-    \textbf{gera um impacto}        & baixa performance \\ \hline
-    \textbf{devido à }              & dependência da rede e da adição de várias camadas de segurança
-        na comunicação entre os serviços \\ \hline
-    % \textbf{contudo}                & \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & \\ \hline
-    \textbf{com base na}            & \autoref{pers:performance} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre o processo de \textit{deploy}\label{microsservicos:sintese-deploy}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
-    \textbf{mediante o aspecto}     & de implantação do sistema \\ \hline
-    \textbf{gera um impacto}        & de fácil e rápida de implantação \\ \hline
-    \textbf{devido}                 & aos processos automatizados \\ \hline
-    \textbf{contudo}                & é preciso automatizar os processos operacionais \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & decair a medida que a base de código fica maior \\ \hline
-    \textbf{com base na}            & \autoref{pers:deploy} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese da testabilidade\label{microsservicos:sintese-testabilidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
-    \textbf{mediante o aspecto}     & de testabilidade do sistema \\ \hline
-    \textbf{gera um impacto}        & fácil de uma perspectiva local e difícil de uma perspectiva global \\ \hline
-    \textbf{devido à }              & modularidade local e a complexidade global respectivamente \\ \hline
-    % \textbf{contudo}                & é preciso lidar com a crescente complexidade\\ \hline
-    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
-    \textbf{com base na}            & \autoref{testabilidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese da comunicação\label{microsservicos:sintese-comunicacao}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de manutenibilidade \\ \hline
-    \textbf{mediante o aspecto}     & de comunicação entre os times \\ \hline
-    \textbf{gera um impacto}        & positivo \\ \hline
-    \textbf{devido aos}             & times multifuncionais \\ \hline
-    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
-    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
-    \textbf{com base na}            & \autoref{pers:comunicacao} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese da heterogeneidade das tecnologias\label{microsservicos:sintese-heterogeneidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
-    \textbf{mediante o aspecto}     & de heterogeneidade das tecnologias \\ \hline
-    \textbf{gera um impacto}        & de alta heterogeneidade \\ \hline
-    \textbf{devido ao}              & modelo arquitetural com baixo acoplamento \\ \hline
-    % \textbf{contudo}                & é preciso lidar com a comunicação entre diferentes áreas\\ \hline
-    % \textbf{consciente de que este aspecto tende a} & decair a medida que a complexidade do sistema aumenta \\ \hline
-    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\begin{quadro}
-    \caption{Arquitetura de microsserviços - síntese sobre complexidade do sistema\label{microsservicos:sintese-complexidade}}
-    \begin{tabularx}{\linewidth}{ | p{5cm} | X | }
-    \hline
-    \textbf{A escolha de uma}       & arquitetura de microsserviços \\ \hline
-    \textbf{sob a perspectiva}      & de evolucionabilidade \\ \hline
-    \textbf{mediante o aspecto}     & da complexidade do sistema \\ \hline
-    \textbf{gera um impacto}        & de baixa complexidade de uma perspectiva local e alta
-        complexidade de uma perspectiva global\\ \hline
-    \textbf{devido ao}              & característica distribuída da arquitetura \\ \hline
-    % \textbf{contudo}                & é preciso lidar com o acoplamento do código \\ \hline
-    % \textbf{consciente de que este aspecto tende a} & crescer a medida que ao crescimento da base de código\\ \hline
-    \textbf{com base na}            & \autoref{pers:heterogeneidade} \\ \hline
-    \end{tabularx}
-\end{quadro}
-
-\newpage
-
-A \autoref{fig:SinteseMicro} visa ilustrar um resumo dos pontos destacados com base na síntese
-elaborada a partir do referêncial teórico. Nela podemos observar de verde os fatores positivos da
-arquitetura, de amarelo os fatores negativos e de roxo os fatores que em geral são positivos na
-arquitetura mas que exigem que o time de desenvolvimento lide com algum fator adverso. Por exemplo,
-o \textit{deploy} é apontado como um fator positivo dentro da arquitetura de microsserviços, visto
-que é fácil e rápido atualizar um serviço, contudo existe o fator adverso de que todo o processo
-deve estar automatizado, caso a equipe não automatize esse processo, provavelmente eles terão algum
-problema pra lidar com o \textit{deploy} dentro dessa arquitetura.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio=true,scale=1]{figuras/sintese-microsservicos.eps}
-  \caption{Mapa mental do processo de síntese realizado sobre a arquitetura de microsserviços\label{fig:SinteseMicro}}
-\end{figure}
-
-
-\newpage
-
-        % \begin{description}
-        %     \item [Problemática a ser resolvida:] perspectiva a respeito do contexto inicial da
-        %         aplicação;
-        %     \item [Recursos necessários:] perspectiva a respeito dos recursos financeiros, humanos,
-        %         esforços e de tempo necessários para cada arquitetura;
-        %     \item [Características arquiteturais:] capacidade da arquitetura de prover
-        %         escalabilidade, tolerância a falhas, etc.
-        %     \item [Manutenibilidade:] visão a respeito de processos cotidianos relacionados a
-        %         manutenção do sistema;
-        %     \item [Evolucinabilidade:] visão a respeito das características arquiteturais que
-        %         influênciam na evolução do sistema.
-        % \end{description}
-%
-% \begin{itemize}
-%     \item Problemática da aplicação
-%         \begin{itemize}
-%             \item Domínio do contexto
-%             \item Tamanho da aplicação
-%         \end{itemize}
-%     \item Recursos
-%         \begin{itemize}
-%             \item Recursos financeiros
-%             \item Recursos humanos
-%             \item Esforço inicial e tempo
-%         \end{itemize}
-%     \item Características arquiteturais 
-%         \begin{itemize}
-%             \item Escalabilidade
-%             \item Tolerância a falhas
-%             \item Confiabilidade
-%             \item Performance
-%         \end{itemize}
-%     \item Manutenibilidade
-%         \begin{itemize}
-%             \item \textit{Deploy}
-%             \item Testabilidade
-%             \item \textit{Debugger}
-%             \item Comunicação
-%         \end{itemize}
-%     \item Evolucionabilidade 
-%         \begin{itemize}
-%             \item Heterogeneidade das tecnologias
-%             \item Complexidade
-%         \end{itemize}
-% \end{itemize}
-
-\section{Análise dos casos de estudo}
+\chapter{Análise dos casos de estudo}
 
 A presente seção visa relatar casos reais de empresas que vivenciaram os estilos arquiteturais
-estudados. A proposta é entender o contexto dessas empresas, as decisões tomadas e qual a percepção
-que elas obtiveram sobre seus sistemas ao experimentar diferentes arquiteturas.
+estudados, optando em algum momento por fazer a migração de uma arquitetura monolítica para uma
+arquitetura de microsserviços ou vice-versa. A proposta é detalhar e entender o contexto dessas empresas,
+as decisões tomadas e qual a percepção que elas obtiveram sobre seus sistemas ao experimentar diferentes
+arquiteturas.
 
-Serão abordados três casos:
+Serão abordados quatro casos:
 
 \begin{enumerate}
     \item \textbf{KN Login:} um monolítico legado transformado em uma série de sistemas
@@ -554,10 +14,12 @@ Serão abordados três casos:
     \item \textbf{Otto:} a reimplementação do zero de um monolítico em uma arquitetura de sistemas
         autocontidos que posteriormente é evoluída para microsserviços;
     \item \textbf{Segment}: a transição de um monolítico para uma arquitetura de microsserviços,
-        seguido do retorno para a arquitetura monolítica após as várias dificuldades encontradas.
+        seguido do retorno para a arquitetura monolítica após as várias dificuldades encontradas;
+    \item \textbf{RuaDois}: a adoção de uma arquitetura de microsserviços por uma \textit{startup}
+        logo no início do sistema e a sua transição para uma arquitetura de monolítica.
 \end{enumerate}
 
-\subsection{KN Login}
+\section{KN Login}
 \label{sec:KNLogin}
 
 O caso apresentado nessa seção é um relato de \citeonline{Olga2016:SelfContainedSystems} a respeito
@@ -574,7 +36,7 @@ importantes para a empresa, como gerenciamento dos contêineres transportados, a
 integridade e eficiência da cadeia de suprimentos de seus clientes, rastreio dos contêineres com
 análise das condições ambientais, etc.
 
-\subsubsection{Problemática da aplicação}
+\subsection{Problemática da aplicação}
 
 O KN Login é um sistema monolítico iniciado em 2007 construído em cima do \textit{framework}
 Java Web\footnote{Vide \url{https://docs.oracle.com/javase/7/docs/technotes/guides/javaws/developersguide/overview.html}}.
@@ -596,7 +58,7 @@ seguintes dificuldades:
     \item Alta complexidade que dificulta a entrada de novos membros no time de desenvolvimento.
 \end{itemize}
 
-\subsubsection{Solução adotada}
+\subsection{Solução adotada}
 
 Mediante as dificuldades enfrentadas, a Kuehne + Nagel optou por seguir os seguintes passos:
 
@@ -625,7 +87,7 @@ seu primeiro sistema autocontido chamado KN Freightnet, o qual contou com a dupl
 funcionalidades presentes no KN Login, representando o primeiro passo para minimizar a complexidade
 do KN Login.
 
-\subsubsection{Panorama pós-adoção da solução}
+\subsection{Panorama pós-adoção da solução}
 
 O relato apresentado por \citeonline{Olga2016:SelfContainedSystems}, não traz informações a respeito
 de quais foram os resultados efetivos da adoção de sistemas autocontidos mediante as dificuldades
@@ -633,7 +95,7 @@ que a equipe enfrentava dentro no monolítico KN Login, mas a autora traz a pers
 sistemas autocontidos como um passo intermediário em direção aos microsserviços quando o monolítico
 em mãos tem uma complexidade muito alta para ser quebrado.
 
-\subsubsection{Análise sobre o caso de estudo}
+\subsection{Análise sobre o caso de estudo}
 
 O caso da KN Login traz a típica história dos monolíticos: inicialmente uma aplicação que deveria
 ser simples mas que com o tempo o sistema foi inflando com várias funcionalidades. Nota-se que a
@@ -654,7 +116,7 @@ arquitetura monolítica do KN Login mediante aos fatores levantados sobre essa a
   \caption{Fatores apresentados no caso de estudo da arquitetura monolítica do sistema KN Login\label{fig:monoKN}}
 \end{figure}
 
-\subsection{Otto}
+\section{Otto}
 
 Nesta seção será apresentado o caso relatado por  \citeonline{Guido2015:OnMonolithsAndMicrosrvices}, a
 respeito da construção do novo \textit{e-commerce} Otto\footnote{O relato original e completo do autor
@@ -664,7 +126,7 @@ e \url{https://www.otto.de/jobs/technology/techblog/artikel/why-microservices_20
 Otto\footnote{Vide: \url{https://www.otto.de}} é uma empresa de origem alemã que trabalha em diversos países
 desenvolvendo soluções de negócios voltadas a necessidade do setor de \textit{e-commerce}.
 
-\subsubsection{Problemática da aplicação}
+\subsection{Problemática da aplicação}
 
 O sistema da Otto originou-se inicialmente em um projeto que deveria ser simples, no qual
 implicitamente a equipe adotou uma macroarquitetura monolítica sem considerar ou até mesmo enxergar
@@ -693,7 +155,7 @@ com os problemas apresentados abaixo:
         balanceador de carga.
 \end{itemize}
 
-\subsubsection{Solução adotada}
+\subsection{Solução adotada}
 
 Diante do contexto apresentado, a Otto decidiu por começar um novo sistema de \textit{e-commerce},
 adotando dessa vez uma arquitetura semelhante a apresentada na \autoref{sec:KNLogin} de sistemas autocontidos. Para
@@ -729,7 +191,7 @@ não gerou um processo tão árduo dentro da empresa uma vez que eles já vinham
 uma arquitetura bastante modularizada e já trabalhavam de forma concisa as questões de limites de
 cada aplicação.
 
-\subsubsection{Panorama pós-adoção da solução}
+\subsection{Panorama pós-adoção da solução}
 
 Após a adoção de uma arquitetura autocontida e a migração para uma arquitetura de microsserviços,
 \citeonline{Guido2016:WhyMicroservices} traz como pontos positivos de ambas as arquiteturas os
@@ -766,7 +228,7 @@ resolver problemas semelhante aos microsserviços de uma forma mais pragmática,
 possibilidade de migrar futuramente para uma arquitetura de microsserviços de uma forma não tão
 árdua \cite{Guido2016:WhyMicroservices}.
     
-\subsubsection{Análise sobre o caso de estudo}
+\subsection{Análise sobre o caso de estudo}
 
 A \autoref{fig:analise-mono-otto} ilustra os pontos da arquitetura monolítica levantados pelo
 caso de estudo da Otto. Percebe-se que a experiência deles atesta os pontos referentes ao início do
@@ -814,7 +276,7 @@ a ser fácil.
   \caption{Fatores apresentados no caso de estudo da arquitetura de microsserviços da Otto\label{fig:analise-micro-otto}}
 \end{figure}
 
-\subsection{Segment}
+\section{Segment}
 
 O caso apresentado a seguir foi retratado por \citeonline{Noonan:ToMicroservicesAndBackAgain} na
 conferência QCon London. Ela trata a respeito do sistema da Segment\footnote{Vide:
@@ -826,7 +288,7 @@ A Segment é uma empresa responsável por fazer a integração entre as aplicaç
 clientes com diversas ferramentas de análise de dados, atuando como um \textit{pipeline} facilitador
 na integração entre as partes citadas. 
 
-\subsubsection{Problemática da aplicação}
+\subsection{Problemática da aplicação}
 
 Em 2013, quando a empresa foi criada havia necessidade de construir um sistema que possuísse uma
 baixa sobrecarga operacional, sendo simples de gerenciar e fácil de iterar, assim, diante de tais
@@ -900,7 +362,7 @@ de serviços para gerenciar eles começaram a ter algumas dificuldades, entre el
         destino, o mesmo bloqueio frontal mencionado anteriormente;
 \end{itemize}
 
-\subsubsection{Solução adotada}
+\subsection{Solução adotada}
 
 Em 2017, \citeonline{Noonan:ToMicroservicesAndBackAgain} relata que eles chegaram ao ponto de
 ruptura: haviam 140 serviços rodando, uma equipe pequena mantendo uma série de processos
@@ -935,7 +397,7 @@ banco de dados exclusivamente seu. Dessa forma, eles conseguiram automatizar o p
 escalabilidade de acordo com o uso da CPU \cite{Segment2018:Centrifuge}\footnote{A descrição
 completa da solução adotada pela Segment pode ser encontrada no link \url{https://segment.com/blog/introducing-centrifuge/}}.
 
-\subsubsection{Panorama pós-adoção da solução}
+\subsection{Panorama pós-adoção da solução}
 
 A solução adotada pela Segment permitiu a eles:
 
@@ -955,7 +417,7 @@ desenvolvimento da Segment soube lidar de forma muito mais madura com essa situa
 outras soluções diferente de microsserviços para tratar os obstáculos com os quais eles se
 deparavam.
 
-\subsubsection{Análise sobre o caso de estudo}
+\subsection{Análise sobre o caso de estudo}
 
 O caso da Segment conta com três fases que precisam ser avaliadas: o monolítico inicial, os
 microsserviços e o monolítico final. A \autoref{fig:analise-mono-segment-1} representa o
@@ -1026,7 +488,7 @@ proporcionando melhor integração entre operação e tecnologias. Assim, com um
 mais digital, os recursos humanos podem ser melhores empregados no atendimento do
 cliente favorecendo a experiência do mesmo nesse mercado tão burocrático.
 
-\subsubsection{Problemática da aplicação}
+\subsection{Problemática da aplicação}
 
 O início do desenvolvimento do software da RuaDois se deu com o intuito de validar as ideias que
 os fundadores tinham de melhorar a experiência dos locatários e da própria imobiliária com o processo
@@ -1072,7 +534,7 @@ algumas dificuldades, entre elas estão:
     \item Dificuldade em realizar testes de integração.
 \end{itemize}
 
-\subsubsection{Solução adotada}
+\subsection{Solução adotada}
 
 Mediante a equipe pequena, as dificuldades encontradas e os custos de manter os serviços a equipe
 técnica da RuaDois optou por migrar a arquitetura para um sistema monolítico, visando ganhar
@@ -1117,7 +579,7 @@ Por outro lado, as seguintes dificuldades foram encontradas nesse modelo arquite
         \url{https://pt-br.reactjs.org}} em algumas partes do sistema que eles julgam mais adequado.
 \end{itemize}
 
-\subsubsection{Panorama pós-adoção da solução}
+\subsection{Panorama pós-adoção da solução}
 
 A visão do Erlan Cassiano após passar por ambos os estilos arquiteturais dentro da RuaDois é que
 microsserviços são mais fáceis para validação de ideias uma vez que você é capaz de fechar os
@@ -1142,7 +604,7 @@ visando ser financeiramente mais sustentável nesses primeiros anos da empresa, 
 a mudança para uma arquitetura de microsserviços ou outro modelo arquitetural. Cassiano aponta este
 como um caminho mais estratégico quando pensamos na evolução da \textit{startup}.
 
-\subsubsection{Análise sobre o caso de estudo}
+\subsection{Análise sobre o caso de estudo}
 
 Diante do caso de estudo da RuaDois, percebe-se que, semelhante ao caso da Otto, eles afirmam que a
 arquitetura de microsserviços é mais fácil para coletar \textit{feedbacks} dos clientes e testar
