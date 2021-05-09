@@ -245,7 +245,7 @@ arquitetural mas que tendem a decair a medida que a base de código aumenta.
 
 É importante ter em mente que os fatores marcados como negativo, cor amarela, são características da
 arquitetura monolítica, com as quais a equipe de software ao optar por este modelo arquitetural vai
-ter que lhe dar conscientemente que estes problemas existem. Já os fatores marcados com a cor
+ter que lidar conscientemente que estes problemas existem. Já os fatores marcados com a cor
 vermelha, que tendem a cair, são mais traiçoeiros, de forma que inicialmente eles não são um
 problema, pelo contrário, eles são algo positivo quando se tem um monolítico novo, porém a medida que
 a base de código cresce eles tendem a se tornar um problema que se instala na arquitetura sem a
@@ -720,7 +720,7 @@ enquanto que nos aspectos macro foram definidos questões mais globais a respeit
 
 Nessa abordagem arquitetural escolhida, a Otto se deparou com dificuldades no compartilhamento
 de dados entre as aplicações, o que os levou a adotar a estratégia de replicação de dados, na qual,
-eventualmente eles precisam lhe dar com inconsistências temporárias entre os sistemas.
+eventualmente eles precisam lidar com inconsistências temporárias entre os sistemas.
 
 Contudo, alguns sistemas autocontidos ficaram bastante volumosos após cerca de três anos trabalhando
 em cima dessa arquitetura. Essa nova situação fez com que a Otto adota-se uma nova medida em direção
@@ -906,7 +906,7 @@ Em 2017, \citeonline{Noonan:ToMicroservicesAndBackAgain} relata que eles chegara
 ruptura: haviam 140 serviços rodando, uma equipe pequena mantendo uma série de processos
 operacionais e uma base de código complexa fazendo com que a arquitetura que inicialmente parecia
 ideal e que os auxiliaria a escalar, se torna-se o fator paralisador de todo o sistema. Nesse ponto,
-eles reunirão todas as experiências que haviam reunido desde 2013, e tomaram a decisão de retornar
+eles reuniram todas as experiências que haviam adquirido desde 2013, e tomaram a decisão de retornar
 para uma arquitetura monolítica, com um sistema único que eles fossem capaz de gerenciar e escalar.
 
 A solução adotada reuniu todas as 140 integrações no mesmo repositório novamente, ao invés de ter
@@ -951,7 +951,7 @@ A solução adotada pela Segment permitiu a eles:
 
 Os problemas que eles tinham na primeira arquitetura monolítica relacionados às dificuldades de
 isolamento de ambiente continuaram presentes nessa nova arquitetura, contudo, agora o time de
-desenvolvimento da Segment soube lhe dar de forma muito mais madura com essa situação, procurando
+desenvolvimento da Segment soube lidar de forma muito mais madura com essa situação, procurando
 outras soluções diferente de microsserviços para tratar os obstáculos com os quais eles se
 deparavam.
 
@@ -1151,8 +1151,8 @@ torna fácil e rápida a concepção dos serviços de uma perspectiva local por�
 em que experimentaram essa arquitetura, possuía apenas dois serviços \textit{backends}, três
 aplicações de \textit{frontend} (\textit{web}, \textit{mobile} e o \textit{widget}) e uma série de
 funções \textit{serverless}, os quais não tinham ou apresentavam baixa automatização na maioria dos processos
-de \textit{deploy} e integração contínua desses serviços. Assim percebe-se no relato uma dificuldade de lhe dar
-com a gerência desses serviços quando olhamos para uma perspectiva mais global a respeito do caso.
+de \textit{deploy} e integração contínua desses serviços. Assim percebe-se no relato uma dificuldade de
+lidar com a gerência desses serviços quando olhamos para uma perspectiva mais global a respeito do caso.
 
 O relato da RuaDois também enfatiza a importância do conhecimento sobre as tecnologias e sobre o
 modelo arquitetural nessa abordagem de microsserviços, sendo fatores apresentados como fundamentais
