@@ -61,23 +61,23 @@ estruturas e elementos, por como essas estruturas se relacionam entre si e pelas
 caracterizam. Assim, a arquitetura se torna uma abstração do sistema, destacando aspectos desejados
 do mesmo e omitindo outros aspectos, com o intuito de minimizar a complexidade com a qual o compreendemos.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=0.35]{figuras/richardsAndFord-architectureDefinition-translated.eps}
+    \caption{Elementos que compõem a arquitetura de um software\label{fig:ArchitectureDefinition}}
+    \sourceTranslated{Richards2020:FundamentalsOfSoftwareArchitecture}
+\end{figure}
+
 A \autoref{fig:ArchitectureDefinition} apresenta uma segunda visão abordada por
 \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} a respeito de arquitetura.
 Nessa abordagem eles defendem quatro dimensões que definem o que é arquitetura de software. A primeira
 dimensão consiste nas estruturas: serviços, camadas e módulos são exemplos de conceitos abarcados
-por esse ponto, todavia, para eles descrever a arquitetura por meio de estruturas não é suficiente para contemplar
+por esse ponto, todavia, para os autores, descrever a arquitetura por meio de estruturas não é suficiente para contemplar
 todo o escopo acerca de arquitetura de software. Diante desta problemática, eles introduzem os
-conceitos de características, decisão e princípios de design referentes a arquitetura. 
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio=true,scale=0.35]{figuras/richardsAndFord-architectureDefinition-translated.eps}
-  \caption{Elementos que compõem a arquitetura de um software\label{fig:ArchitectureDefinition}
-    \sourceTranslated{Richards2020:FundamentalsOfSoftwareArchitecture}}
-\end{figure}
+conceitos de características, decisão e princípios de \textit{design} referentes a arquitetura. 
 
 As características da arquitetura, por sua vez, referem-se aos critérios de sucesso do sistema,
-trazendo pontos como disponibilidade, confiabilidade, segurança, etc., os quais são anteriores e
+trazendo pontos como disponibilidade, confiabilidade, segurança, etc., que são anteriores e
 independentes ao conhecimento acerca das funcionalidades que o software implementará.
 
 O terceiro aspecto apresentado pelos autores consiste nas decisões de arquitetura responsáveis por definir
@@ -89,7 +89,7 @@ lógica \cite{mcgovern2004practical}.}, a \textit{View} é
 impossibilitada de consumir dados da \textit{Model}, e cabe aos desenvolvedores garantir que isso
 seja respeitado.
 
-Por fim, a última dimensão refere-se aos princípios de design. Estes consistem em um guia pelo qual
+Por fim, a última dimensão refere-se aos princípios de \textit{design}. Estes consistem em um guia pelo qual
 os desenvolvedores podem se orientar quando for necessário tomar alguma decisão. Diferentemente das
 decisões de arquitetura que devem ser sempre seguidas a fim de  garantir as características desejadas
 para a arquitetura, os princípios trazem maior flexibilidade e autonomia para o desenvolvedor que pode
@@ -104,7 +104,7 @@ os ganhos são maiores para a aplicação.
   \begin{description}
     \item [Tudo em arquitetura de software é um \textit{trade-off}.] Primeira Lei da Arquitetura de
         Software
-    \item [\textit{Por que} é mais importantes do que \textit{como}.] Segunda Lei da Arquitetura de Software
+    \item [\textit{Por que} é mais importante do que \textit{como}.] Segunda Lei da Arquitetura de Software
   \end{description}\footnote{Texto original: \textit{Everything in software architecture is a trade-off. First Law
     of Software Architecture. Why is more important than how. Second Law of Software Architecture.}}
 \end{quotation}
@@ -178,7 +178,8 @@ Esse modelo arquitetural é caracterizado por ser tecnicamente particionado
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio=true,scale=0.2]{figuras/monolitico-translated.eps}
-  \caption{Estrutura básica de um monolítico\label{fig:monolithicStructure} \sourceTranslated{Richards2020:FundamentalsOfSoftwareArchitecture}}
+  \caption{Estrutura básica de um monolítico\label{fig:monolithicStructure}}
+  \sourceTranslated{Richards2020:FundamentalsOfSoftwareArchitecture}
 \end{figure}
 
 \begin{description}
@@ -200,11 +201,12 @@ exclusivamente da disciplina dos desenvolvedores \cite{StefanTilkov:DontStartWit
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio=true,scale=0.4]{figuras/monolith-theory-practice-translated.eps}
-  \caption{Expectativa vs Realidade de um monolítico\label{fig:monolithicInPractice} \sourceTranslated{StefanTilkov:DontStartWithAMonolith}}
+    \caption{Expectativa vs Realidade de um monolítico\label{fig:monolithicInPractice}}
+  \sourceTranslated{StefanTilkov:DontStartWithAMonolith}
 \end{figure}
 
 A \autoref{fig:monolithicsharedcomponents} aprofunda ainda mais nesse contexto da arquitetura
-monolítica, mostrando a tendência de compartilhar componentes, a exemplo classes de \textit{log},
+monolítica, mostrando a tendência de compartilhar componentes, a exemplo, classes de \textit{log},
 classes com funções compartilhadas por todo o sistema, etc., transparecendo como a reusabilidade do
 código dentro de sistemas monolíticos tende a aumentar o acoplamento entre seus componentes
 \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
@@ -213,7 +215,8 @@ código dentro de sistemas monolíticos tende a aumentar o acoplamento entre seu
   \centering
   \includegraphics[keepaspectratio=true,scale=0.4]{figuras/mono-shared-components-translated.eps}
     \caption{Compartilhamento de objetos na arquitetura monolítica
-    \label{fig:monolithicsharedcomponents} \sourceTranslated{Richards2020:FundamentalsOfSoftwareArchitecture}}
+    \label{fig:monolithicsharedcomponents}}
+    \sourceTranslated{Richards2020:FundamentalsOfSoftwareArchitecture}
 \end{figure}
 
 \section{Microsserviços}
@@ -222,7 +225,7 @@ Segundo \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, microsserv
 arquitetural fortemente inspirado nas ideias de \gls{DDD}\footnote{\textit{Domain-Driven Design} é
 uma estratégia de modelagem de software que visa a resolução de problemas complexos se concentrando
 do domínio principal e explorando modelos colaborativos entre profissionais de diferentes áreas.},
-trazendo deste design o conceito de limites de contexto. Esses limites referem-se a um domínio sob
+trazendo deste \textit{design} o conceito de limites de contexto. Esses limites referem-se a um domínio sob
 o qual estão entidades e comportamentos que podemos desacoplar do restante do sistema. Assim,
 diferentemente da arquitetura monolítica que é organizada por atribuições técnicas, os microsseviços
 trazem em sua estrutura um reflexo de como o contexto é organizado no mundo real.
@@ -235,7 +238,7 @@ de processos separados e independentes, se comunicando por meio de algum protoco
 a semântica dos métodos HTTP.} \cite{MartinFowler:Microservices}.
 
 Um dos grandes benefícios proporcionados por esta arquitetura são os limites impostos por cada
-serviço, os quais trazem maiores garantias sobre alta coesão, baixo acoplamento e modularização do
+serviço que trazem maiores garantias sobre alta coesão, baixo acoplamento e modularização do
 sistema do que os modelos arquiteturais mais tradicionais \cite{MartinFowler:MicroserviceTradeOffs}.
 Outra característica que contribui para tal é que nesse padrão a duplicação do código é, em diversas
 situações, preferível à reutilização do mesmo, visto que apesar do reuso de código ser algo
@@ -316,7 +319,7 @@ pequenos.
 
 De acordo com \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, a simplicidade da arquitetura
 monolítica reflete em seu baixo custo de desenvolvimento e manutenção, diferentemente de uma arquitetura
-de microsserviços que exige uma série de fatores: monitoramento, replicação, expertise sobre as
+de microsserviços que exige uma série de fatores: monitoramento, replicação, \textit{expertise} sobre as
 ferramentas, etc., fazendo com o que o custo para desenvolver e manter tal arquitetura seja elevado.
 Mediante essa visão, os autores indicam o uso desse modelo para empresas de grande porte,
 enquanto que empresas pequenas tendem a lidar melhor com monolíticos.
@@ -330,7 +333,7 @@ estilo arquitetural, referente a relevância de possuir alguém na equipe que de
 aprofundado acerca do negócio e da problemática abordada. No texto \textit{Microservices For
 Greenfield?}, \citeonline{Newman:Greenfield} relata um projeto de reimplementação de 
 um sistema que já existia há muitos anos, mas com uma equipe relativamente nova, ou seja, apesar do
-domínio de negócio ter sido explorado por um bom tempo, eles não possuíam a expertise necessária
+domínio de negócio ter sido explorado por um bom tempo, eles não possuíam a \textit{expertise} necessária
 para a construção da aplicação de forma distribuída.
 
 Nesse contexto, \citeonline{Newman:Greenfield} indica a adoção de uma arquitetura monolítica como uma
@@ -473,13 +476,14 @@ extras de compatibilidade de versões, o que acaba tornando o processo de testes
 \citeonline{MartinFowler:Microservices} faz uma menção à Lei de Conway apresentada acima,
 exemplificando na \autoref{fig:conwayMonolithic} como essa arquitetura em camadas reflete a
 organização das empresas. Eles apontam que essa estrutura deixa a comunicação dentro do projeto mais
-lenta, de forma que mudanças simples no sistema podem demorar bastante devido a dependência de uma
+lenta, de forma que mudanças simples no sistema podem demorar bastante devido à dependência de uma
 equipe externa.
 
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio=true,scale=0.5]{figuras/conwayMonolithic-translated.eps}
-  \caption{Lei de Conway aplicada a uma arquitetura em camadas\label{fig:conwayMonolithic} \sourceTranslated{MartinFowler:Microservices}}
+    \caption{Lei de Conway aplicada a uma arquitetura em camadas\label{fig:conwayMonolithic}}
+    \sourceTranslated{MartinFowler:Microservices}
 \end{figure}
 
 Quando olhamos para essa estrutura organizacional dentro da arquitetura de microsserviços,
@@ -490,7 +494,8 @@ forma que a equipe possua toda a gama de habilidades necessárias \cite{MartinFo
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio=true,scale=0.5]{figuras/conwayMicroservices-translated.eps}
-  \caption{Lei de Conway aplicada a uma arquitetura de microsserviços\label{fig:conwayMicroservices} \sourceTranslated{MartinFowler:Microservices}}
+  \caption{Lei de Conway aplicada a uma arquitetura de microsserviços\label{fig:conwayMicroservices}}
+    \sourceTranslated{MartinFowler:Microservices}
 \end{figure}
 
 \subsection{Evolucionabilidade}
