@@ -2,7 +2,7 @@
 
 Neste capítulo serão apresentadas as bases teóricas que permeiam o escopo do presente trabalho.
 Partindo do entendimento sobre o conceito de arquitetura de software e como ela reflete nos
-sistemas. Em seguida, abordando estilos de arquitetura de software pertinentes para o contexto
+sistemas, aborda-se, em seguida, os estilos de arquitetura de software pertinentes para o contexto
 estudado. As seções estão dispostas em:
 
   \begin{enumerate}
@@ -11,6 +11,10 @@ estudado. As seções estão dispostas em:
     \item \textbf{Sistemas monolíticos:} descrição, vantagens e desvantagens da arquitetura monolítica.
     \item \textbf{Microsserviços:} descrição, vantagens e desvantagens da arquitetura de
         microsserviços.
+    \item \textbf{Perspectivas a respeito de cada estilo arquitetural:} comparação entre os estilos
+        arquiteturais monolítico e microsserviços sob as perspectivas: problemática a ser resolvida,
+          recursos necessários para construção do sistema, características arquiteturais,
+          manutenibilidade e evolucionabilidade.
   \end{enumerate}
 
 \section{Arquitetura de Software}
@@ -59,7 +63,7 @@ do mesmo e omitindo outros aspectos, com o intuito de minimizar a complexidade c
 
 A \autoref{fig:ArchitectureDefinition} apresenta uma segunda visão abordada por
 \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} a respeito de arquitetura.
-Nessa abordagem eles defendem quatro dimensões as quais definem o que é arquitetura de software. A primeira
+Nessa abordagem eles defendem quatro dimensões que definem o que é arquitetura de software. A primeira
 dimensão consiste nas estruturas: serviços, camadas e módulos são exemplos de conceitos abarcados
 por esse ponto, todavia, para eles descrever a arquitetura por meio de estruturas não é suficiente para contemplar
 todo o escopo acerca de arquitetura de software. Diante desta problemática, eles introduzem os
@@ -85,11 +89,11 @@ lógica \cite{mcgovern2004practical}.}, a \textit{View} é
 impossibilitada de consumir dados da \textit{Model}, e cabe aos desenvolvedores garantir que isso
 seja respeitado.
 
-Por fim, a última dimensão refere-se aos princípios de design. Estes consistem em um guia pelo o qual
+Por fim, a última dimensão refere-se aos princípios de design. Estes consistem em um guia pelo qual
 os desenvolvedores podem se orientar quando for necessário tomar alguma decisão. Diferentemente das
-decisões de arquitetura que devem ser sempre seguidas afim de  garantir as características desejadas
-para a arquitetura, os princípios trazem maior flexibilidade e autonomia para o desenvolvedor, podendo
-este analisar o contexto do problema em mãos e decidir se seguir os princípios é a melhor abordagem
+decisões de arquitetura que devem ser sempre seguidas a fim de  garantir as características desejadas
+para a arquitetura, os princípios trazem maior flexibilidade e autonomia para o desenvolvedor que pode
+analisar o contexto do problema em mãos e decidir se seguir os princípios é a melhor abordagem
 para a funcionalidade desenvolvida, ou se deve seguir por um caminho diferente o qual ele julgue que
 os ganhos são maiores para a aplicação.
 
@@ -123,7 +127,7 @@ A segunda lei traz uma perspectiva que por diversas vezes é ignorada, na qual t
 a topologia dos sistemas, observando suas estruturas e como estas se relacionam, e não damos a devida
 atenção ao porquê das decisões arquiteturais tomadas \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
-Nesse sentindo, o ponto defendido pelos autores busca olhar o por quê certas decisões são
+Nesse sentindo, o ponto defendido pelos autores busca olhar o porquê certas decisões são
 tomadas mediante os \textit{trade-offs} enfrentados.
 
 \section{Sistemas monolíticos}
@@ -142,8 +146,8 @@ permite a ele distinguir os seguintes tipos de monolíticos:
 \begin{description}
     \item [Monolítico com um único processo] é o tipo mais comum de monolíticos e refere-se
         fundamentalmente a existência de um único processo executando toda a base de código. Vale
-        ressaltar que dentro desta classificação exite ainda um subconjunto de monolíticos
-        modulares nos quais têm se cada módulo trabalhando de forma independente um do outro, mas
+        ressaltar que dentro desta classificação existe ainda um subconjunto de monolíticos
+        modulares nos quais tem-se cada módulo trabalhando de forma independente um do outro, mas
         ainda com a necessidade de implantar uma única unidade de código.
 
     \item [Monolítico distribuído] são sistemas compostos por múltiplos serviços mas que precisam
@@ -158,7 +162,7 @@ permite a ele distinguir os seguintes tipos de monolíticos:
             service oriented-architecture, but all too often fails to deliver on the promises of SOA.}}
         \end{quotation}
     \item [Sistemas caixa preta de terceiros] também são abordados por \citeonline{newman2019monolith}
-        como sendo monolíticos, uma vez que não é possível decompor os esforços referente a uma
+        como sendo monolíticos, uma vez que não é possível decompor os esforços referentes a uma
         migração.
 \end{description}
 
@@ -185,7 +189,7 @@ Esse modelo arquitetural é caracterizado por ser tecnicamente particionado
 \end{description}
 
 \citeonline{StefanTilkov:DontStartWithAMonolith} defende que essa arquitetura é um modelo
-essencialmente acoplado, no qual as abstrações que compõe o sistema compartilham de todos os mesmos
+essencialmente acoplado, no qual as abstrações que compõem o sistema compartilham dos mesmos
 recursos da aplicação: bibliotecas, canais de comunicação dentro do próprio processo, modelos de
 persistência no banco de dados, etc. A \autoref{fig:monolithicInPractice} exemplifica como mesmo no
 modelo modularizado é fácil ultrapassar os limites definidos para cada módulo visto que não há barreiras
@@ -234,11 +238,11 @@ Um dos grandes benefícios proporcionados por esta arquitetura são os limites i
 serviço, os quais trazem maiores garantias sobre alta coesão, baixo acoplamento e modularização do
 sistema do que os modelos arquiteturais mais tradicionais \cite{MartinFowler:MicroserviceTradeOffs}.
 Outra característica que contribui para tal é que nesse padrão a duplicação do código é, em diversas
-situações, preferível a reutilização do mesmo, visto que apesar do reuso de código ser algo
-benéfico, ele favorece o acoplamento por meio de herança e composição
+situações, preferível à reutilização do mesmo, visto que apesar do reuso de código ser algo
+benéfico, favorece o acoplamento por meio de herança e composição
 \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
-Todas essas vantagens oferecidas pelos limites de domínio, fazem com que a
+Todas essas vantagens oferecidas pelos limites de domínio fazem com que a
 escolha cuidadosa sobre quais são esses limites seja de grande importância para o sistema. Nas
 palavras de \citeonline{Newman2015}:
 
@@ -254,7 +258,7 @@ palavras de \citeonline{Newman2015}:
 
 \citeonline{MartinFowler:MicroserviceTradeOffs} ainda ressalta que os microsserviços utilizam de um sistema
 distribuído para prover toda essa modularidade, e como tal, acabam trazendo junto todas as
-desvantagens deste modelo, principalmente, a complexidade.
+desvantagens deste modelo, dentre as quais destaca-se a complexidade.
 
 % Para o desenvolvimento de microsserviços é necessário pensar sobre o que deve ser
 % exposto e o que deve ser ocultado. Se houver muito compartilhamento os serviços de
@@ -264,7 +268,7 @@ desvantagens deste modelo, principalmente, a complexidade.
 \section{Perspectivas a respeito de cada estilo arquitetural}
 \label{perspectivas}
 
-Esta seção visa aprofundar no entendimento sobre as vantagens e desafios encontrados na adoção
+Esta seção visa aprofundar o entendimento sobre as vantagens e desafios encontrados na adoção
 de cada um dos estilos arquiteturais abordados nesse trabalho. Para tal, serão exploradas as seguintes
 perspectivas\footnote{Na \autoref{met:perspectivas} a proposta de cada perspectiva adotada é explicada.}
 com o intuito de compreender como a escolha da arquitetura impacta ou é impactada pelas
@@ -283,7 +287,7 @@ mesmas:
 
 Ao iniciar um projeto é comum se ter um baixo domínio sobre o problema a ser resolvido. A exemplo,
 as denominadas \textit{startups} estão continuamente surgindo no mercado com o intuito de descobrir
-e validar suas ideias. Contextos como este trazem as empresas a necessidade de realizar constantes
+e validar suas ideias. Contextos como este trazem às empresas a necessidade de realizar constantes
 alterações de forma extremamente rápida no sistema visando atingir um curto ciclo de
 \textit{feedback}.
 
@@ -296,13 +300,13 @@ e compartilhamento do código.
 
 \citeonline{MartinFowler:MonolithFirst} e \citeonline{Newman:Greenfield} fortalecem essa visão apontando
 que conhecer os limites do seu software é de extrema importância antes de iniciar uma arquitetura de
-microsserviços. De forma que os custos e impactos de errar os limites de cada serviço nessa arquitetura
+microsserviços, de forma que os custos e impactos de errar os limites de cada serviço nessa arquitetura
 tendem a ser muito maiores do que em um software monolítico mal projetado por não conhecer muito bem o
 domínio do problema. 
 
 Um outro ponto a ser considerado na problemática da aplicação refere-se ao tamanho que essa
 aplicação terá. \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture} apontam que a arquitetura
-monolítica é uma arquitetura de menor custo portanto costuma ser uma boa escolha para sistemas
+monolítica é uma arquitetura de menor custo, portanto costuma ser uma boa escolha para sistemas
 pequenos.
 
 \subsection{Recursos necessários}
@@ -311,7 +315,7 @@ pequenos.
 \label{Perspectivas:recursosFinanceiros}
 
 De acordo com \citeonline{Richards2020:FundamentalsOfSoftwareArchitecture}, a simplicidade da arquitetura
-monolítica reflete em seu baixo custo de desenvolvimento e manutenção. Diferentemente, de uma arquitetura
+monolítica reflete em seu baixo custo de desenvolvimento e manutenção, diferentemente de uma arquitetura
 de microsserviços que exige uma série de fatores: monitoramento, replicação, expertise sobre as
 ferramentas, etc., fazendo com o que o custo para desenvolver e manter tal arquitetura seja elevado.
 Mediante essa visão, os autores indicam o uso desse modelo para empresas de grande porte,
@@ -324,7 +328,7 @@ Na \autoref{Perspectivas:Problematica}, nós enfatizamos a importância de conhe
 sua aplicação antes de optar por uma arquitetura de microsserviços. Isso nos leva a uma outra necessidade desse
 estilo arquitetural, referente a relevância de possuir alguém na equipe que detenha esse conhecimento
 aprofundado acerca do negócio e da problemática abordada. No texto \textit{Microservices For
-Greenfield?}, \citeonline{Newman:Greenfield} relata um projeto no qual eles estavam reimplementando
+Greenfield?}, \citeonline{Newman:Greenfield} relata um projeto de reimplementação de 
 um sistema que já existia há muitos anos, mas com uma equipe relativamente nova, ou seja, apesar do
 domínio de negócio ter sido explorado por um bom tempo, eles não possuíam a expertise necessária
 para a construção da aplicação de forma distribuída.
@@ -333,20 +337,20 @@ Nesse contexto, \citeonline{Newman:Greenfield} indica a adoção de uma arquitet
 melhor opção uma vez que, como citado na \autoref{Perspectivas:Problematica}, este estilo arquitetural
 é indicado para contextos nos quais não se possui domínio e, para completar, apresenta a vantagem de ser uma
 arquitetura familiar para boa parte dos desenvolvedores
-\cite{Richards2020:FundamentalsOfSoftwareArchitecture}, dessa forma, ele se diferencia de uma
+\cite{Richards2020:FundamentalsOfSoftwareArchitecture}. Dessa forma, ele se diferencia de uma
 arquitetura de microsserviços por não precisar de um especialista sobre a tecnologia e sobre o contexto.
 
 
 \subsubsection{Esforço e tempo inicial}
 \label{effortsAndTime}
 
-O tempo de lançamento no mercado costuma ser um fator prioritário para diversas empresas, em geral,
+O tempo de lançamento no mercado costuma ser um fator prioritário para diversas empresas. Em geral,
 elas desejam lançar o produto no menor tempo possível, seja para validar a ideia, como
 vimos na \autoref{Perspectivas:Problematica}, ou por uma questão estratégica de mercado.
 
 Nesse sentido, \citeonline{MartinFowler:MicroservicePremium} aponta que a arquitetura de
 microsserviços consegue te entregar uma séries de recompensas (escalabilidade, tolerância a falhas,
-etc.) contudo, essas recompensas vêem acompanhada do alto custo que é inerente dos sistemas distribuídos.
+etc.) contudo, essas recompensas vêm acompanhadas do alto custo que é inerente dos sistemas distribuídos.
 Esse modelo arquitetural necessita de \textit{deploy} automatizado, monitoramento, lidar com
 eventuais inconsistências dos dados e outros fatores que acabam contribuindo para aumentar o tempo e o esforço
 inicial necessário para lançar um produto no mercado. Nas palavras de
@@ -361,7 +365,7 @@ inicial necessário para lançar um produto no mercado. Nas palavras de
 Por outro lado, a simplicidade da arquitetura monolítica permite que funcionalidades cheguem muito
 mais rápido no mercado, uma vez que nesse modelo não há tais necessidades e processos como
 \textit{deploy} podem ser realizados de maneira operacional. Contudo, vale ressaltar que essa alta
-produtividade inicial tende a decrescer com o tempo, a medida que o monolítico vai ganhando mais
+produtividade inicial tende a decrescer com o tempo, à medida que o monolítico vai ganhando mais
 funcionalidades e, consequentemente, aumentando a sua complexidade.
 
 \subsection{Características arquiteturais}
@@ -399,9 +403,9 @@ granularidade do serviço é um ponto que deve ser bem avaliado.
 \subsubsection{Confiabilidade}
 \label{pers:confiabilidade}
 
-A arquitetura monolítica quando comparada a uma arquitetura distribuída, como microsserviços, tende
-a apresentar maior confiabilidade uma vez que esta não possui os problemas de conexão da rede,
-largura de banda e latência que os mesmos apresentam. Contudo, como será abordado na
+A arquitetura monolítica, quando comparada a uma arquitetura distribuída, como microsserviços, tende
+a apresentar maior confiabilidade uma vez que não possui os problemas de conexão da rede,
+largura de banda e latência que os microsserviços apresentam. Contudo, como será abordado na
 \autoref{testabilidade}, a testabilidade é um problema desse modelo arquitetural e consequentemente
 isso decresce a confiabilidade do sistema \cite{Richards2020:FundamentalsOfSoftwareArchitecture}.
 
@@ -425,7 +429,7 @@ tal fator para a aplicação por meio de desenvolvimento paralelo, \textit{multi
 
 Na \autoref{monolithics} foi apresentado como monolíticos são em sua essência uma unidade de
 \textit{deploy}. No início do projeto, esta característica contribui com a simplicidade e a
-velocidade em lançar o sistema, como relatado na \autoref{effortsAndTime}. Porém, a medida que a
+velocidade em lançar o sistema, como relatado na \autoref{effortsAndTime}. Porém, à medida que a
 base de código do monolítico cresce, compilar e implantar toda a base de código a fim de
 disponibilizar uma alteração tende a se tornar um processo árduo, fazendo com que seja difícil e
 demorado disponibilizar as mudanças realizadas no sistema \cite{MartinFowler:Microservices}. Para
@@ -466,8 +470,8 @@ extras de compatibilidade de versões, o que acaba tornando o processo de testes
     of the organization's communication structure.}}
 \end{quotation}
 
-\citeonline{MartinFowler:Microservices} faz uma menção a Lei de Conway apresentada acima,
-exemplificando-a na \autoref{fig:conwayMonolithic} como essa arquitetura em camadas reflete a
+\citeonline{MartinFowler:Microservices} faz uma menção à Lei de Conway apresentada acima,
+exemplificando na \autoref{fig:conwayMonolithic} como essa arquitetura em camadas reflete a
 organização das empresas. Eles apontam que essa estrutura deixa a comunicação dentro do projeto mais
 lenta, de forma que mudanças simples no sistema podem demorar bastante devido a dependência de uma
 equipe externa.
@@ -515,14 +519,14 @@ em monolíticos modularizados, é extremamente difícil evitar a criação de co
 \cite{StefanTilkov:DontStartWithAMonolith}, fazendo com o que a medida que cresce a base de código
 o sistema vá perdendo os benefícios de ser uma arquitetura simplista.
 
-Do outro lado, os microsserviços apresentam uma arquitetura distribuída e naturalmente isso vêm
+Por outro lado, os microsserviços apresentam uma arquitetura distribuída e naturalmente isso vem
 acompanhado da complexidade de coordenar todas essas partes independentes que o compõem para prover
 a funcionalidade final. Juntamente com esse contexto vêm as necessidades de monitorar e automatizar
 os processos que tornam ainda mais árdua tal tarefa.
 
 Apesar dessa perspectiva global da complexidade dos microsserviços, existe também uma perspectiva
-local, referente ao domínio de um único serviço, na qual nota-se uma baixa complexidade mediante a
-as características de alta coesão, baixo acoplamento e limite de domínio sobre as quais cada serviço
+local, referente ao domínio de um único serviço, na qual nota-se uma baixa complexidade mediante
+às características de alta coesão, baixo acoplamento e limite de domínio sobre as quais cada serviço
 é imposto. Isso faz dos microsserviços complexos quando olhamos globalmente para eles, mas
 simplistas quando olhamos localmente, de forma que é fácil para os desenvolvedores lidar com os
 \textit{trade-offs} de cada serviço.

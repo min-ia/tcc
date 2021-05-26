@@ -26,7 +26,7 @@ O caso apresentado nessa seção é um relato de \citeonline{Olga2016:SelfContai
 da transição realizada por Björn Kimminich\footnote{Gerente sênior de arquitetura de TI na empresa
 Kuehne + Nagel. Mais informações em: \url{https://www.linkedin.com/in/bkimminich}} e sua equipe na empresa
 Kuehne + Nagel\footnote{Vide \url{https://home.kuehne-nagel.com}} de um sistema monolítico para sistemas
-auto-contidos\footnote{O relato original e completo da autora sobre o caso pode ser encontrado no link
+autocontidos\footnote{O relato original e completo da autora sobre o caso pode ser encontrado no link
 \url{https://www.elastic.io/breaking-down-monolith-microservices-and-self-contained-systems/}}. 
 
 A Kuehne + Nagel é uma empresa especializada em transportes e logística que presta serviços em uma
@@ -80,10 +80,10 @@ tinham do sistema. Diante desta situação a equipe optou por abordar uma arquit
 autocontidos\footnote{Abordagem arquitetural que consiste em quebrar o sistema em vários sistemas
 independentes, cada um com sua propría \gls{UI}, camada de lógica e persistência de dados.}.
 
-Sistemas autocontidos segundo \citeonline{Olga2016:SelfContainedSystems}, diference dos
-microsserviços por serem aplicações web autônomas e substituíveis as quais tendem a ser maiores do
+Sistemas autocontidos segundo \citeonline{Olga2016:SelfContainedSystems}, diferem dos
+microsserviços por serem aplicações web autônomas e substituíveis que tendem a ser maiores do
 que um microsserviço e possuem uma unidade de \gls{UI} própria. Assim, a Kuehne + Nagel construiu o
-seu primeiro sistema autocontido chamado KN Freightnet, o qual contou com a duplicação de algumas
+seu primeiro sistema autocontido chamado KN Freightnet que contou com a duplicação de algumas
 funcionalidades presentes no KN Login, representando o primeiro passo para minimizar a complexidade
 do KN Login.
 
@@ -243,13 +243,13 @@ crescer juntamente com a base de código.
   \caption{Fatores apresentados no caso de estudo da arquitetura monolítica da Otto\label{fig:analise-mono-otto}}
 \end{figure}
 
-A tomada de decisão por migrar para uma arquitetura de sistemas auto-contidos auxilia eles como um
+A tomada de decisão por migrar para uma arquitetura de sistemas autocontidos auxilia a empresa como um
 passo intermediário antes de aderir toda a complexidade da arquitetura de microsserviços. Nessa
 abordagem percebe-se que eles vivenciam características dos dois estilos arquiteturais. Olhando da
 perspectiva dos microsserviços, eles definem protocolos de comunicação e compartilhamento de dados e lidam
 com eventuais inconsistência de dados (um problema comum da arquitetura de microsserviços). Por
 outro lado, eles ainda precisam lidar com a crescente base de código dos monolíticos dentro de cada
-sistema auto-contido.
+sistema autocontido.
 
 A \autoref{fig:analise-micro-otto} ressalta os pontos da arquitetura de microsserviços
 adotada pela Otto, na qual nota-se alta escalabilidade, alta tolerância a falhas, facilidade no
@@ -296,7 +296,7 @@ necessidades a primeira versão do sistema da Segment foi construído em cima de
 
 A arquitetura inicial consistia em uma \gls{API} de entrada que recebia os dados enviados pelas aplicações dos
 clientes da Segment, e colocava esses dados em uma fila de processamento. A partir deste ponto,
-havia uma monolítico responsável por consumir a fila e enviar os dados para as aplicações de destino
+havia um monolítico responsável por consumir a fila e enviar os dados para as aplicações de destino
 (Google Analytics, Salesforce...). O consumo dessa fila ocorria no modelo \gls{FIFO}\footnote{Vide
 \url{https://pt.wikipedia.org/wiki/FIFO}}. A dificuldade enfrentada pela equipe da Segment nessa
 arquitetura estava na tentativa de reenviar algum dado quando por algum motivo a primeira tentativa
@@ -329,7 +329,7 @@ Essa abordagem trouxe as seguintes vantagens para a Segment:
         as falhas e a qual serviço específico elas eram referentes.
 \end{itemize}
 
-Em 2016, a Segment possui 50 serviços integrando diferentes aplicações. Com o aumento na quantidade
+Em 2016, a Segment possuía 50 serviços integrando diferentes aplicações. Com o aumento na quantidade
 de serviços para gerenciar eles começaram a ter algumas dificuldades, entre elas:
 
 \begin{itemize}
@@ -352,7 +352,7 @@ de serviços para gerenciar eles começaram a ter algumas dificuldades, entre el
         sempre alguns trabalhadores mínimos, etc., mas chegaram a conclusão de que essas abordagens
         teriam um custo muito alto para a empresa;
     \item Mesmo com todas as dificuldades, eles continuavam adicionando cerca de três aplicações de
-        destino por mês. O que tornava cada vez mais complexa a base de código e fazia a carga
+        destino por mês, o que tornava cada vez mais complexa a base de código e fazia a carga
         operacional, diante dos processos não automatizados, crescer linearmente ainda que o tamanho
         da equipe fosse constante;
     \item A empresa chegou a parar de desenvolver novas funcionalidades visto que a complexidade e a
@@ -472,9 +472,9 @@ O caso apresentado nesta seção é o resultado de uma entrevista com Erlan Cass
 \textit{startup} RuaDois\footnote{Vide \url{https://www.ruadois.com.br/pt-br/home}}, sobre a
 experiência que eles passaram dentro da empresa ao iniciar com uma arquitetura de microsserviços
 e optar por migrar para uma arquitetura monolítica. Este relato se diferencia dos outros casos
-estudados, por ser uma migração na qual a presente autora deste documento fez parte do time de
-desenvolvimento acompanhado de perto as dificuldades da equipe as quais trouxeram a inspiração para
-realizar o presente estudo.
+estudados, por ser uma migração da qual a presente autora do presente trabalho participou como
+membro time de desenvolvimento, acompanhado de perto as dificuldades da equipe as quais trouxeram a
+inspiração para realizar o presente estudo.
 
 A RuaDois é uma empresa brasileira que surgiu em outubro de 2018 com o propósito de
 solucionar as dificuldades enfrentadas tanto por parte das imobiliárias quanto por parte dos
@@ -519,7 +519,7 @@ pontos positivos que eles obtiveram nesse modelo arquitetural:
 \end{itemize}
 
 Contudo, o time de desenvolvimento, composto naquele período por quatro membros, começou a enfrentar
-algumas dificuldades, entre elas estão:
+algumas dificuldades, como, por exemplo:
 
 \begin{itemize}
     \item Um modelo rígido de comunicação foi definido entre os serviços, e mudar esses protocolos
@@ -593,8 +593,8 @@ contínua cobram por hora de execução.
 
 Existe um ponto enfatizado por Cassiano que são os recursos humanos e como eles afetam a escolha da
 arquitetura. Pelas experiências dele, microsserviços é um modelo arquitetural que exige mais conhecimento
-e mais desenvolvedores compondo a empresa com o propósito de manter essa arquitetura funcionando bem.
-Enquanto que a arquitetura monolítica se dá melhor com times pequenos contudo tende a ser mais difícil
+e mais desenvolvedores compondo a empresa com o propósito de manter essa arquitetura funcionando bem,
+enquanto que a arquitetura monolítica se dá melhor com times pequenos contudo tende a ser mais difícil
 quanto a inserção de novos desenvolvedores.
 
 Por fim, ele relata que é essencial o sistema se adaptar aos objetivos de negócio e ao tempo da
@@ -609,7 +609,7 @@ como um caminho mais estratégico quando pensamos na evolução da \textit{start
 Diante do caso de estudo da RuaDois, percebe-se que, semelhante ao caso da Otto, eles afirmam que a
 arquitetura de microsserviços é mais fácil para coletar \textit{feedbacks} dos clientes e testar
 novas funcionalidades. Este é um reflexo da modularidade natural deste estilo arquitetural, que
-torna fácil e rápida a concepção dos serviços de uma perspectiva local porém a RuaDois, nessa fase inicial
+torna fácil e rápida a concepção dos serviços de uma perspectiva local, porém a RuaDois, nessa fase inicial
 em que experimentaram essa arquitetura, possuía apenas dois serviços \textit{backends}, três
 aplicações de \textit{frontend} (\textit{web}, \textit{mobile} e o \textit{widget}) e uma série de
 funções \textit{serverless}, os quais não tinham ou apresentavam baixa automatização na maioria dos processos
