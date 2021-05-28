@@ -17,13 +17,20 @@ acoplamento oriundos da sua natureza distribuída e dos conceitos de \gls{DDD}. 
 modelo é preferível a duplicação de código entre os serviços, o que contribui para manter a alta
 coesão e o baixo acoplamento.
 
-A \autoref{fig:SinteseMono} e a \autoref{fig:SinteseMicro} apresentam os diagramas elaborados no
-processo de síntese realizado no \autoref{sinteses}. Ao comparar os dois diagramas, vemos que a arquitetura
-monolítica é favorecida em um contexto inicial da aplicação, quando olhamos as perspectivas de
-problemática a ser resolvida e recursos necessários, essa arquitetura favorece contextos onde não se
-têm domínio sobre o problema, nem grandes recursos financeiros e humanos.
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio=true,scale=1.2]{figuras/comparativo.eps}
+  \caption{Resumo dos fatores analisados que influenciam os modelos arquiteturais estudados\label{fig:Comparativo}}
+\end{figure}
 
-Já a arquitetura de microsserviços, \autoref{fig:SinteseMicro}, quando analisada diante
+A \autoref{fig:Comparativo} apresenta uma junção entre a \autoref{fig:SinteseMono} e
+\autoref{fig:SinteseMicro}, apresentadas no processo de síntese realizado no \autoref{sinteses},
+visando facilitar a comparação sobre os dois modelos arquiteturais. Ao olharmos esses diagramas,
+vemos que a arquitetura monolítica é favorecida em um contexto inicial da aplicação, quando olhamos
+as perspectivas de problemática a ser resolvida e recursos necessários, essa arquitetura favorece
+contextos onde não se têm domínio sobre o problema, nem grandes recursos financeiros e humanos.
+
+Já a arquitetura de microsserviços, quando analisada diante
 desses aspectos, é uma arquitetura que exige mais tempo, planejamento e recursos ao se iniciar um
 projeto, visto que é preciso domínio sobre o problema, mão de obra especializada e
 automatizar uma série de processos para que a arquitetura seja realmente viável.
