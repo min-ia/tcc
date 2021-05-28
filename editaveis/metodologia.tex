@@ -160,8 +160,20 @@ analisados. Assim, mediante a análise desses aspectos sintetizados, foi possív
 
 Com o propósito de enriquecer o presente trabalho e avaliar os aspectos levantados nas etapas
 anteriores sob uma concepção prática, nesta etapa visou-se analisar casos reais de empresas que
-passaram pelo conflito de escolha arquitetural entre microsserviços e monolíticos. Foram analisados
-quatro casos:
+passaram pelo conflito de escolha arquitetural entre microsserviços e monolíticos.
+
+Existem várias discussões e estudos a respeito de casos práticos sobre ambos os estilos
+arquiteturais analisados. Sendo o objetivo do presente trabalho comparar esses estilos, optou-se por
+abordar situações em que empresas optaram por migrar seus sistemas especificadamente entre os
+estilos arquiteturais analisados, visando entender dentro do contexto das empresas quais as
+motivações que levaram para essa decisão.
+
+Seguindo esta visão, os casos de estudo foram escolhidos com base no critério de que as empresas deveriam
+ter optado por realizar uma migração saindo da arquitetura monolítica para a arquitetura de microsserviços
+ou, a situação inversa, saindo da arquitetura de microsserviços para a arquitetura monolítica. Para
+completar, objetivou-se obter diferentes pontos de vista a respeito de cada modelo arquitetural,
+assim observou-se também a variação de sucesso e fracasso dos modelos arquiteturais dentro do
+conjunto de casos selecionados, dessa forma os seguintes casos foram adotados para estudo:
 
 \begin{description}
     \item[KN Login:] um sistema monolítico inflado de funcionalidades, no qual a equipe se encontra
@@ -176,8 +188,26 @@ quatro casos:
         optou por mudar para uma arquitetura monolítica.
 \end{description}
 
-Para cada caso foi apresentado o contexto no qual o sistema abordado está inserido, seguido dos
-seguintes tópicos:
+Diante deste conjunto de casos selecionados foi possível obter a relação apresentada no
+\autoref{quad:VariacaoCasosDeEstudo}, pela qual conseguimos atingir diferentes pontos de vistas sobre
+cada modelo arquitetural e avaliar quais aspectos contribuem para o sucesso ou fracasso do modelo
+arquitetural mediante uma perspectiva prática.
+
+\begin{quadro}
+    \caption{Pontos de vistas apresentados pelos casos de estudos sobre cada modelo
+    arquitetural\label{quad:VariacaoCasosDeEstudo}}
+    \begin{tabularx}{\linewidth}{ | X | p{6cm} | }
+    \hline
+        \textbf{Contexto analisado} & \textbf{Caso de estudo que evidencia esse contexto}\\ \hline
+    Contexto de sucesso sobre o modelo arquitetural monolítico & Segment e RuaDois\\ \hline
+    Contexto de sucesso sobre o modelo arquitetural de microsserviços & Otto \\ \hline
+    Contexto de fracasso sobre o modelo arquitetural monolítico & KN Login e Otto \\ \hline
+    Contexto de fracasso sobre o modelo arquitetural de microsserviços & Segment e RuaDois \\ \hline
+    \end{tabularx}
+\end{quadro}
+
+Por fim, cada caso foi avaliando diante dos seguintes tópicos, visando explorar o contexto de cada
+empresa e os fatores que influenciaram os modelos arquiteturais:
 
 \begin{enumerate}
     \item \textbf{Problemática da aplicação:} compreensão dos problemas e dificuldades enfrentados
@@ -189,6 +219,10 @@ seguintes tópicos:
     \item \textbf{Análise sobre o caso de estudo:} análise sobre o caso estudado mediante as
         perspectivas e aspectos levantados nas etapas anteriores.
 \end{enumerate}
+
+Vale ressaltar que o caso de estudo específico da RuaDois é uma caso no qual a autora deste trabalho
+teve participação dentro da equipe de desenvolvimento da empresa, o que permitiu aprofundar um pouco
+mais na análise realizada sobre o caso.
 
 \subsection{Etapa 5 - Análise comparativa final}
 
